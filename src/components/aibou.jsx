@@ -320,7 +320,7 @@ export default function Aibou({ loading }) {
               }}
               className="bg-[var(--color-accent)] p-2 flex items-center justify-center w-fit h-full rounded-md transition duration-100 hover:scale-110 active:scale-110"
             >
-              <FiSend className="text-3xl lg:text-4xl text-[var(--color-bg)] " />
+              <FiSend className="text-3xl lg:text-4xl text-[var(--color-bg)] shrink-0" />
             </button>
           </div>
         </div>
