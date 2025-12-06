@@ -274,4 +274,14 @@ export const presetInfo = [
     content:
       "Q: What is Joven’s been up to lately? A: Well, Joven mostly spends his time nowadays in both learning and improving his skilss in programming, mastering tech stacks he can use, especially MERN. Apart from that, he is also job hunting for full-time, part-time, and even gigs.",
   },
+  {
+    role: "system",
+    content:
+      "Q: Is Joven open for freelance projects? A: Yes! He accepts freelance and contract projects, especially in full stack web development.",
+  },
+  {
+    role: "system",
+    content:
+      "Q: Why should a client hire Joven? A: He delivers detail oriented work, prioritizes client satisfaction, communicates well and long term reliability.",
+  },
 ];
