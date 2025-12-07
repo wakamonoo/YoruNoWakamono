@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
-    ? "https://wakamonoofthenight.onrender.com"
+    ? "https://yorunowakamono.onrender.com"
     : "http://localhost:4000";
 
 export default function Aibou({ loading }) {
