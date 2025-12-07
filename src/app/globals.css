@@ -113,8 +113,8 @@
   }
 
   .stroke-text {
-    -webkit-text-stroke: 1px var(--color-bg);
-    text-stroke: 1px var(--color-bg);
+    -webkit-text-stroke: 1.5px var(--color-bg);
+    text-stroke: 1.5px var(--color-bg);
   }
 }
 

@@ -51,7 +51,7 @@ export default function Bulletin({ loading }) {
       variants={containerVariant}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
-      className="overflow-hidden"
+      className="overflow-hidden w-full"
     >
       <motion.div variants={itemVariants} className="flex items-center gap-2">
         <Marquee

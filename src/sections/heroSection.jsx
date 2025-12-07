@@ -106,7 +106,7 @@ export default function Hero({ loading }) {
           </motion.div>
 
           {/* ———————————————————————————————————— intro import ——— */}
-          <motion.div variants={itemVariants} className="relative z-50 pointer-events-auto">
+          <motion.div variants={itemVariants} className="relative pointer-events-auto">
             <Intro />
           </motion.div>
         </div>

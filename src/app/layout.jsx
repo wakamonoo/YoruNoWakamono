@@ -41,7 +41,7 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata = {
-  title: "wakamonoofthenight",
+  title: "yorunowakamono",
   description: "Joven Bataller AOT Themed Web Developer Portfolio",
   icons: {
     icon: "/logo.png",
