@@ -98,7 +98,8 @@ export default function Aibou({ loading }) {
           ...prev,
           {
             sender: "aibou",
-            text: "konnichiwa! i'm aibou, joven's ai assistant. what can i do for you?",
+            text: "konnichiwa. i’m aibou, joven’s ai partner. how may i help?"
+,
           },
         ]);
         setLoad(false);
