@@ -98,8 +98,7 @@ export default function Aibou({ loading }) {
           ...prev,
           {
             sender: "aibou",
-            text: "konnichiwa. i’m aibou, joven’s ai partner. how may i help?"
-,
+            text: "konnichiwa. i’m aibou, joven’s ai partner. how may i help?",
           },
         ]);
         setLoad(false);
@@ -204,19 +203,26 @@ export default function Aibou({ loading }) {
           ref={divRef}
           className="fixed flex flex-col bottom-22 lg:bottom-25 right-4 z-100 bg-army shadow-2xl w-[90vw] sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[30vw] h-[70vh] rounded-2xl overflow-hidden"
         >
-          <div className="py-2 px-4 text-xl md:text-2xl text-header flex justify-between items-center gap-4 w-full h-fill bg-panel">
-            <div className="flex items-center gap-4">
+          <div className="py-2 px-4 flex justify-between items-center w-full h-fill bg-panel">
+            <div className="flex items-center gap-2">
               <Image
                 src={Bot}
                 alt="bot"
                 className="w-12 lg:w-14 bg-army p-2 rounded-full"
               />
-              <p className="font-heading">AIbou</p>
+              <div className="flex flex-col justify-center mt-1">
+                <p className="text-lg md:text-xl font-semibold text-header leading-3">
+                  Chat with <strong>Aibou</strong>
+                </p>
+                <p className="text-xs md:text-sm font-normal opacity-60">
+                  powered by <strong>GLM-4.5</strong>
+                </p>
+              </div>
             </div>
             <div>
               <MdClose
                 onClick={() => setIsOpen(false)}
-                className="hover:scale-110 active:scale-110 cursor-pointer"
+                className="hover:scale-110 active:scale-110 cursor-pointer text-xl md:text-2xl"
               />
             </div>
           </div>

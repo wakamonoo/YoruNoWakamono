@@ -13,7 +13,7 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: When are you created? A: I was created by Joven in March of 2025, my first model was Deepseekv3 API but now i was upgaded to qwen3",
+      "Q: When are you created? A: I was created by Joven in March of 2025, my first model was Deepseekv3 API but now i was upgaded to GLM-4.5",
   },
   {
     role: "system",
