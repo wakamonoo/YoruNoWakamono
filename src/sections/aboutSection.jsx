@@ -3,10 +3,12 @@ import Image from "next/image";
 import AboutImage from "../assets/about.png";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function About({ loading }) {
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     if (loading) return;
@@ -128,7 +130,10 @@ export default function About({ loading }) {
                   <div className="text-base md:text-lg lg:text-xl font-bold text-header leading-4 lg:leading-5 w-1/2">
                     IT SUPPORT
                     <br />
-                    <span className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2">
+                    <span
+                      onclick={router.push("https://bytescrafter.net/")}
+                      className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2 cursor-pointer"
+                    >
                       BytesCrafter I.T Solutions
                     </span>
                   </div>
