@@ -108,7 +108,10 @@ export default function About({ loading }) {
                   <div className="text-base md:text-lg lg:text-xl font-bold text-header leading-4 lg:leading-5 w-1/2">
                     INFORMATION TECHNOLOGY
                     <br />
-                    <span className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2">
+                    <span
+                      onClick={() => router.push("https://bicol-u.edu.ph/")}
+                      className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                    >
                       Bicol University Polangui
                     </span>
                   </div>
@@ -131,8 +134,8 @@ export default function About({ loading }) {
                     IT SUPPORT
                     <br />
                     <span
-                      onclick={router.push("https://bytescrafter.net/")}
-                      className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2 cursor-pointer"
+                      onClick={() => router.push("https://bytescrafter.net/")}
+                      className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
                     >
                       BytesCrafter I.T Solutions
                     </span>
