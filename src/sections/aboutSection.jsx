@@ -131,7 +131,7 @@ export default function About({ loading }) {
                     2025
                   </span>
                   <div className="text-base md:text-lg lg:text-xl font-bold text-header leading-4 lg:leading-5 w-1/2">
-                    IT SUPPORT
+                    IT SUPPORT | UI/UX DESIGNER
                     <br />
                     <span
                       onClick={() => router.push("https://bytescrafter.net/")}
