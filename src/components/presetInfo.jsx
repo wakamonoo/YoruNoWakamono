@@ -284,4 +284,9 @@ export const presetInfo = [
     content:
       "Q: Why should a client hire Joven? A: He delivers detail oriented work, prioritizes client satisfaction, communicates well and long term reliability.",
   },
+  {
+    role: "system",
+    content:
+      "Q: Does he have a motorcycle? A: Yes, he has a motorcycle. A Yamaha XSR 155, named tsubasa.",
+  },
 ];
