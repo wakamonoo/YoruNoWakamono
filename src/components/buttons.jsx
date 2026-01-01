@@ -29,7 +29,7 @@ export default function NavMenu() {
   if (!isScrolled) {
     return (
       <div className="flex left-1/2 transform -translate-x-1/2 p-4 fixed z-50">
-        <div className="flex text-4xl md:text-5xl gap-2 bg-panel px-8 py-4 rounded-full">
+        <div className="flex text-4xl md:text-5xl gap-2 bg-panel p-4 px-6 rounded-full">
           <NavLinks />
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function NavMenu() {
   return (
     <div className="flex left-1/2 transform -translate-x-1/2 p-4 fixed z-50">
       {expanded ? (
-        <div className="flex text-4xl md:text-5xl gap-2 bg-panel px-8 py-4 rounded-full">
+        <div className="flex text-4xl md:text-5xl gap-2 bg-panel p-4 px-6 rounded-full">
           <NavLinks />
         </div>
       ) : (
@@ -55,49 +55,33 @@ function NavLinks() {
     <>
       <a
         href="#hero"
-        className="flex flex-col items-center justify-center group text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
+        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
       >
         <AiFillHome />
-        <p className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300">
-          Home
-        </p>
       </a>
-
       <a
         href="#about"
-        className="flex flex-col items-center justify-center group text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
+        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
       >
         <VscAccount />
-        <p className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300">
-          About
-        </p>
       </a>
       <a
         href="#skills"
-        className="flex flex-col items-center justify-center group text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
+        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
       >
         <RiRocket2Fill />
-        <p className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300">
-          Skills
-        </p>
       </a>
       <a
         href="#portfolio"
-        className="flex flex-col items-center justify-center group text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
+        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
       >
         <CgWebsite />
-        <p className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300">
-          Portfolio
-        </p>
       </a>
       <a
         href="#contact"
-        className="flex flex-col items-center justify-center group text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
+        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
       >
         <FaEnvelope />
-        <p className="text-xs opacity-0 group-hover:opacity-100 transition-all duration-300">
-          Contact
-        </p>
       </a>
     </>
   );
