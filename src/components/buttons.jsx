@@ -43,7 +43,7 @@ export default function NavMenu() {
         </div>
       ) : (
         <button onClick={() => setExpanded(true)} className="p-4 text-normal">
-          <MdApps className="text-4xl md:text-5xl text-normal cursor-pointer hover:scale-110 transition" />
+          <MdApps className="text-4xl md:text-5xl text-normal cursor-pointer hover:-translate-y-2 active:-translate-y-2 transition" />
         </button>
       )}
     </div>
@@ -53,35 +53,20 @@ export default function NavMenu() {
 function NavLinks() {
   return (
     <>
-      <a
-        href="#hero"
-        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
-      >
-        <AiFillHome />
+      <a href="#hero">
+        <AiFillHome className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
       </a>
-      <a
-        href="#about"
-        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
-      >
-        <VscAccount />
+      <a href="#about">
+        <VscAccount className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
       </a>
-      <a
-        href="#skills"
-        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
-      >
-        <RiRocket2Fill />
+      <a href="#skills">
+        <RiRocket2Fill className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
       </a>
-      <a
-        href="#portfolio"
-        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
-      >
-        <CgWebsite />
+      <a href="#portfolio">
+        <CgWebsite className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
       </a>
-      <a
-        href="#contact"
-        className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:scale-110"
-      >
-        <FaEnvelope />
+      <a href="#contact">
+        <FaEnvelope className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
       </a>
     </>
   );
