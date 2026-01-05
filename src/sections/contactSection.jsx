@@ -109,7 +109,7 @@ export default function Contact({ loading }) {
           className="flex flex-col gap-3"
         >
           <input
-            placeholder="enter cadet name"
+            placeholder="enter cadet identification (name)"
             name="name"
             required
             type="text"
@@ -130,7 +130,7 @@ export default function Contact({ loading }) {
             className="w-full border bg-panel p-2 rounded text-base md:text-lg lg:text-xl"
           />
           <textarea
-            placeholder="detail your intel"
+            placeholder="detail your intel (message)"
             name="message"
             required
             type="text"
