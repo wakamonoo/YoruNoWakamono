@@ -168,7 +168,7 @@ export default function Contact({ loading }) {
             href="https://www.facebook.com/joven.serdanbataller"
           >
             <div
-              className="p-4 sm:p-8 w-full h-full bg-brand rounded border transition-all duration-200
+              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
@@ -186,7 +186,7 @@ export default function Contact({ loading }) {
             href="https://www.instagram.com/wakamonoooo/"
           >
             <div
-              className="p-4 sm:p-8 w-full h-full bg-brand rounded border transition-all duration-200
+              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
@@ -204,7 +204,7 @@ export default function Contact({ loading }) {
             href="https://www.linkedin.com/in/joven-bataller-085761350/"
           >
             <div
-              className="p-4 sm:p-8 w-full h-full bg-brand rounded border transition-all duration-200
+              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
@@ -219,7 +219,7 @@ export default function Contact({ loading }) {
 
           <motion.a variants={itemVariants} href="https://github.com/wakamonoo">
             <div
-              className="p-4 sm:p-8 w-full h-full bg-brand rounded border transition-all duration-200
+              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
