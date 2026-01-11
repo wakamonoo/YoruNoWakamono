@@ -148,7 +148,7 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: Are there any new technologies or programming languages Joven is currently exploring? A: Joven is still learning JavaScript and it's frameworks like react.js",
+      "Q: Are there any new technologies or programming languages Joven is currently exploring? A: Joven is still developing his skilss in MERN Stack.",
   },
   {
     role: "system",
