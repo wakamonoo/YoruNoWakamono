@@ -81,7 +81,7 @@ export default function About({ loading }) {
           </motion.div>
           <motion.p
             variants={itemVariants}
-            className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
+            className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
           >
             I’m <strong>Joven Serdan Bataller</strong>, a 22-year-old{" "}
             <strong>Full-Stack Web Developer</strong> from the Philippines —
@@ -91,10 +91,6 @@ export default function About({ loading }) {
             and stand out in any digital battlefield. I turn ideas into powerful
             digital realities that empower people and businesses to rise above
             the ordinary and carve their mark into the world.
-            <br />
-            <br />I am currently open for <strong>full-time</strong>,{" "}
-            <strong>part-time</strong>, and <strong>freelance gigs</strong>. If
-            you’re ready to push beyond limits, I’m ready to build.
           </motion.p>
 
           <div className="mt-4 sm:mt-8">

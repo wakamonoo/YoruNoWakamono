@@ -95,7 +95,7 @@ export default function Skills({ loading }) {
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+              className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
             >
               Building user interfaces and interactive designs for web apps
               using modern frameworks and styling tools.
@@ -231,7 +231,7 @@ export default function Skills({ loading }) {
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+              className="text-normal text-justify  text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
             >
               Handling server-side logic, APIs, and data processing to make
               applications functional and efficient.
@@ -299,7 +299,7 @@ export default function Skills({ loading }) {
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+              className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
             >
               Managing data storage, retrieval, and user authentication to keep
               information secure and accessible.
@@ -350,7 +350,7 @@ export default function Skills({ loading }) {
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+              className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
             >
               Using deployment tools, version control, and cloud platforms to
               build, host, and manage applications.

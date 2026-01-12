@@ -108,7 +108,7 @@ export default function Portfolio({ loading }) {
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+            className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
           >
             Full-scale operations executed by the elite Survey Corps, these are
             high-impact missions demanding precise strategy, relentless
@@ -380,7 +380,7 @@ export default function Portfolio({ loading }) {
           </motion.h2>
           <motion.p
             variants={itemVariants}
-            className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+            className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
           >
             Off-duty developments and training exercises, crafted during moments
             of peace between battles. These small-scale operations serve as
@@ -688,7 +688,7 @@ export default function Portfolio({ loading }) {
         </motion.h2>
         <motion.p
           variants={itemVariants}
-          className="text-normal text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+          className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
         >
           Beyond the walls of hesitation lies the battlefield of creation. Every
           commit is a battle, every push a charge into the unknown. Here stands
