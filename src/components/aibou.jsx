@@ -271,10 +271,12 @@ export default function Aibou({ loading }) {
               {preRef1 && (
                 <div className="contains">
                   <p
-                    onClick={() => handleSent("Tell me more about Joven!")}
+                    onClick={() =>
+                      handleSent("Is Joven currently available for hire?")
+                    }
                     className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
-                    Tell me more about Joven!
+                    is joven currently available for hire?
                   </p>
                 </div>
               )}
@@ -284,7 +286,7 @@ export default function Aibou({ loading }) {
                     onClick={() => handleSent("What is Joven's tech-stack?")}
                     className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg  font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
-                    What is Joven's tech-stack?
+                    what is joven's tech-stack?
                   </p>
                 </div>
               )}
@@ -299,7 +301,7 @@ export default function Aibou({ loading }) {
                     }
                     className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg  font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
-                    Joven's GitHub contributions today?
+                    joven's gitHub contributions today?
                   </p>
                 </div>
               )}
