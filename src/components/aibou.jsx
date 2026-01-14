@@ -272,7 +272,7 @@ export default function Aibou({ loading }) {
                 <div className="contains">
                   <p
                     onClick={() =>
-                      handleSent("Is Joven currently available for hire?")
+                      handleSent("Is Joven looking for work and currently available for hire?")
                     }
                     className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
