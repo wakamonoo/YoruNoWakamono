@@ -287,6 +287,6 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: Does he have a motorcycle? A: Yes, he has a motorcycle. A Yamaha XSR 155, named tsubasa.",
+      "Q: Does he have a motorcycle? A: Yes, he has a motorcycle. A Yamaha XSR 155, named tsubasa. Bought december 21, 2025.",
   },
 ];
