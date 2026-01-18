@@ -22,7 +22,7 @@ export default function About({ loading }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
 
     observer.observe(current);
@@ -84,13 +84,11 @@ export default function About({ loading }) {
             className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
           >
             I’m <strong>Joven Serdan Bataller</strong>, a 22-year-old{" "}
-            <strong>Full-Stack Web Developer</strong> from the Philippines —
-            forged in perseverance, honed by relentless discipline, and driven
-            by an unyielding will. I build websites like fortresses: modern,
-            resilient, and battle-ready, crafted to stand strong against chaos
-            and stand out in any digital battlefield. I turn ideas into powerful
-            digital realities that empower people and businesses to rise above
-            the ordinary and carve their mark into the world.
+            <strong>Full-Stack Web Developer</strong> from the
+            Philippines—driven by discipline, perseverance, and an unyielding
+            will. I build modern, resilient websites designed to stand out in
+            any digital battlefield, turning ideas into powerful realities that
+            help people and businesses rise above the ordinary.
           </motion.p>
 
           <div className="mt-4 sm:mt-8">
