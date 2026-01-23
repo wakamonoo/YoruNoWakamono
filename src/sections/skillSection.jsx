@@ -40,7 +40,7 @@ export default function Skills({ loading }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.25 },
     );
 
     observer.observe(current);
