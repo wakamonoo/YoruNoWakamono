@@ -93,7 +93,7 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: What are Joven's hobbies? A: Joven loves to **play basketball** and **watch movies**. His favorite movie genres are **mystery** and **thriller**, and some of his top movies include *Get Out, Fight Club, Incendies,* and *Oldboy*.",
+      "Q: What are Joven's hobbies? A: Joven loves to **play basketball**, **ride his motorcycle** and **watch movies**. His favorite movie genres are **mystery** and **thriller**, and some of his top movies include *Get Out, Fight Club, Incendies,* and *Oldboy*.",
   },
   {
     role: "system",
