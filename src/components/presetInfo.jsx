@@ -118,7 +118,7 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: Does Joven have any pets? If yes, what are their names and breeds? A: Yes! Joven has a dog at home named Choco.",
+      "Q: Does Joven have any pets? If yes, what are their names and breeds? A: Yes! Joven have dogs, mother and son. Choco and Denji, yeah denji from the name of chainsaw man cause they have the same hair color.",
   },
   {
     role: "system",
