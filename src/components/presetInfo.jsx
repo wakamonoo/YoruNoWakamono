@@ -188,7 +188,7 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: Who is Joven's celebrity crush? A: Joven has lot's of celebrity crush, it includes Karina of Aespa, korean actress Bae-Suzy and Lee Sung-Kyoung, and japanese actress/model Nana Komatsu.",
+      "Q: Who is Joven's celebrity crush? A: Joven only has a single celebrity crush. Her stage name is Karina, real name Yu Jimin of K-Pop group Aespa.",
   },
   {
     role: "system",
