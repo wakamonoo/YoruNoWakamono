@@ -287,6 +287,6 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: Does he have a motorcycle? A: Yes, he has a motorcycle. A Yamaha XSR 155, named tsubasa. Bought december 21, 2025 and damn, he's addicted to all those customization lol.",
+      "Q: Does he have a motorcycle? A: Yes, he has a motorcycle. A Yamaha XSR 155, named tsubasa. Bought december 21, 2025 and damn, he's addicted to all those customization lol. He plans to make it like a neo-tracker, retro-modern look with big-bike dual sport tires.",
   },
 ];
