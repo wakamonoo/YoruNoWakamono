@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaBullhorn } from "react-icons/fa";
 import { useEffect, useRef, useState } from "react";
+import { MdFiberManualRecord } from "react-icons/md";
 
 export default function Bulletin({ loading }) {
   const router = useRouter();
@@ -23,7 +24,7 @@ export default function Bulletin({ loading }) {
           observer.disconnect();
         }
       },
-      { threshold: 0.6 }
+      { threshold: 0.6 },
     );
 
     observer.observe(current);
@@ -84,13 +85,30 @@ export default function Bulletin({ loading }) {
               recruits to venture forth, explore the site, and press the button
               to advance.
             </p>
+            <button
+              className="px-4 rounded-full bg-army m-4 cursor-pointer transition-all duration-300 hover:scale-x-110 focus:scale-x-110"
+              onClick={() => router.push("https://nexus-wakamonoo.vercel.app")}
+            >
+              <p className="text-sm md:text-base lg:text-lg font-bold">Visit</p>
+            </button>
           </div>
-          <button
-            className="px-4 rounded-full bg-army m-4 cursor-pointer transition-all duration-300 hover:scale-x-110 focus:scale-x-110"
-            onClick={() => router.push("https://nexus-wakamonoo.vercel.app")}
-          >
-            <p className="text-sm md:text-base lg:text-lg font-bold">Visit</p>
-          </button>
+          <MdFiberManualRecord className="text-base md:text-lg lg:text-xl m-2" />
+          <div className="flex items-center px-4">
+            <p className="text-sm md:text-base lg:text-lg font-bold text-normal uppercase">
+              I am open to work in Junior Developer roles.
+            </p>
+            <button
+              className="px-4 rounded-full bg-army m-4 cursor-pointer transition-all duration-300 hover:scale-x-110 focus:scale-x-110"
+              onClick={() =>
+                (window.location.href =
+                  "mailto:joven.serdanbataller21@gmail.com")
+              }
+            >
+              <p className="text-sm md:text-base lg:text-lg font-bold">
+                Hire me!
+              </p>
+            </button>
+          </div>
         </Marquee>
       </motion.div>
     </motion.div>
