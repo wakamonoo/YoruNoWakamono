@@ -9,6 +9,7 @@ import Loader from "@/components/loader";
 import { useEffect, useState } from "react";
 import Aibou from "@/components/aibou";
 import Bulletin from "@/components/bulletin";
+import Plug from "@/components/plug";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,11 @@ export default function Home() {
       <section id="about" className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
         <About loading={loading} />
       </section>
+
+      <section className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
+        <Plug loading={loading} />
+      </section>
+
 
       {/* ———————————————————————————————————— about section ——— */}
       <div className="bg-second">
