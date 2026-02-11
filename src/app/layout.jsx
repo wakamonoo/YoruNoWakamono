@@ -1,4 +1,6 @@
-{/* ———————————————————————————————————— imports ——— */}
+{
+  /* ———————————————————————————————————— imports ——— */
+}
 import { IconBase } from "react-icons";
 import "./globals.css";
 import {
@@ -7,9 +9,12 @@ import {
   Black_Han_Sans,
   Anton,
   Bebas_Neue,
+  Roboto,
 } from "next/font/google";
 
-{/* ———————————————————————————————————— fonts config ——— */}
+{
+  /* ———————————————————————————————————— fonts config ——— */
+}
 const bangers = Bangers({
   subsets: ["latin"],
   weight: "400",
@@ -40,6 +45,12 @@ const bebasNeue = Bebas_Neue({
   variable: "--font-tall-alt",
 });
 
+const roboto = Roboto({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+  variable: "--font-roboto",
+});
+
 export const metadata = {
   title: "yorunowakamono",
   description: "Joven Bataller AOT Themed Web Developer Portfolio",
@@ -52,7 +63,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${bangers.variable} ${rubik.variable} ${blackHan.variable} ${anton.variable} ${bebasNeue.variable} scroll-smooth`}
+      className={`${bangers.variable} ${rubik.variable} ${blackHan.variable} ${anton.variable} ${bebasNeue.variable} ${roboto.variable} scroll-smooth`}
     >
       <body>{children}</body>
     </html>

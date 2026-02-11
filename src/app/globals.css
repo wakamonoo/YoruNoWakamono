@@ -15,12 +15,20 @@
     --color-panel: #3b2f2f; /* ———————————————————————————————————— nav bg ——— */
     --color-secondary: #5e5e5e; /* ———————————————————————————————————— second bg ——— */
     --color-army: #4e6952; /* ———————————————————————————————————— army green ——— */
+    --color-nexus: #ed1d24; /* ———————————————————————————————————— marvel red ——— */
 
-    --font-heading: "Bangers", cursive; /* ———————————————————————————————————— header ——— */
-    --font-body: "Rubik", sans-serif; /* ———————————————————————————————————— normal ——— */
-    --font-alt: "Black Han Sans", sans-serif; /* ———————————————————————————————————— normal alt ——— */
-    --font-tall: "Anton", sans-serif; /* ———————————————————————————————————— big titles ——— */
-    --font-tall-alt: "Bebas Neue", sans-serif; /* ———————————————————————————————————— titles alt ——— */
+    --font-heading:
+      "Bangers", cursive; /* ———————————————————————————————————— header ——— */
+    --font-body:
+      "Rubik", sans-serif; /* ———————————————————————————————————— normal ——— */
+    --font-alt:
+      "Black Han Sans", sans-serif; /* ———————————————————————————————————— normal alt ——— */
+    --font-tall:
+      "Anton", sans-serif; /* ———————————————————————————————————— big titles ——— */
+    --font-tall-alt:
+      "Bebas Neue", sans-serif; /* ———————————————————————————————————— titles alt ——— */
+    --font-nexus:
+      "Roboto", sans-serif; /* ———————————————————————————————————— normal nexus ——— */
   }
 
   body {
@@ -64,6 +72,10 @@
     background-color: var(--color-army);
   }
 
+  .bg-nexus {
+    background-color: var(--color-nexus);
+  }
+
   .text-brand {
     color: var(--color-bg);
   }
@@ -98,6 +110,10 @@
 
   .font-tall-alt {
     font-family: var(--font-tall-alt);
+  }
+
+  .font-nexus {
+    font-family: var(--font-nexus);
   }
 
   .shadow-aot {
