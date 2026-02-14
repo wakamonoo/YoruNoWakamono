@@ -157,7 +157,7 @@ export default function Plug({ loading }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="w-56 sm:w-60 md:w-64 lg:w-68 xl:w-72 relative z-5 -ml-24 flex-shrink-0"
+              className="w-56 sm:w-60 md:w-64 lg:w-68 xl:w-72 relative z-5 -ml-26 flex-shrink-0"
             >
               <Image src={Hulk} alt="hulk" />
             </motion.div>
