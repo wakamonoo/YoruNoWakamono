@@ -127,7 +127,7 @@ export default function Plug({ loading }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="w-26 sm:w-30 md:w-38 lg:w-40 xl:w-44  relative z-30 flex-shrink-0"
+              className="w-26 sm:w-30 md:w-38 lg:w-40 xl:w-48  relative z-30 flex-shrink-0"
             >
               <Image src={Cap} alt="cap" />
             </motion.div>
@@ -137,7 +137,7 @@ export default function Plug({ loading }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="w-28 sm:w-32 md:w-40 lg:w-44 xl:w-50 relative z-20 -ml-20 mb-35 flex-shrink-0"
+              className="w-28 sm:w-32 md:w-40 lg:w-44 xl:w-54 relative z-20 -ml-20 mb-35 flex-shrink-0"
             >
               <Image src={IronMan} alt="ironman" />
             </motion.div>
@@ -147,7 +147,7 @@ export default function Plug({ loading }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="w-32 sm:w-36 md:w-44 lg:w-48 xl:w-54 relative z-10 -ml-20 flex-shrink-0"
+              className="w-32 sm:w-36 md:w-44 lg:w-48 xl:w-58 relative z-10 -ml-20 flex-shrink-0"
             >
               <Image src={Thor} alt="thor" />
             </motion.div>
@@ -157,7 +157,7 @@ export default function Plug({ loading }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="w-56 sm:w-60 md:w-68 lg:w-74 xl:w-80 relative z-5 -ml-26 flex-shrink-0"
+              className="w-56 sm:w-60 md:w-68 lg:w-74 xl:w-86 relative z-5 -ml-26 flex-shrink-0"
             >
               <Image src={Hulk} alt="hulk" />
             </motion.div>
@@ -167,7 +167,7 @@ export default function Plug({ loading }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="w-24 sm:w-28 md:w-36 lg:w-40 xl:w-44 relative z-40 -ml-30 mb-4 flex-shrink-0"
+              className="w-24 sm:w-28 md:w-36 lg:w-40 xl:w-46 relative z-40 -ml-30 mb-4 flex-shrink-0"
             >
               <Image src={Widow} alt="widow" />
             </motion.div>
@@ -177,11 +177,19 @@ export default function Plug({ loading }) {
               sizes="100vw"
               width={0}
               height={0}
-              className="w-44 sm:w-48 md:w-58 lg:w-64 xl:w-70 relative z-50 -ml-24 flex-shrink-0"
+              className="w-44 sm:w-48 md:w-58 lg:w-64 xl:w-76 relative z-50 -ml-24 flex-shrink-0"
             >
               <Image src={HawkEye} alt="hawkeye" />
             </motion.div>
 
+            <motion.div
+              variants={itemVariants}
+              className="absolute left-1/2 -translate-x-1/2 bottom-62 sm:bottom-67 md:bottom-79 lg:bottom-84 xl:bottom-97 z-0 text-left w-full ml-8 md:ml-12 lg:ml-14 xl:ml-18"
+            >
+              <p className="text-sm md:text-base lg:text-lg xl:text-xl font-nexus opacity-60">
+                where marvel fans assemble,
+              </p>
+            </motion.div>
             <motion.div
               variants={logo}
               sizes="100vw"
