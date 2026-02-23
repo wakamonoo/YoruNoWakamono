@@ -181,15 +181,6 @@ export default function Plug({ loading }) {
             >
               <Image src={HawkEye} alt="hawkeye" />
             </motion.div>
-
-            <motion.div
-              variants={itemVariants}
-              className="absolute left-1/2 -translate-x-1/2 bottom-62 sm:bottom-67 md:bottom-79 lg:bottom-84 xl:bottom-97 z-0 text-left w-full ml-8 md:ml-12 lg:ml-14 xl:ml-18"
-            >
-              <p className="text-sm md:text-base lg:text-lg xl:text-xl font-nexus opacity-60">
-                where marvel fans assemble,
-              </p>
-            </motion.div>
             <motion.div
               variants={logo}
               sizes="100vw"

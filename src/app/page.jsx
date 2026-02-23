@@ -46,7 +46,7 @@ export default function Home() {
         <About loading={loading} />
       </section>
 
-      <section className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
+      <section className="bg-second pb-4">
         <Plug loading={loading} />
       </section>
 
