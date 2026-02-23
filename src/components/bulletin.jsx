@@ -68,22 +68,11 @@ export default function Bulletin({ loading }) {
             <FaBullhorn className="text-base md:text-lg lg:text-xl m-2" />
             <p className="text-sm md:text-base lg:text-lg font-normal text-normal">
               Attention, everyone! I proudly report that I have completed
-              another mission, called
-            </p>
-            <Image
-              src={Nexus}
-              alt="nexus"
-              width={0}
-              height={0}
-              sizes="100vw"
-              className="w-14 md:w-16 lg:w-18 h-auto object-contain ml-2"
-            />
-            <p className="text-sm md:text-base lg:text-lg font-normal text-normal">
-              . This is a Marvel Cinematic Universe outpost where fans can
-              gather, share intel on the timeline, track their watch progress,
-              debate which titles reign supreme, and much more. I urge all
-              recruits to venture forth, explore the site, and press the button
-              to advance.
+              another mission, called nexus. This is a Marvel Cinematic Universe
+              outpost where fans can gather, share intel on the timeline, track
+              their watch progress, debate which titles reign supreme, and much
+              more. I urge all recruits to venture forth, explore the site, and
+              press the button to advance.
             </p>
             <button
               className="px-4 rounded-full bg-army m-4 cursor-pointer transition-all duration-300 hover:scale-x-110 focus:scale-x-110"

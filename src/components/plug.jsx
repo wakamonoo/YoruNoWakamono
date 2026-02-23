@@ -191,17 +191,6 @@ export default function Plug({ loading }) {
               <Image src={Nexus} alt="nexus logo" />
             </motion.div>
           </div>
-          <motion.div
-            variants={itemVariants}
-            className="absolute z-60 left-1/2 -translate-x-1/2 bottom-0"
-          >
-            <button
-              onClick={() => router.push("https://nexus-wakamonoo.vercel.app")}
-              className="font-nexus font-bold cursor-pointer bg-nexus hover:bg-[var(--color-nexus)]/80 w-full py-2 px-4 rounded-full flex justify-center items-center gap-1"
-            >
-              Visit Now
-            </button>
-          </motion.div>
         </div>
       </motion.div>
     </div>
