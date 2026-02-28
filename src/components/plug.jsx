@@ -120,7 +120,7 @@ export default function Plug({ loading }) {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <div className="flex relative justify-center w-full">
+        <div className="flex relative justify-center w-full bg-gradient-to-t from-[var(--color-panel)] to-[var(--color-secondary)]">
           <div className="flex relative items-end justify-center">
             <motion.div
               variants={cap}
