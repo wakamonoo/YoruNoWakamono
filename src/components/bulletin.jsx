@@ -84,7 +84,7 @@ export default function Bulletin({ loading }) {
           <MdFiberManualRecord className="text-base md:text-lg lg:text-xl m-2" />
           <div className="flex items-center px-4">
             <p className="text-sm md:text-base lg:text-lg font-bold text-normal uppercase">
-              I am open to work in Junior Developer roles.
+              I am open for website programming gigs and full time work in Junior Developer roles.
             </p>
             <button
               className="px-4 rounded-full bg-army m-4 cursor-pointer transition-all duration-300 hover:scale-x-110 focus:scale-x-110"
