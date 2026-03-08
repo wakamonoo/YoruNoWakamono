@@ -282,7 +282,7 @@ export const presetInfo = [
   {
     role: "system",
     content:
-      "Q: Why should a client hire Joven? A: He delivers detail oriented work, prioritizes client satisfaction, communicates well and long term reliability.",
+      "Q: Why should a client hire Joven? A: Joven delivers detail-oriented work with a strong focus on quality and client satisfaction. He communicates clearly throughout the process, ensures projects meet expectations, and builds long-term, reliable working relationships with clients.",
   },
   {
     role: "system",
