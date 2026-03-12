@@ -74,7 +74,7 @@ export default function Aibou({ loading }) {
           presetInfo.push({
             role: "system",
             content: `Today's GitHub contributions:\n- ${data.contributions.join(
-              "\n- "
+              "\n- ",
             )}`,
           });
         }
@@ -272,7 +272,9 @@ export default function Aibou({ loading }) {
                 <div className="contains">
                   <p
                     onClick={() =>
-                      handleSent("Is Joven looking for work and currently available for hire?")
+                      handleSent(
+                        "Is Joven looking for work and currently available for hire?",
+                      )
                     }
                     className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
@@ -296,7 +298,7 @@ export default function Aibou({ loading }) {
                     onClick={() =>
                       handleSent(
                         "Joven's GitHub contributions today?",
-                        "How many github contributions in all repositories did joven made today and what are those?"
+                        "How many github contributions in all repositories did joven made today and what are those?",
                       )
                     }
                     className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg  font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
@@ -311,7 +313,7 @@ export default function Aibou({ loading }) {
           <div className="flex bg-panel justify-between gap-2 items-center p-3">
             <textarea
               className="flex-1 text-[var(--color-bg)] placeholder-[var(--color-bg)] text-base md:text-lg bg-[var(--color-accent)] p-2 rounded-md"
-              placeholder="hi, im aibou! how can i assist?"
+              placeholder="need help? ask here."
               value={draftText}
               onChange={(e) => setDraftText(e.target.value)}
               onKeyDown={(e) => {
