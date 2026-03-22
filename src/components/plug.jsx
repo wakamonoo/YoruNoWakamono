@@ -6,14 +6,12 @@ import Hulk from "@/assets/nexus/hulk.png";
 import Widow from "@/assets/nexus/widow.png";
 import HawkEye from "@/assets/nexus/hawkeye.png";
 import Nexus from "@/assets/nexus_logo.png";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 export default function Plug({ loading }) {
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
-  const router = useRouter();
 
   useEffect(() => {
     if (loading) return;
@@ -101,15 +99,6 @@ export default function Plug({ loading }) {
       opacity: 1,
       x: 0,
       transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
 
