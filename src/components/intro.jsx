@@ -22,7 +22,7 @@ export default function Intro() {
             JOVEN BATALLER
           </h1>
           <p className="text-right text-2xl md:text-3xl lg:text-4xl text-normal">
-            web developer
+            full-stack developer
           </p>
           <div className="flex justify-end gap-2 text-4xl md:text-5xl pt-2 text-normal overflow-visible">
             <a href="https://www.facebook.com/joven.serdanbataller">
