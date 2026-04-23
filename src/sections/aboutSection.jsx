@@ -145,7 +145,7 @@ export default function About({ loading }) {
           </div>
 
           {/* ———————————————————————————————————— resume ——— */}
-          <motion.a variants={itemVariants} href="Bataller_Resume.pdf" download>
+          <motion.a variants={itemVariants} href="Joven_Bataller_Resume.pdf" download>
             <button
               className="p-2 sm:p-4 text-base md:text-lg lg:text-xl mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
              hover:bg-[var(--color-panel)] hover:scale-110 
