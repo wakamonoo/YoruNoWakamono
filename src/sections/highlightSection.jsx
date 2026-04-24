@@ -9,7 +9,7 @@ import Nexus from "@/assets/nexus_logo.png";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
-export default function Plug({ loading }) {
+export default function Highlight({ loading }) {
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
 
@@ -37,6 +37,15 @@ export default function Plug({ loading }) {
   const containerVariant = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.12 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const logo = {
@@ -109,7 +118,13 @@ export default function Plug({ loading }) {
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
       >
-        <div className="flex relative justify-center w-full bg-gradient-to-t from-[var(--color-panel)] to-[var(--color-secondary)]">
+        <motion.h1
+          variants={itemVariants}
+          className="text-2xl md:text-3xl lg:text-4xl mb-4 text-header md:mb-8 lg:mb-12"
+        >
+          SECTOR SHOWCASE ────
+        </motion.h1>
+        <div className="flex relative justify-center w-full">
           <div className="flex relative items-end justify-center">
             <motion.div
               variants={cap}

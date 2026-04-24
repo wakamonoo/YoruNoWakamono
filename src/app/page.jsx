@@ -9,7 +9,7 @@ import Loader from "@/components/loader";
 import { useEffect, useState } from "react";
 import Aibou from "@/components/aibou";
 import Bulletin from "@/components/bulletin";
-import Plug from "@/components/plug";
+import Highlight from "@/sections/highlightSection";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -20,7 +20,7 @@ export default function Home() {
   useEffect(() => {
     const handleLoad = async () => {
       await new Promise((resolve) =>
-        setTimeout(() => resolve("done loading"), 4000)
+        setTimeout(() => resolve("done loading"), 4000),
       );
       setLoading(false);
     };
@@ -46,19 +46,16 @@ export default function Home() {
         <About loading={loading} />
       </section>
 
-      <section className="bg-second">
-        <Plug loading={loading} />
-      </section>
-
-
       {/* ———————————————————————————————————— about section ——— */}
       <div className="bg-second">
         <Bulletin loading={loading} />
       </div>
 
-      {/* ———————————————————————————————————— skills section ——— */}
-      <section id="skills" className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
-        <Skills loading={loading} />
+      <section
+        id="highlight"
+        className="bg-second p-8 md:p-16 lg:p-32 xl:px-72"
+      >
+        <Highlight loading={loading} />
       </section>
 
       {/* ———————————————————————————————————— portfolio section ——— */}
@@ -67,6 +64,11 @@ export default function Home() {
         className="bg-second p-8 md:p-16 lg:p-32 xl:px-72"
       >
         <Portfolio loading={loading} />
+      </section>
+
+      {/* ———————————————————————————————————— skills section ——— */}
+      <section id="skills" className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
+        <Skills loading={loading} />
       </section>
 
       {/* ———————————————————————————————————— contact section ——— */}

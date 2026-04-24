@@ -6,6 +6,7 @@ import { RiRocket2Fill } from "react-icons/ri";
 import { CgWebsite } from "react-icons/cg";
 import { FaEnvelope } from "react-icons/fa";
 import { MdApps } from "react-icons/md";
+import { FaCrosshairs } from "react-icons/fa";
 
 export default function NavMenu() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,11 +73,11 @@ function NavLinks() {
       </div>
 
       <div className="relative flex flex-col items-center justify-center group">
-        <a href="#skills" className="relative z-10">
-          <RiRocket2Fill className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
+        <a href="#highlight" className="relative z-10">
+          <FaCrosshairs className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
         </a>
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
-          Skills
+          Highlight
         </p>
       </div>
 
@@ -86,6 +87,15 @@ function NavLinks() {
         </a>
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
           Portfolio
+        </p>
+      </div>
+
+      <div className="relative flex flex-col items-center justify-center group">
+        <a href="#skills" className="relative z-10">
+          <RiRocket2Fill className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2" />
+        </a>
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
+          Skills
         </p>
       </div>
 
