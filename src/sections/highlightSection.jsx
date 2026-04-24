@@ -124,6 +124,18 @@ export default function Highlight({ loading }) {
         >
           SECTOR SHOWCASE ────
         </motion.h1>
+        <motion.p
+          variants={itemVariants}
+          className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+        >
+          <strong>Nexus</strong> is a full-stack reconnaissance platform built
+          with the MERN stack, Next.js, and modern web technologies, forged
+          beyond the walls as a digital intelligence hub for Marvel enthusiasts.
+          It allows cadets to <strong>track viewing progression</strong> across
+          the cinematic timeline through release or chronological order, with{" "}
+          <strong>real-time communication</strong> powered by Socket.io for
+          instant coordination between users.
+        </motion.p>
         <div className="flex relative justify-center w-full">
           <div className="flex relative items-end justify-center">
             <motion.div
@@ -196,6 +208,20 @@ export default function Highlight({ loading }) {
             </motion.div>
           </div>
         </div>
+        <motion.p
+          variants={itemVariants}
+          className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
+        >
+          A <strong>ranking system</strong> determines the most favored titles
+          through collective judgment, while users can{" "}
+          <strong>share posts</strong> (text, images, videos) and engage via
+          reactions, comments, and saves.{" "}
+          <strong>Real-time notifications</strong> relay all activity instantly.
+          Data is handled through <strong>REST APIs</strong>, with deployment on{" "}
+          <strong>Render</strong> for the server and <strong>Vercel</strong> for
+          the client, ensuring stable operation across all fronts. Nexus is one{" "}
+          <a href="https://nexus-wakamonoo.vercel.app" className="font-bold text-[var(--color-nexus)]">click</a> away from you so kindly check it out.
+        </motion.p>
       </motion.div>
     </div>
   );

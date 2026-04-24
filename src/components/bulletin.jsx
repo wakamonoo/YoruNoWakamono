@@ -63,28 +63,15 @@ export default function Bulletin({ loading }) {
           <h1 className="text-base md:text-lg lg:text-xl font-tall text-header bg-brand border-x-3 border-[var(--color-secondary)] p-4">
             Regiment Bulletin:
           </h1>
-
-          <div className="flex items-center">
-            <FaBullhorn className="text-base md:text-lg lg:text-xl m-2" />
-            <p className="text-sm md:text-base lg:text-lg font-normal text-normal">
-              Attention, everyone! I proudly report that I have completed
-              another mission called, nexus. This is a Marvel Cinematic Universe
-              outpost where fans can gather, share intel on the timeline, track
-              their watch progress, debate which titles reign supreme, and much
-              more. I urge all recruits to venture forth, explore the site, and
-              press the button to advance.
-            </p>
-            <button
-              className="px-4 rounded-full bg-army m-4 cursor-pointer transition-all duration-300 hover:scale-x-110 focus:scale-x-110"
-              onClick={() => router.push("https://nexus-wakamonoo.vercel.app")}
-            >
-              <p className="text-sm md:text-base lg:text-lg font-bold">Visit</p>
-            </button>
-          </div>
           <MdFiberManualRecord className="text-base md:text-lg lg:text-xl m-2" />
           <div className="flex items-center px-4">
-            <p className="text-sm md:text-base lg:text-lg font-bold text-normal uppercase">
-              I am open for website programming gigs and full time work in Junior Developer roles.
+            <p className="text-sm md:text-base lg:text-lg text-normal">
+              I am open for website programming gigs and part-time or full-time
+              work in Junior Developer roles. I specialize in building modern
+              full-stack web applications using the MERN stack, Next.js, and
+              other modern web technologies. I am eager to contribute to
+              real-world projects, collaborate with teams, and continue growing
+              my skills through practical development experience.
             </p>
             <button
               className="px-4 rounded-full bg-army m-4 cursor-pointer transition-all duration-300 hover:scale-x-110 focus:scale-x-110"
