@@ -12,13 +12,14 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:3000",
   "https://wakamonoo.vercel.app",
+  "https://wakamonoo.site",
 ];
 
 app.use(
   cors({
     origin: allowedOrigins,
     credentials: true,
-  })
+  }),
 );
 
 app.use(express.json());
