@@ -143,7 +143,10 @@ export default function Aibou({ loading }) {
         },
         body: JSON.stringify({
           messages: [
-            ...presetInfo,
+            ...presetInfo.map((msg) => ({
+              role: "system",
+              content: msg.content,
+            })),
             ...sentText.map((msg) => ({
               role: msg.sender === "user" ? "user" : "assistant",
               content: msg.text,
@@ -216,7 +219,7 @@ export default function Aibou({ loading }) {
                   Chat with <strong>Aibou</strong>
                 </p>
                 <p className="text-xs md:text-sm font-normal opacity-60">
-                  powered by <strong>gemini-2.5-flash-lite</strong>
+                  powered by <strong>gemini-3.1-flash-lite</strong>
                 </p>
               </div>
             </div>
