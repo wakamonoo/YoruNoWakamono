@@ -158,8 +158,9 @@ export default function Aibou({ loading }) {
 
       const data = await response.json();
 
-      if (data.choices && data.choices.length > 0) {
-        const aiText = data.choices[0].message.content.trim();
+      const aiText =
+        data?.candidates?.[0]?.content?.parts?.[0]?.text || data?.result || "";
+      if (aiText) {
         setSentText((prev) => [...prev, { sender: "aibou", text: aiText }]);
       } else {
         setSentText((prev) => [
@@ -215,7 +216,7 @@ export default function Aibou({ loading }) {
                   Chat with <strong>Aibou</strong>
                 </p>
                 <p className="text-xs md:text-sm font-normal opacity-60">
-                  powered by <strong>GLM-4.5</strong>
+                  powered by <strong>gemini-2.5-flash-lite</strong>
                 </p>
               </div>
             </div>

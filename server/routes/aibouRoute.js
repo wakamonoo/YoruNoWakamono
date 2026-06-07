@@ -8,23 +8,29 @@ const router = express.Router();
 router.post("/aibou", async (req, res) => {
   try {
     const { messages } = req.body;
-    const apikey = process.env.OPEN_ROUTER_API_KEY;
+    const apikey = process.env.GEMINI_API_KEY;
 
     const response = await fetch(
-      "https://openrouter.ai/api/v1/chat/completions",
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=${apikey}`,
       {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${apikey}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: "z-ai/glm-4.5-air:free",
-          messages: messages,
-          max_tokens: 2048,
-          temperature: 0.7,
+          contents: messages.map((m) => ({
+            role: m.role === "assistant" ? "model" : "user",
+            parts: [
+              {
+                text: m.content,
+              },
+            ],
+          })),
+          generationConfig: {
+            temperature: 0.7,
+          },
         }),
-      }
+      },
     );
 
     if (!response.ok) {
@@ -33,7 +39,10 @@ router.post("/aibou", async (req, res) => {
     }
 
     const data = await response.json();
-    res.status(200).json(data);
+
+    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+    res.status(200).json({ result: text });
   } catch (err) {
     console.error("api error", err);
     res.status(500).json({ error: "internal error:", err });
