@@ -70,7 +70,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.webp",
+        url: "/logo.png",
         width: 1024,
         height: 1024,
       },
@@ -82,7 +82,7 @@ export const metadata = {
     title: "yorunowakamono",
     description:
       "Joven Bataller | Full Stack Developer Portfolio",
-    images: "/logo.webp",
+    images: "/logo.png",
   },
 
   metadataBase: new URL("https://wakamonoo.site"),
