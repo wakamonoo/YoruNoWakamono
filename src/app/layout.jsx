@@ -51,12 +51,41 @@ const roboto = Roboto({
   variable: "--font-roboto",
 });
 
+// Metadata
 export const metadata = {
-  title: "yorunowakamono",
-  description: "Joven Bataller AOT Themed Web Developer Portfolio",
-  icons: {
-    icon: "/logo.png",
+  title: {
+    default: "yorunowakamono",
+    template: "%s | yorunowakamono",
   },
+  description:
+    "Joven Bataller | Full Stack Developer Portfolio",
+
+  openGraph: {
+    title: "yorunowakamono",
+    description:
+      "Joven Bataller | Full Stack Developer Portfolio",
+    url: "https://wakamonoo.site",
+    siteName: "yorunowakamono",
+    locale: "en-US",
+    type: "website",
+    images: [
+      {
+        url: "/logo.webp",
+        width: 1024,
+        height: 1024,
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "yorunowakamono",
+    description:
+      "Joven Bataller | Full Stack Developer Portfolio",
+    images: "/logo.webp",
+  },
+
+  metadataBase: new URL("https://wakamonoo.site"),
 };
 
 export default function RootLayout({ children }) {
