@@ -10,6 +10,11 @@ export default function About({ loading }) {
   const [inView, setInView] = useState(false);
   const router = useRouter();
 
+  const age =
+    new Date().getFullYear() -
+    2003 -
+    (new Date() < new Date(new Date().getFullYear(), 5, 17));
+
   useEffect(() => {
     if (loading) return;
     const current = containerRef.current;
@@ -83,7 +88,7 @@ export default function About({ loading }) {
             variants={itemVariants}
             className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
           >
-            I’m <strong>Joven Serdan Bataller</strong>, a 22-year-old{" "}
+            I’m <strong>Joven Serdan Bataller</strong>, a {age}-year-old{" "}
             <strong>Full-Stack Web Developer</strong> from the
             Philippines—driven by discipline, perseverance, and an unyielding
             will. I build modern, resilient websites designed to stand out in
@@ -145,7 +150,11 @@ export default function About({ loading }) {
           </div>
 
           {/* ———————————————————————————————————— resume ——— */}
-          <motion.a variants={itemVariants} href="Joven_Bataller_Resume.pdf" download>
+          <motion.a
+            variants={itemVariants}
+            href="Joven_Bataller_Resume.pdf"
+            download
+          >
             <button
               className="p-2 sm:p-4 text-base md:text-lg lg:text-xl mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
              hover:bg-[var(--color-panel)] hover:scale-110 
