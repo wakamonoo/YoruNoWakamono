@@ -3,7 +3,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import Image from "next/image";
-import Bell from "../assets/bell.png";
+import Bell from "../../assets/bell.png";
 
 export default function Intro() {
   return (

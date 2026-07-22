@@ -3,9 +3,9 @@ import { useEffect, useState, useRef } from "react";
 import { FiSend } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { presetInfo } from "./presetInfo";
-import AibouLoader from "./aibouLoader";
+import AibouLoader from "../loaders/aibouLoader";
 import ReactMarkdown from "react-markdown";
-import Bot from "../assets/aibou.png";
+import Bot from "../../assets/aibou.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 

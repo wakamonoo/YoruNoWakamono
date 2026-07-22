@@ -2,9 +2,9 @@
 import Image from "next/image";
 import wall from "../assets/aotWall.png";
 import me from "../assets/wkmn.png";
-import NavMenu from "@/components/buttons";
-import Signage from "@/components/signage";
-import Intro from "@/components/intro";
+import NavMenu from "@/components/layout/buttons";
+import Signage from "@/components/layout/signage";
+import Intro from "@/components/layout/intro";
 import Titan from "../assets/bertolo.png";
 import { motion, stagger } from "framer-motion";
 import { useEffect, useRef, useState } from "react";

@@ -5,10 +5,10 @@ import Skills from "@/sections/skillSection";
 import Portfolio from "@/sections/portfolioSection";
 import Contact from "@/sections/contactSection";
 import Footer from "@/sections/footer";
-import Loader from "@/components/loader";
+import Loader from "@/components/layout/loader";
 import { useEffect, useState } from "react";
-import Aibou from "@/components/aibou";
-import Bulletin from "@/components/bulletin";
+import Aibou from "@/components/layout/aibou";
+import Bulletin from "@/components/layout/bulletin";
 import Highlight from "@/sections/highlightSection";
 
 export default function Home() {
