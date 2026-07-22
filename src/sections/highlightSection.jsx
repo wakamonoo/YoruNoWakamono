@@ -8,7 +8,6 @@ import HawkEye from "@/assets/nexus/hawkeye.png";
 import Nexus from "@/assets/nexus_logo.png";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import TiktokEmbed from "@/components/layout/tiktokEmbed";
 
 export default function Highlight({ loading }) {
   const containerRef = useRef(null);
@@ -49,12 +48,66 @@ export default function Highlight({ loading }) {
     },
   };
 
-  const embed = {
+  const logo = {
     hidden: { opacity: 0, y: -100 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.1, ease: "easeOut" },
+    },
+  };
+
+  const cap = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const tony = {
+    hidden: { opacity: 0, y: 80 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const thor = {
+    hidden: { opacity: 0, y: -120 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const banner = {
+    hidden: { opacity: 0, y: -80 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const nat = {
+    hidden: { opacity: 0, x: 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
+    },
+  };
+
+  const clint = {
+    hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, ease: "easeOut" },
     },
   };
 
@@ -71,9 +124,6 @@ export default function Highlight({ loading }) {
         >
           SECTOR SHOWCASE ────
         </motion.h1>
-        <motion.div variants={embed}>
-          <TiktokEmbed />
-        </motion.div>
         <motion.p
           variants={itemVariants}
           className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
@@ -86,6 +136,78 @@ export default function Highlight({ loading }) {
           <strong>real-time communication</strong> powered by Socket.io for
           instant coordination between users.
         </motion.p>
+        <div className="flex relative justify-center w-full">
+          <div className="flex relative items-end justify-center">
+            <motion.div
+              variants={cap}
+              sizes="100vw"
+              width={0}
+              height={0}
+              className="w-26 sm:w-30 md:w-38 lg:w-40 xl:w-48  relative z-30 flex-shrink-0"
+            >
+              <Image src={Cap} alt="cap" />
+            </motion.div>
+
+            <motion.div
+              variants={tony}
+              sizes="100vw"
+              width={0}
+              height={0}
+              className="w-28 sm:w-32 md:w-40 lg:w-44 xl:w-54 relative z-20 -ml-20 mb-35 flex-shrink-0"
+            >
+              <Image src={IronMan} alt="ironman" />
+            </motion.div>
+
+            <motion.div
+              variants={thor}
+              sizes="100vw"
+              width={0}
+              height={0}
+              className="w-32 sm:w-36 md:w-44 lg:w-48 xl:w-58 relative z-10 -ml-20 flex-shrink-0"
+            >
+              <Image src={Thor} alt="thor" />
+            </motion.div>
+
+            <motion.div
+              variants={banner}
+              sizes="100vw"
+              width={0}
+              height={0}
+              className="w-56 sm:w-60 md:w-68 lg:w-74 xl:w-86 relative z-5 -ml-26 flex-shrink-0"
+            >
+              <Image src={Hulk} alt="hulk" />
+            </motion.div>
+
+            <motion.div
+              variants={nat}
+              sizes="100vw"
+              width={0}
+              height={0}
+              className="w-24 sm:w-28 md:w-36 lg:w-40 xl:w-46 relative z-40 -ml-30 mb-4 flex-shrink-0"
+            >
+              <Image src={Widow} alt="widow" />
+            </motion.div>
+
+            <motion.div
+              variants={clint}
+              sizes="100vw"
+              width={0}
+              height={0}
+              className="w-44 sm:w-48 md:w-58 lg:w-64 xl:w-76 relative z-50 -ml-24 flex-shrink-0"
+            >
+              <Image src={HawkEye} alt="hawkeye" />
+            </motion.div>
+            <motion.div
+              variants={logo}
+              sizes="100vw"
+              width={0}
+              height={0}
+              className="absolute left-1/2 -translate-x-1/2 bottom-0 opacity-90 mb-42 z-0 w-[90%]"
+            >
+              <Image src={Nexus} alt="nexus logo" />
+            </motion.div>
+          </div>
+        </div>
         <motion.p
           variants={itemVariants}
           className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
@@ -98,13 +220,7 @@ export default function Highlight({ loading }) {
           Data is handled through <strong>REST APIs</strong>, with deployment on{" "}
           <strong>Render</strong> for the server and <strong>Vercel</strong> for
           the client, ensuring stable operation across all fronts. Nexus is one{" "}
-          <a
-            href="https://nexus-wakamonoo.vercel.app"
-            className="font-bold text-[var(--color-nexus)]"
-          >
-            click
-          </a>{" "}
-          away from you so kindly check it out.
+          <a href="https://nexus-wakamonoo.vercel.app" className="font-bold text-[var(--color-nexus)]">click</a> away from you so kindly check it out.
         </motion.p>
       </motion.div>
     </div>
