@@ -93,6 +93,15 @@ export default function Highlight({ loading }) {
     },
   };
 
+  const cardVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <div ref={containerRef}>
       <motion.div
@@ -108,7 +117,10 @@ export default function Highlight({ loading }) {
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-          <div className="bg-panel rounded-2xl p-5 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full">
+          <motion.div
+            variants={cardVariants}
+            className="bg-panel rounded-2xl p-5 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full"
+          >
             <div>
               <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
                 Statistics
@@ -116,6 +128,9 @@ export default function Highlight({ loading }) {
               <div className="grid grid-cols-3 gap-2">
                 <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
                   <CountUp
+                    start={inView ? undefined : 0}
+                    startOnMount={false}
+                    redraw={inView}
                     end={count.usersCount}
                     duration={1.5}
                     className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
@@ -127,6 +142,9 @@ export default function Highlight({ loading }) {
 
                 <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
                   <CountUp
+                    start={inView ? undefined : 0}
+                    startOnMount={false}
+                    redraw={inView}
                     end={count.titlesCount}
                     duration={1.5}
                     className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
@@ -138,6 +156,9 @@ export default function Highlight({ loading }) {
 
                 <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
                   <CountUp
+                    start={inView ? undefined : 0}
+                    startOnMount={false}
+                    redraw={inView}
                     end={count.reviewsCount}
                     duration={1.5}
                     className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
@@ -158,7 +179,7 @@ export default function Highlight({ loading }) {
                 className="flex overflow-x-auto scroll-smooth scrollbar-hide gap-2 snap-x snap-mandatory"
               >
                 <div className="min-w-full snap-start">
-                  <div className="bg-[var(--color-army)] rounded-xl p-4">
+                  <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
                     <div className="flex items-start">
                       <div className="flex items-center justify-center w-8 h-8 shrink-0">
                         <FaQuoteLeft className="text-xs opacity-60" />
@@ -167,12 +188,14 @@ export default function Highlight({ loading }) {
                         helloo super cool website
                       </p>
                     </div>
-                    <p className="text-end">Community Member</p>
+                    <p className="text-end text-xs opacity-60">
+                      - Community Member
+                    </p>
                   </div>
                 </div>
 
                 <div className="min-w-full snap-start">
-                  <div className="bg-[var(--color-army)] rounded-xl p-4">
+                  <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
                     <div className="flex items-start">
                       <div className="flex items-center justify-center w-8 h-8 shrink-0">
                         <FaQuoteLeft className="text-xs opacity-60" />
@@ -181,12 +204,14 @@ export default function Highlight({ loading }) {
                         hi, this website is incredible, thanks for creating it!
                       </p>
                     </div>
-                    <p className="text-end">Community Member</p>
+                    <p className="text-end text-xs opacity-60">
+                      - Community Member
+                    </p>
                   </div>
                 </div>
 
                 <div className="min-w-full snap-start">
-                  <div className="bg-[var(--color-army)] rounded-xl p-4">
+                  <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
                     <div className="flex items-start">
                       <div className="flex items-center justify-center w-8 h-8 shrink-0">
                         <FaQuoteLeft className="text-xs opacity-60" />
@@ -195,7 +220,9 @@ export default function Highlight({ loading }) {
                         thanks so much, this web is awesome!!
                       </p>
                     </div>
-                    <p className="text-end">Community Member</p>
+                    <p className="text-end text-xs opacity-60">
+                      - Community Member
+                    </p>
                   </div>
                 </div>
               </div>
@@ -216,7 +243,7 @@ export default function Highlight({ loading }) {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
           <div>
             <motion.p
               variants={itemVariants}
