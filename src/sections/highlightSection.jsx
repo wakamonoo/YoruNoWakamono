@@ -126,7 +126,7 @@ export default function Highlight({ loading }) {
                 Statistics
               </p>
               <div className="grid grid-cols-3 gap-2">
-                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
+                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center">
                   <CountUp
                     start={inView ? undefined : 0}
                     startOnMount={false}
@@ -140,7 +140,7 @@ export default function Highlight({ loading }) {
                   </p>
                 </div>
 
-                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
+                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center">
                   <CountUp
                     start={inView ? undefined : 0}
                     startOnMount={false}
@@ -154,7 +154,7 @@ export default function Highlight({ loading }) {
                   </p>
                 </div>
 
-                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
+                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center">
                   <CountUp
                     start={inView ? undefined : 0}
                     startOnMount={false}
