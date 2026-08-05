@@ -208,3 +208,14 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  scrollbar-gutter: stable;
+}
+
+/* ———————————————————————————————————— scrollbars ——— */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

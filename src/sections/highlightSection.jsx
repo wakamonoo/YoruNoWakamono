@@ -1,17 +1,62 @@
-import Image from "next/image";
-import Cap from "@/assets/nexus/cap.png";
-import IronMan from "@/assets/nexus/ironman.png";
-import Thor from "@/assets/nexus/thor.png";
-import Hulk from "@/assets/nexus/hulk.png";
-import Widow from "@/assets/nexus/widow.png";
-import HawkEye from "@/assets/nexus/hawkeye.png";
-import Nexus from "@/assets/nexus_logo.png";
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import CountUp from "react-countup";
+import { FaQuoteLeft } from "react-icons/fa";
+
+const BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://yorunowakamono.onrender.com"
+    : "http://localhost:4000";
 
 export default function Highlight({ loading }) {
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
+  const [count, setCount] = useState({
+    usersCount: 0,
+    titlesCount: 0,
+    reviewsCount: 0,
+  });
+  const carouselRef = useRef(null);
+
+  const fetchCounts = async () => {
+    try {
+      const res = await fetch(`${BASE_URL}/api/nexus/countData`);
+      const data = await res.json();
+      setCount(data);
+    } catch (err) {
+      console.error("failed to fetch count:", err);
+    }
+  };
+
+  useEffect(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return;
+
+    const interval = setInterval(() => {
+      const cardWidth = carousel.clientWidth;
+
+      const isAtEnd =
+        carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+
+      if (isAtEnd) {
+        carousel.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+      } else {
+        carousel.scrollBy({
+          left: cardWidth,
+          behavior: "smooth",
+        });
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    fetchCounts();
+  }, []);
 
   useEffect(() => {
     if (loading) return;
@@ -48,69 +93,6 @@ export default function Highlight({ loading }) {
     },
   };
 
-  const logo = {
-    hidden: { opacity: 0, y: -100 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.1, ease: "easeOut" },
-    },
-  };
-
-  const cap = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
-  const tony = {
-    hidden: { opacity: 0, y: 80 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
-  const thor = {
-    hidden: { opacity: 0, y: -120 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
-  const banner = {
-    hidden: { opacity: 0, y: -80 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
-  const nat = {
-    hidden: { opacity: 0, x: 50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
-  const clint = {
-    hidden: { opacity: 0, x: -50 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.3, ease: "easeOut" },
-    },
-  };
-
   return (
     <div ref={containerRef}>
       <motion.div
@@ -124,104 +106,141 @@ export default function Highlight({ loading }) {
         >
           SECTOR SHOWCASE ────
         </motion.h1>
-        <motion.p
-          variants={itemVariants}
-          className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
-        >
-          <strong>Nexus</strong> is a full-stack reconnaissance platform built
-          with the MERN stack, Next.js, and modern web technologies, forged
-          beyond the walls as a digital intelligence hub for Marvel enthusiasts.
-          It allows cadets to <strong>track viewing progression</strong> across
-          the cinematic timeline through release or chronological order, with{" "}
-          <strong>real-time communication</strong> powered by Socket.io for
-          instant coordination between users.
-        </motion.p>
-        <div className="flex relative justify-center w-full">
-          <div className="flex relative items-end justify-center">
-            <motion.div
-              variants={cap}
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="w-26 sm:w-30 md:w-38 lg:w-40 xl:w-48  relative z-30 flex-shrink-0"
-            >
-              <Image src={Cap} alt="cap" />
-            </motion.div>
 
-            <motion.div
-              variants={tony}
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="w-28 sm:w-32 md:w-40 lg:w-44 xl:w-54 relative z-20 -ml-20 mb-35 flex-shrink-0"
-            >
-              <Image src={IronMan} alt="ironman" />
-            </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+          <div className="bg-panel rounded-2xl p-5 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full">
+            <div>
+              <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+                Statistics
+              </p>
+              <div className="grid grid-cols-3 gap-2">
+                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
+                  <CountUp
+                    end={count.usersCount}
+                    duration={1.5}
+                    className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
+                  />
+                  <p className="mt-2 text-xs md:text-sm uppercase tracking-[0.25em] opacity-70">
+                    Members
+                  </p>
+                </div>
 
-            <motion.div
-              variants={thor}
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="w-32 sm:w-36 md:w-44 lg:w-48 xl:w-58 relative z-10 -ml-20 flex-shrink-0"
-            >
-              <Image src={Thor} alt="thor" />
-            </motion.div>
+                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
+                  <CountUp
+                    end={count.titlesCount}
+                    duration={1.5}
+                    className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
+                  />
+                  <p className="mt-2 text-xs md:text-sm uppercase tracking-[0.25em] opacity-70">
+                    Titles
+                  </p>
+                </div>
 
-            <motion.div
-              variants={banner}
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="w-56 sm:w-60 md:w-68 lg:w-74 xl:w-86 relative z-5 -ml-26 flex-shrink-0"
-            >
-              <Image src={Hulk} alt="hulk" />
-            </motion.div>
+                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1">
+                  <CountUp
+                    end={count.reviewsCount}
+                    duration={1.5}
+                    className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
+                  />
+                  <p className="mt-2 text-xs md:text-sm uppercase tracking-[0.25em] opacity-70">
+                    Reviews
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <motion.div
-              variants={nat}
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="w-24 sm:w-28 md:w-36 lg:w-40 xl:w-46 relative z-40 -ml-30 mb-4 flex-shrink-0"
-            >
-              <Image src={Widow} alt="widow" />
-            </motion.div>
+            <div>
+              <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+                Community Feedback
+              </p>
+              <div
+                ref={carouselRef}
+                className="flex overflow-x-auto scroll-smooth scrollbar-hide gap-2 snap-x snap-mandatory"
+              >
+                <div className="min-w-full snap-start">
+                  <div className="bg-[var(--color-army)] rounded-xl p-4">
+                    <div className="flex items-start">
+                      <div className="flex items-center justify-center w-8 h-8 shrink-0">
+                        <FaQuoteLeft className="text-xs opacity-60" />
+                      </div>
+                      <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
+                        helloo super cool website
+                      </p>
+                    </div>
+                    <p className="text-end">Community Member</p>
+                  </div>
+                </div>
 
-            <motion.div
-              variants={clint}
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="w-44 sm:w-48 md:w-58 lg:w-64 xl:w-76 relative z-50 -ml-24 flex-shrink-0"
+                <div className="min-w-full snap-start">
+                  <div className="bg-[var(--color-army)] rounded-xl p-4">
+                    <div className="flex items-start">
+                      <div className="flex items-center justify-center w-8 h-8 shrink-0">
+                        <FaQuoteLeft className="text-xs opacity-60" />
+                      </div>
+                      <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
+                        hi, this website is incredible, thanks for creating it!
+                      </p>
+                    </div>
+                    <p className="text-end">Community Member</p>
+                  </div>
+                </div>
+
+                <div className="min-w-full snap-start">
+                  <div className="bg-[var(--color-army)] rounded-xl p-4">
+                    <div className="flex items-start">
+                      <div className="flex items-center justify-center w-8 h-8 shrink-0">
+                        <FaQuoteLeft className="text-xs opacity-60" />
+                      </div>
+                      <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
+                        thanks so much, this web is awesome!!
+                      </p>
+                    </div>
+                    <p className="text-end">Community Member</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+                AppBuildersPH
+              </p>
+              <div className="rounded-xl bg-brand p-2">
+                <iframe
+                  src="https://appbuildersph.com/embed/apps/nexus"
+                  title="nexus votes on App Builders PH"
+                  className="w-full"
+                  height="72"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  scrolling="no"
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <motion.p
+              variants={itemVariants}
+              className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
             >
-              <Image src={HawkEye} alt="hawkeye" />
-            </motion.div>
-            <motion.div
-              variants={logo}
-              sizes="100vw"
-              width={0}
-              height={0}
-              className="absolute left-1/2 -translate-x-1/2 bottom-0 opacity-90 mb-42 z-0 w-[90%]"
+              <strong>nexus</strong> is an unofficial, independent Marvel fan
+              platform built with the MERN stack and Next.js. It allows fans to
+              track their watch progress in release or chronological order, rate
+              and review titles, discover community rankings, and share posts
+              with other Marvel enthusiasts.
+            </motion.p>
+            <motion.p
+              variants={itemVariants}
+              className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
             >
-              <Image src={Nexus} alt="nexus logo" />
-            </motion.div>
+              Powered by REST APIs, Socket.io, MongoDB, Render, and Vercel,
+              <strong> nexus</strong> provides an interactive experience with
+              real-time chat and notifications. It is a fan-made project and is
+              not affiliated with or endorsed by Marvel or The Walt Disney
+              Company, or any other studios, publishers, or rights holders whose
+              content appears on the platform.
+            </motion.p>
           </div>
         </div>
-        <motion.p
-          variants={itemVariants}
-          className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
-        >
-          A <strong>ranking system</strong> determines the most favored titles
-          through collective judgment, while users can{" "}
-          <strong>share posts</strong> (text, images, videos) and engage via
-          reactions, comments, and saves.{" "}
-          <strong>Real-time notifications</strong> relay all activity instantly.
-          Data is handled through <strong>REST APIs</strong>, with deployment on{" "}
-          <strong>Render</strong> for the server and <strong>Vercel</strong> for
-          the client, ensuring stable operation across all fronts. Nexus is one{" "}
-          <a href="https://nexus-wakamonoo.vercel.app" className="font-bold text-[var(--color-nexus)]">click</a> away from you so kindly check it out.
-        </motion.p>
       </motion.div>
     </div>
   );

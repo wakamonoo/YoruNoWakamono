@@ -24,25 +24,25 @@ export default function Intro() {
           <p className="text-right text-2xl md:text-3xl lg:text-4xl text-normal">
             full-stack developer
           </p>
-          <div className="flex justify-end gap-2 text-4xl md:text-5xl pt-2 text-normal overflow-visible">
+          <div className="flex justify-end gap-2 pt-2 text-normal overflow-visible">
             <a href="https://www.facebook.com/joven.serdanbataller">
               <button className="transition-all duration-300 hover:scale-125 hover:text-[var(--color-accent)] active:scale-125 focus:text-[var(--color-accent)] cursor-pointer">
-                <FaFacebookF />
+                <FaFacebookF className="text-4xl md:text-5xl" />
               </button>
             </a>
             <a href="https://www.instagram.com/wakamonoooo/">
               <button className="transition-all duration-300 hover:scale-125 hover:text-[var(--color-accent)] active:scale-125 focus:text-[var(--color-accent)] cursor-pointer">
-                <FaInstagram />
+                <FaInstagram className="text-4xl md:text-5xl" />
               </button>
             </a>
             <a href="https://www.linkedin.com/in/joven-bataller-085761350/">
               <button className="transition-all duration-300 hover:scale-125 hover:text-[var(--color-accent)] active:scale-125 focus:text-[var(--color-accent)] cursor-pointer">
-                <FaLinkedinIn />
+                <FaLinkedinIn className="text-4xl md:text-5xl" />
               </button>
             </a>
             <a href="https://github.com/wakamonoo">
               <button className="transition-all duration-300 hover:scale-125 hover:text-[var(--color-accent)] active:scale-125 focus:text-[var(--color-accent)] cursor-pointer">
-                <FaGithub />
+                <FaGithub className="text-4xl md:text-5xl" />
               </button>
             </a>
           </div>
