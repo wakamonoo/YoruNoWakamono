@@ -143,7 +143,7 @@
   }
   100% {
     top: 50%;
-    left: calc(50% - 90px);
+    left: calc(50% - 80px);
     transform: translate(-50%, -50%);
   }
 }

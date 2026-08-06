@@ -29,7 +29,7 @@ export default function Loader({ onFinish }) {
           />
           <h1
             onAnimationEnd={onFinish}
-            className="absolute font-tall text-6xl ml-24 opacity-0 text-black animate-[wkmn-fade_1s_ease-in-out_forwards] [animation-delay:1200ms]"
+            className="absolute font-tall text-6xl ml-32 opacity-0 text-black animate-[wkmn-fade_1s_ease-in-out_forwards] [animation-delay:1200ms]"
           >
             WKMN
           </h1>

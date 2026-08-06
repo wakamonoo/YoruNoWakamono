@@ -16,6 +16,7 @@ export default function Highlight({ loading }) {
     titlesCount: 0,
     reviewsCount: 0,
   });
+  const [countLoading, setCountLoading] = useState(true);
   const carouselRef = useRef(null);
 
   const fetchCounts = async () => {
@@ -25,6 +26,8 @@ export default function Highlight({ loading }) {
       setCount(data);
     } catch (err) {
       console.error("failed to fetch count:", err);
+    } finally {
+      setCountLoading(false)
     }
   };
 
@@ -143,9 +146,9 @@ export default function Highlight({ loading }) {
               </p>
               <div className="grid grid-cols-3 gap-2">
                 <div
-                  className={`rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${!count ? "animate-pulse" : "animate-none"}`}
+                  className={`rounded-xl bg-brand p-3 text-center transition duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${countLoading ? "animate-pulse" : "animate-none"}`}
                 >
-                  {count && (
+                  {!countLoading && (
                     <>
                       <CountUp
                         start={inView ? undefined : 0}
@@ -163,9 +166,9 @@ export default function Highlight({ loading }) {
                 </div>
 
                 <div
-                  className={`rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${!count ? "animate-pulse" : "animate-none"}`}
+                  className={`rounded-xl bg-brand p-3 text-center transition duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${countLoading ? "animate-pulse" : "animate-none"}`}
                 >
-                  {count && (
+                  {!countLoading && (
                     <>
                       <CountUp
                         start={inView ? undefined : 0}
@@ -183,9 +186,9 @@ export default function Highlight({ loading }) {
                 </div>
 
                 <div
-                  className={`rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${!count ? "animate-pulse" : "animate-none"}`}
+                  className={`rounded-xl bg-brand p-3 text-center transition duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${countLoading ? "animate-pulse" : "animate-none"}`}
                 >
-                  {count && (
+                  {!countLoading && (
                     <>
                       <CountUp
                         start={inView ? undefined : 0}

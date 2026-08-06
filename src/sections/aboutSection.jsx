@@ -76,7 +76,7 @@ export default function About({ loading }) {
         <div className="w-full clearfix">
           <motion.div
             variants={imageVariants}
-            className="float-left max-w-[24rem] mr-2 mb-2 relative z-40"
+            className="float-left w-1/2 max-w-[24rem] mr-2 mb-2 relative z-40"
           >
             <Image
               src={AboutImage}
@@ -106,10 +106,10 @@ export default function About({ loading }) {
             <motion.ul variants={itemVariants} className="mt-4">
               <li className="flex flex-col text-sm">
                 <div className="flex items-start w-full">
-                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/4">
+                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
                     2021-2025
                   </span>
-                  <div className="text-base font-bold text-header leading-tight w-3/4">
+                  <div className="text-base font-bold text-header leading-tight w-1/2">
                     INFORMATION TECHNOLOGY
                     <br />
                     <span
@@ -131,10 +131,10 @@ export default function About({ loading }) {
             <motion.ul variants={itemVariants} className="mt-4">
               <li className="flex flex-col text-sm">
                 <div className="flex items-start w-full">
-                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/4">
+                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
                     2025
                   </span>
-                  <div className="text-base font-bold text-header leading-tight w-3/4">
+                  <div className="text-base font-bold text-header leading-tight w-1/2">
                     IT SUPPORT | UI/UX DESIGNER
                     <br />
                     <span
