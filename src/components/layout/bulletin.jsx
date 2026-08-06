@@ -60,12 +60,12 @@ export default function Bulletin({ loading }) {
           speed={80}
           className="cursor-pointer bg-panel"
         >
-          <h1 className="text-base md:text-lg lg:text-xl font-tall text-header bg-brand border-x-3 border-[var(--color-secondary)] p-4">
+          <h1 className="text-base font-tall text-header bg-brand border-x-3 border-[var(--color-secondary)] p-4">
             Regiment Bulletin:
           </h1>
-          <MdFiberManualRecord className="text-base md:text-lg lg:text-xl m-2" />
+          <MdFiberManualRecord className="text-base m-2" />
           <div className="flex items-center px-4">
-            <p className="text-sm md:text-base lg:text-lg text-normal">
+            <p className="text-sm text-normal">
               I am open for website programming gigs and part-time or full-time
               work in Junior Developer roles. I specialize in building modern
               full-stack web applications using the MERN stack, Next.js, and
@@ -80,7 +80,7 @@ export default function Bulletin({ loading }) {
                   "mailto:joven.serdanbataller21@gmail.com")
               }
             >
-              <p className="text-sm md:text-base lg:text-lg font-bold">
+              <p className="text-sm font-bold">
                 Hire me!
               </p>
             </button>

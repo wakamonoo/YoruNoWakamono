@@ -111,12 +111,12 @@ export default function Highlight({ loading }) {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-2xl md:text-3xl lg:text-4xl mb-4 text-header md:mb-8 lg:mb-12"
+          className="text-2xl mb-4 text-header"
         >
           SECTOR SHOWCASE ────
         </motion.h1>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-2 items-center">
           <motion.div
             variants={cardVariants}
             className="bg-panel rounded-2xl p-5 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full"
@@ -126,46 +126,64 @@ export default function Highlight({ loading }) {
                 Statistics
               </p>
               <div className="grid grid-cols-3 gap-2">
-                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center">
-                  <CountUp
-                    start={inView ? undefined : 0}
-                    startOnMount={false}
-                    redraw={inView}
-                    end={count.usersCount}
-                    duration={1.5}
-                    className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
-                  />
-                  <p className="mt-2 text-xs md:text-sm uppercase tracking-[0.25em] opacity-70">
-                    Members
-                  </p>
+                <div
+                  className={`rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${!count ? "animate-pulse" : "animate-none"}`}
+                >
+                  {count && (
+                    <>
+                      <CountUp
+                        start={inView ? undefined : 0}
+                        startOnMount={false}
+                        redraw={inView}
+                        end={count.usersCount}
+                        duration={1.5}
+                        className="block text-2xl font-extrabold text-accent"
+                      />
+                      <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                        Members
+                      </p>
+                    </>
+                  )}
                 </div>
 
-                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center">
-                  <CountUp
-                    start={inView ? undefined : 0}
-                    startOnMount={false}
-                    redraw={inView}
-                    end={count.titlesCount}
-                    duration={1.5}
-                    className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
-                  />
-                  <p className="mt-2 text-xs md:text-sm uppercase tracking-[0.25em] opacity-70">
-                    Titles
-                  </p>
+                <div
+                  className={`rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${!count ? "animate-pulse" : "animate-none"}`}
+                >
+                  {count && (
+                    <>
+                      <CountUp
+                        start={inView ? undefined : 0}
+                        startOnMount={false}
+                        redraw={inView}
+                        end={count.titlesCount}
+                        duration={1.5}
+                        className="block text-2xl font-extrabold text-accent"
+                      />
+                      <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                        Titles
+                      </p>
+                    </>
+                  )}
                 </div>
 
-                <div className="rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center">
-                  <CountUp
-                    start={inView ? undefined : 0}
-                    startOnMount={false}
-                    redraw={inView}
-                    end={count.reviewsCount}
-                    duration={1.5}
-                    className="block text-2xl md:text-3xl lg:text-4xl font-extrabold text-accent"
-                  />
-                  <p className="mt-2 text-xs md:text-sm uppercase tracking-[0.25em] opacity-70">
-                    Reviews
-                  </p>
+                <div
+                  className={`rounded-xl bg-brand p-3 text-center transtion duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${!count ? "animate-pulse" : "animate-none"}`}
+                >
+                  {count && (
+                    <>
+                      <CountUp
+                        start={inView ? undefined : 0}
+                        startOnMount={false}
+                        redraw={inView}
+                        end={count.reviewsCount}
+                        duration={1.5}
+                        className="block text-2xl font-extrabold text-accent"
+                      />
+                      <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                        Reviews
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>
@@ -247,7 +265,7 @@ export default function Highlight({ loading }) {
           <div>
             <motion.p
               variants={itemVariants}
-              className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6 mb-4 md:mb-8"
+              className="text-normal text-justify text-base font-normal leading-tight"
             >
               <strong>nexus</strong> is an unofficial, independent Marvel fan
               platform built with the MERN stack and Next.js. It allows fans to
@@ -255,9 +273,10 @@ export default function Highlight({ loading }) {
               and review titles, discover community rankings, and share posts
               with other Marvel enthusiasts.
             </motion.p>
+            <br />
             <motion.p
               variants={itemVariants}
-              className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
+              className="text-normal text-justify text-base font-normal leading-tight"
             >
               Powered by REST APIs, Socket.io, MongoDB, Render, and Vercel,
               <strong> nexus</strong> provides an interactive experience with

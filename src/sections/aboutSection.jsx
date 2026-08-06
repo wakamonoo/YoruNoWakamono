@@ -68,7 +68,7 @@ export default function About({ loading }) {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-2xl md:text-3xl lg:text-4xl mb-4 text-header md:mb-8 lg:mb-12"
+          className="text-2xl mb-4 text-header"
         >
           THE DIGITAL SCOUT ────
         </motion.h1>
@@ -76,7 +76,7 @@ export default function About({ loading }) {
         <div className="w-full clearfix">
           <motion.div
             variants={imageVariants}
-            className="float-left w-1/2 max-w-[30rem] mr-2 mb-2 md:mr-4 md:mb-4 lg:mr-8 lg:mb-8 relative z-40"
+            className="float-left max-w-[24rem] mr-2 mb-2 relative z-40"
           >
             <Image
               src={AboutImage}
@@ -86,35 +86,35 @@ export default function About({ loading }) {
           </motion.div>
           <motion.p
             variants={itemVariants}
-            className="text-normal text-justify text-base md:text-lg lg:text-xl font-normal leading-4.5 md:leading-6"
+            className="text-normal text-justify text-base font-normal leading-tight"
           >
             I’m <strong>Joven Serdan Bataller</strong>, a {age}-year-old{" "}
             <strong>Full-Stack Web Developer</strong> from the
-            Philippines—driven by discipline, perseverance, and an unyielding
+            Philippines, driven by discipline, perseverance, and an unyielding
             will. I build modern, resilient websites designed to stand out in
             any digital battlefield, turning ideas into powerful realities that
             help people and businesses rise above the ordinary.
           </motion.p>
 
-          <div className="mt-4 sm:mt-8">
+          <div className="mt-4">
             <motion.h2
               variants={itemVariants}
-              className="text-xl md:text-2xl lg:text-3xl p-2 bg-brand rounded text-header"
+              className="text-xl p-2 bg-brand rounded text-header"
             >
               EDUCATION
             </motion.h2>
             <motion.ul variants={itemVariants} className="mt-4">
               <li className="flex flex-col text-sm">
                 <div className="flex items-start w-full">
-                  <span className="flex justify-center items-center md:text-base lg:text-lg p-2 border border-accent rounded-2xl mr-2  md:mr-4 lg:mr-8 w-1/2">
+                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/4">
                     2021-2025
                   </span>
-                  <div className="text-base md:text-lg lg:text-xl font-bold text-header leading-4 lg:leading-5 w-1/2">
+                  <div className="text-base font-bold text-header leading-tight w-3/4">
                     INFORMATION TECHNOLOGY
                     <br />
                     <span
                       onClick={() => router.push("https://bicol-u.edu.ph/")}
-                      className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                      className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
                     >
                       Bicol University Polangui
                     </span>
@@ -124,22 +124,22 @@ export default function About({ loading }) {
             </motion.ul>
             <motion.h2
               variants={itemVariants}
-              className="text-xl md:text-2xl lg:text-3xl mt-4 p-2 bg-brand rounded text-header"
+              className="text-xl mt-4 p-2 bg-brand rounded text-header"
             >
               EXPERIENCE
             </motion.h2>
             <motion.ul variants={itemVariants} className="mt-4">
               <li className="flex flex-col text-sm">
                 <div className="flex items-start w-full">
-                  <span className="flex justify-center items-center md:text-base lg:text-lg p-2 px-12 border border-accent rounded-2xl mr-2  md:mr-4 lg:mr-8 w-1/2">
+                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/4">
                     2025
                   </span>
-                  <div className="text-base md:text-lg lg:text-xl font-bold text-header leading-4 lg:leading-5 w-1/2">
+                  <div className="text-base font-bold text-header leading-tight w-3/4">
                     IT SUPPORT | UI/UX DESIGNER
                     <br />
                     <span
                       onClick={() => router.push("https://bytescrafter.net/")}
-                      className="text-sm md:text-base lg:text-lg font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                      className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
                     >
                       BytesCrafter I.T Solutions
                     </span>
@@ -156,7 +156,7 @@ export default function About({ loading }) {
             download
           >
             <button
-              className="p-2 sm:p-4 text-base md:text-lg lg:text-xl mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
+              className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)] cursor-pointer"
             >

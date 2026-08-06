@@ -42,18 +42,18 @@ export default function Home() {
       </section>
 
       {/* ———————————————————————————————————— about section ——— */}
-      <section id="about" className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
+      <section id="about" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
         <About loading={loading} />
       </section>
 
       {/* ———————————————————————————————————— about section ——— */}
-      <div className="bg-second">
+      <div className="bg-second py-8 md:py-16">
         <Bulletin loading={loading} />
       </div>
 
       <section
         id="highlight"
-        className="bg-second p-8 md:p-16 lg:p-32 xl:px-72"
+        className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
       >
         <Highlight loading={loading} />
       </section>
@@ -61,18 +61,18 @@ export default function Home() {
       {/* ———————————————————————————————————— portfolio section ——— */}
       <section
         id="portfolio"
-        className="bg-second p-8 md:p-16 lg:p-32 xl:px-72"
+        className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
       >
         <Portfolio loading={loading} />
       </section>
 
       {/* ———————————————————————————————————— skills section ——— */}
-      <section id="skills" className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
+      <section id="skills" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
         <Skills loading={loading} />
       </section>
 
       {/* ———————————————————————————————————— contact section ——— */}
-      <section id="contact" className="bg-second p-8 md:p-16 lg:p-32 xl:px-72">
+      <section id="contact" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
         <Contact loading={loading} />
       </section>
 

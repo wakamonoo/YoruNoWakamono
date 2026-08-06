@@ -44,7 +44,7 @@ export default function NavMenu() {
         </div>
       ) : (
         <button onClick={() => setExpanded(true)} className="p-4 text-normal">
-          <MdApps className="text-4xl md:text-5xl text-normal cursor-pointer hover:-translate-y-2 active:-translate-y-2 transition" />
+          <MdApps className="text-4xl text-normal cursor-pointer hover:-translate-y-2 active:-translate-y-2 transition" />
         </button>
       )}
     </div>
@@ -56,54 +56,54 @@ function NavLinks() {
     <>
       <div className="relative flex flex-col items-center justify-center group">
         <a href="#hero" className="relative z-10">
-          <AiFillHome className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl md:text-5xl" />
+          <AiFillHome className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
         </a>
-        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Home
         </p>
       </div>
 
       <div className="relative flex flex-col items-center justify-center group">
         <a href="#about" className="relative z-10">
-          <VscAccount className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl md:text-5xl" />
+          <VscAccount className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
         </a>
-        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           About
         </p>
       </div>
 
       <div className="relative flex flex-col items-center justify-center group">
         <a href="#highlight" className="relative z-10">
-          <FaCrosshairs className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl md:text-5xl" />
+          <FaCrosshairs className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
         </a>
-        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Highlight
         </p>
       </div>
 
       <div className="relative flex flex-col items-center justify-center group">
         <a href="#portfolio" className="relative z-10">
-          <CgWebsite className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl md:text-5xl" />
+          <CgWebsite className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
         </a>
-        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Portfolio
         </p>
       </div>
 
       <div className="relative flex flex-col items-center justify-center group">
         <a href="#skills" className="relative z-10">
-          <RiRocket2Fill className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl md:text-5xl" />
+          <RiRocket2Fill className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
         </a>
-        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Skills
         </p>
       </div>
 
       <div className="relative flex flex-col items-center justify-center group">
         <a href="#contact" className="relative z-10">
-          <FaEnvelope className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl md:text-5xl" />
+          <FaEnvelope className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
         </a>
-        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8 md:mt-10">
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Contact
         </p>
       </div>

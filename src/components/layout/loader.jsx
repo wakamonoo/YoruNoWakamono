@@ -19,17 +19,18 @@ export default function Loader({ onFinish }) {
   }, []);
   return (
     <div className="fixed inset-0 z-100 backdrop-blur-2xl flex justify-center items-center w-screen h-screen ">
+      <div className="absolute left-1/2 top-0 h-full w-px bg-red-500" />
       {show && (
         <>
           <Image
             src={wkmn}
             alt="wakamono-logo"
             priority
-            className="absolute object-cover w-36 sm:w-50 lg:w-60 xl:70 h-auto animate-[center-left_1s_ease-in-out_forwards] [animation-delay:1000ms]"
+            className="absolute object-cover w-36 h-auto animate-[center-left_1s_ease-in-out_forwards] [animation-delay:1000ms]"
           />
           <h1
             onAnimationEnd={onFinish}
-            className="absolute font-tall text-6xl sm:text-7xl lg:text-8xl xl:text-9xl opacity-0 text-black ml-32 sm:ml-40 lg:ml-56 xl:ml-60 animate-[wkmn-fade_1s_ease-in-out_forwards] [animation-delay:1200ms]"
+            className="absolute font-tall text-6xl ml-24 opacity-0 text-black animate-[wkmn-fade_1s_ease-in-out_forwards] [animation-delay:1200ms]"
           >
             WKMN
           </h1>

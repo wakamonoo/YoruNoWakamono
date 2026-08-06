@@ -98,7 +98,7 @@ export default function Contact({ loading }) {
       >
         <motion.h1
           variants={itemVariants}
-          className="text-2xl md:text-3xl lg:text-4xl mb-4 text-header md:mb-8 lg:mb-12"
+          className="text-2xl mb-4 text-header"
         >
           DISPATCH RESOLVE ────
         </motion.h1>
@@ -113,33 +113,33 @@ export default function Contact({ loading }) {
             name="name"
             required
             type="text"
-            className="w-full border bg-panel p-2 rounded text-base md:text-lg lg:text-xl"
+            className="w-full border bg-panel p-2 rounded text-base"
           />
           <input
             placeholder="your signal relay code (email)"
             name="email"
             required
             type="email"
-            className="w-full border bg-panel p-2 rounded text-base md:text-lg lg:text-xl"
+            className="w-full border bg-panel p-2 rounded text-base"
           />
           <input
             placeholder="mission intent (subject)"
             name="title"
             required
             type="text"
-            className="w-full border bg-panel p-2 rounded text-base md:text-lg lg:text-xl"
+            className="w-full border bg-panel p-2 rounded text-base"
           />
           <textarea
             placeholder="detail your intel (message)"
             name="message"
             required
             type="text"
-            className="w-full h-[20vh] border bg-panel p-2 rounded text-base md:text-lg lg:text-xl"
+            className="w-full h-[20vh] border bg-panel p-2 rounded text-base"
           />
           <div>
             <button
               type="submit"
-              className="p-2 sm:p-4 text-base md:text-lg lg:text-xl mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
+              className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)] cursor-pointer"
             >
@@ -150,7 +150,7 @@ export default function Contact({ loading }) {
 
         <motion.p
           variants={itemVariants}
-          className="font-normal text-sm md:text-base lg:text-lg py-8 text-normal"
+          className="font-normal text-sm py-8 text-normal"
         >
           alternate recon points:
         </motion.p>
@@ -168,14 +168,14 @@ export default function Contact({ loading }) {
             href="https://www.facebook.com/joven.serdanbataller"
           >
             <div
-              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
+              className="p-4 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
-              <div className="text-4xl md:text-5xl mb-4 font-header text-header">
+              <div className="text-4xl mb-4 font-header text-header">
                 <FaFacebookF />
               </div>
-              <h4 className="text-xl md:text-2xl lg:text-3xl font-header text-header">
+              <h4 className="text-xl font-header text-header">
                 Joven Bataller
               </h4>
             </div>
@@ -186,14 +186,14 @@ export default function Contact({ loading }) {
             href="https://www.instagram.com/wakamonoooo/"
           >
             <div
-              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
+              className="p-4 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
-              <div className="text-4xl md:text-5xl mb-4 font-header text-header">
+              <div className="text-4xl mb-4 font-header text-header">
                 <FaInstagram />
               </div>
-              <h4 className="text-xl md:text-2xl lg:text-3xl font-header text-header">
+              <h4 className="text-xl font-header text-header">
                 WAKAMONOOOO
               </h4>
             </div>
@@ -204,14 +204,14 @@ export default function Contact({ loading }) {
             href="https://www.linkedin.com/in/joven-bataller-085761350/"
           >
             <div
-              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
+              className="p-4 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
-              <div className="text-4xl md:text-5xl mb-4 font-header text-header">
+              <div className="text-4xl mb-4 font-header text-header">
                 <FaLinkedinIn />
               </div>
-              <h4 className="text-xl md:text-2xl lg:text-3xl font-header text-header">
+              <h4 className="text-xl font-header text-header">
                 JOVEN BATALLER
               </h4>
             </div>
@@ -219,14 +219,14 @@ export default function Contact({ loading }) {
 
           <motion.a variants={itemVariants} href="https://github.com/wakamonoo">
             <div
-              className="p-4 sm:p-8 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
+              className="p-4 w-full h-full bg-gradient-to-br from-[var(--color-bg)] to-[var(--color-panel)] rounded border transition-all duration-200 hover:[background-image:none]
              hover:bg-[var(--color-panel)] hover:scale-110 
              active:scale-110 active:bg-[var(--color-panel)]"
             >
-              <div className="text-4xl md:text-5xl mb-4 font-header text-header">
+              <div className="text-4xl mb-4 font-header text-header">
                 <FaGithub />
               </div>
-              <h4 className="text-xl md:text-2xl lg:text-3xl font-header text-header">
+              <h4 className="text-xl font-header text-header">
                 WAKAMONOO
               </h4>
             </div>

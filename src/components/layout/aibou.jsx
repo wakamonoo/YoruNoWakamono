@@ -198,7 +198,7 @@ export default function Aibou({ loading }) {
           onClick={() => setIsOpen((open) => !open)}
           className="fixed bottom-4 p-2 right-4 flex rounded-full bg-army shadow-2xl z-60 cursor-pointer transform translate duration-200 hover:scale-110 active:scale-110"
         >
-          <Image src={Bot} alt="bot" className="w-12 lg:w-14 h-auto" />
+          <Image src={Bot} alt="bot" className="w-12 h-auto" />
         </motion.div>
       )}
 
@@ -212,13 +212,13 @@ export default function Aibou({ loading }) {
               <Image
                 src={Bot}
                 alt="bot"
-                className="w-12 lg:w-14 bg-army p-2 rounded-full"
+                className="w-12 h-auto bg-army p-2 rounded-full"
               />
               <div className="flex flex-col justify-center mt-1">
-                <p className="text-lg md:text-xl font-semibold text-header leading-3">
+                <p className="text-base font-semibold text-header leading-3">
                   Chat with <strong>Aibou</strong>
                 </p>
-                <p className="text-xs md:text-sm font-normal opacity-60">
+                <p className="text-xs font-normal opacity-60">
                   powered by <strong>gemini-3.1-flash-lite</strong>
                 </p>
               </div>
@@ -226,7 +226,7 @@ export default function Aibou({ loading }) {
             <div>
               <MdClose
                 onClick={() => setIsOpen(false)}
-                className="hover:scale-110 active:scale-110 cursor-pointer text-xl md:text-2xl"
+                className="hover:scale-110 active:scale-110 cursor-pointer text-xl"
               />
             </div>
           </div>
@@ -243,10 +243,10 @@ export default function Aibou({ loading }) {
               >
                 {msg.sender === "user" ? (
                   <>
-                    <p className="bg-brand w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base md:text-lg rounded-2xl">
+                    <p className="bg-brand w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
                       {msg.text}
                     </p>
-                    <FiUser className="text-4xl md:text-5xl bg-brand rounded-full p-2" />
+                    <FiUser className="text-4xl bg-brand rounded-full p-2" />
                   </>
                 ) : (
                   <>
@@ -254,9 +254,9 @@ export default function Aibou({ loading }) {
                     <Image
                       src={Bot}
                       alt="bot"
-                      className="w-10 md:w-12 bg-panel p-2 rounded-full"
+                      className="w-10 h-auto bg-panel p-2 rounded-full"
                     />
-                    <div className="bg-panel w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base md:text-lg rounded-2xl">
+                    <div className="bg-panel w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
                       <ReactMarkdown>{msg.text}</ReactMarkdown>
                     </div>
                   </>
@@ -280,7 +280,7 @@ export default function Aibou({ loading }) {
                         "Is Joven looking for work and currently available for hire?",
                       )
                     }
-                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
+                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
                     is joven available for hire?
                   </p>
@@ -290,7 +290,7 @@ export default function Aibou({ loading }) {
                 <div className="contains">
                   <p
                     onClick={() => handleSent("What is Joven's tech-stack?")}
-                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg  font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
+                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
                     what is joven's tech-stack?
                   </p>
@@ -305,7 +305,7 @@ export default function Aibou({ loading }) {
                         "How many github contributions in all repositories did joven made today and what are those?",
                       )
                     }
-                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base md:text-lg  font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
+                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
                   >
                     joven's gitHub contributions today?
                   </p>
@@ -316,7 +316,7 @@ export default function Aibou({ loading }) {
 
           <div className="flex bg-panel justify-between gap-2 items-center p-3">
             <textarea
-              className="flex-1 text-[var(--color-bg)] placeholder-[var(--color-bg)] text-base md:text-lg bg-[var(--color-accent)] p-2 rounded-md"
+              className="flex-1 text-[var(--color-bg)] placeholder-[var(--color-bg)] text-base bg-[var(--color-accent)] p-2 rounded-md"
               placeholder="need help? ask here."
               value={draftText}
               onChange={(e) => setDraftText(e.target.value)}
@@ -333,9 +333,9 @@ export default function Aibou({ loading }) {
               onClick={() => {
                 if (!load) handleSent();
               }}
-              className="bg-[var(--color-accent)] p-2 flex items-center justify-center w-fit h-full rounded-md transition duration-100 hover:scale-110 active:scale-110"
+              className="bg-[var(--color-accent)] py-2 px-4 flex items-center justify-center w-fit h-full rounded-md transition duration-100 hover:scale-110 active:scale-110"
             >
-              <FiSend className="text-3xl lg:text-4xl text-[var(--color-bg)] shrink-0" />
+              <FiSend className="text-3xl text-[var(--color-bg)] shrink-0" />
             </button>
           </div>
         </div>
