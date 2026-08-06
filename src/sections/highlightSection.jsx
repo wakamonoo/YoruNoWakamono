@@ -123,6 +123,22 @@ export default function Highlight({ loading }) {
           >
             <div>
               <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+                AppBuildersPH
+              </p>
+              <div className="rounded-xl bg-brand p-2">
+                <iframe
+                  src="https://appbuildersph.com/embed/apps/nexus"
+                  title="nexus votes on App Builders PH"
+                  className="w-full"
+                  height="72"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  scrolling="no"
+                />
+              </div>
+            </div>
+            <div>
+              <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
                 Statistics
               </p>
               <div className="grid grid-cols-3 gap-2">
@@ -243,22 +259,6 @@ export default function Highlight({ loading }) {
                     </p>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div>
-              <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
-                AppBuildersPH
-              </p>
-              <div className="rounded-xl bg-brand p-2">
-                <iframe
-                  src="https://appbuildersph.com/embed/apps/nexus"
-                  title="nexus votes on App Builders PH"
-                  className="w-full"
-                  height="72"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  scrolling="no"
-                />
               </div>
             </div>
           </motion.div>
