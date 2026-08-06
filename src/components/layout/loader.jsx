@@ -19,7 +19,6 @@ export default function Loader({ onFinish }) {
   }, []);
   return (
     <div className="fixed inset-0 z-100 backdrop-blur-2xl flex justify-center items-center w-screen h-screen ">
-      <div className="absolute left-1/2 top-0 h-full w-px bg-red-500" />
       {show && (
         <>
           <Image
