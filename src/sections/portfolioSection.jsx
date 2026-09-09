@@ -51,7 +51,7 @@ export default function Portfolio({ loading }) {
             observer.unobserve(entry.target);
           }
         },
-        { threshold: 0.4 }
+        { threshold: 0.4 },
       );
       if (ref.current) observer.observe(ref.current);
     };
@@ -128,9 +128,7 @@ export default function Portfolio({ loading }) {
                   className="w-[8rem] h-auto rounded"
                 />
                 <div className="w-full ml-2">
-                  <h4 className="text-lg text-header">
-                    FIRSTRESPONSE
-                  </h4>
+                  <h4 className="text-lg text-header">FIRSTRESPONSE</h4>
                   <p className="text-base leading-tight text-normal">
                     First aid and emergency response application for the 3rd
                     District of Albay, Bicol Region.
@@ -170,9 +168,7 @@ export default function Portfolio({ loading }) {
                   className="w-[8rem] h-auto rounded"
                 />
                 <div className="w-full ml-2">
-                  <h4 className="text-lg text-header">
-                    REVVED
-                  </h4>
+                  <h4 className="text-lg text-header">REVVED</h4>
                   <p className="text-base leading-tight text-normal">
                     Web-based E-commerce platform for motorcycle parts and
                     accessories.
@@ -216,9 +212,7 @@ export default function Portfolio({ loading }) {
                       className="w-[8rem] h-auto rounded"
                     />
                     <div className="w-full ml-2">
-                      <h4 className="text-lg text-header">
-                        ANCESTORY
-                      </h4>
+                      <h4 className="text-lg text-header">ANCESTORY</h4>
                       <p className="text-base leading-tight text-normal">
                         Interactive website for local-folk stories.
                       </p>
@@ -260,9 +254,7 @@ export default function Portfolio({ loading }) {
                       className="w-[8rem] h-auto rounded"
                     />
                     <div className="w-full ml-2">
-                      <h4 className="text-lg text-header">
-                        NEXUS
-                      </h4>
+                      <h4 className="text-lg text-header">NEXUS</h4>
                       <p className="text-base leading-tight text-normal">
                         MCU fansite to track watch progress, rank titles,
                         interact with community and many more.
@@ -309,9 +301,7 @@ export default function Portfolio({ loading }) {
                       className="w-[8rem] h-auto rounded"
                     />
                     <div className="w-full ml-2">
-                      <h4 className="text-lg text-header">
-                        ARQILA
-                      </h4>
+                      <h4 className="text-lg text-header">ARQILA</h4>
                       <p className="text-base leading-tight text-normal">
                         Simple, safe, and reliable car rentals with self-drive
                         and chauffeur options.
@@ -356,8 +346,7 @@ export default function Portfolio({ loading }) {
             <button
               onClick={() => setShowProjects((prev) => !prev)}
               className="p-2 text-base  mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
-             hover:bg-[var(--color-panel)] hover:scale-110 
-             active:scale-110 active:bg-[var(--color-panel)] cursor-pointer"
+             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
             >
               {showProjects ? "NIGERO逃げろ!" : "SUSUME進め!"}
             </button>
@@ -400,9 +389,7 @@ export default function Portfolio({ loading }) {
                     className="w-[8rem] h-auto rounded"
                   />
                   <div className="w-full ml-2">
-                    <h4 className="text-lg text-header">
-                      SORA
-                    </h4>
+                    <h4 className="text-lg text-header">SORA</h4>
                     <p className="text-base leading-tight text-normal">
                       Web-application for tracking weather, time, temperature,
                       sunset and sunrise time in various locations.
@@ -444,9 +431,7 @@ export default function Portfolio({ loading }) {
                     className="w-[8rem] h-auto rounded"
                   />
                   <div className="w-full ml-2">
-                    <h4 className="text-lg text-header">
-                      DEBTFLIX
-                    </h4>
+                    <h4 className="text-lg text-header">DEBTFLIX</h4>
                     <p className="text-base leading-tight text-normal">
                       A useful but naughty way of Debt-Tracking.
                     </p>
@@ -490,9 +475,7 @@ export default function Portfolio({ loading }) {
                         className="w-[8rem] h-auto rounded"
                       />
                       <div className="w-full ml-2">
-                        <h4 className="text-lg text-header">
-                          KANDILI
-                        </h4>
+                        <h4 className="text-lg text-header">KANDILI</h4>
                         <p className="text-base leading-tight text-normal">
                           Your cute and aesthetic digital diary, be private or
                           connect with friends.
@@ -535,9 +518,7 @@ export default function Portfolio({ loading }) {
                         className="w-[8rem] h-auto rounded"
                       />
                       <div className="w-full ml-2">
-                        <h4 className="text-lg text-header">
-                          TODOCHAN
-                        </h4>
+                        <h4 className="text-lg text-header">TODOCHAN</h4>
                         <p className="text-base leading-tight text-normal">
                           A minimalist to-do list web app focused on simplicity
                           and ease of use
@@ -579,9 +560,7 @@ export default function Portfolio({ loading }) {
                         className="w-[8rem] h-auto rounded"
                       />
                       <div className="w-full ml-2">
-                        <h4 className="text-lg text-header">
-                          POINTCITY
-                        </h4>
+                        <h4 className="text-lg text-header">POINTCITY</h4>
                         <p className="text-base leading-tight text-normal">
                           Online and offline basketball stats-tracker.
                         </p>
@@ -622,9 +601,7 @@ export default function Portfolio({ loading }) {
                         className="w-[8rem] h-auto rounded"
                       />
                       <div className="w-full ml-2">
-                        <h4 className="text-lg text-header">
-                          RINA
-                        </h4>
+                        <h4 className="text-lg text-header">RINA</h4>
                         <p className="text-base leading-tight text-normal">
                           A browser extension for youtube assistance. Primary
                           use of voice commands for tab control
@@ -665,8 +642,7 @@ export default function Portfolio({ loading }) {
             <button
               onClick={() => setShowMinorProjects((prevs) => !prevs)}
               className="p-2 text-base  mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
-             hover:bg-[var(--color-panel)] hover:scale-110 
-             active:scale-110 active:bg-[var(--color-panel)] cursor-pointer"
+             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
             >
               {showMinorProjects ? "NIGERO逃げろ!" : "SUSUME進め!"}
             </button>

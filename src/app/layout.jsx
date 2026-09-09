@@ -54,18 +54,18 @@ const roboto = Roboto({
 // Metadata
 export const metadata = {
   title: {
-    default: "yorunowakamono",
-    template: "%s | yorunowakamono",
+    default: "Joven Bataller | Full Stack Developer Portfolio",
+    template: "%s | Joven Bataller",
   },
   description:
-    "Joven Bataller | Full Stack Developer Portfolio",
+    "Joven Bataller is a full stack developer specializing in React, Next.js, Node.js, and modern web applications.",
 
   openGraph: {
-    title: "yorunowakamono",
+    title: "Joven Bataller | Full Stack Developer Portfolio",
     description:
-      "Joven Bataller | Full Stack Developer Portfolio",
+      "Joven Bataller is a full stack developer specializing in React, Next.js, Node.js, and modern web applications.",
     url: "https://wakamonoo.site",
-    siteName: "yorunowakamono",
+    siteName: "Joven Bataller",
     locale: "en-US",
     type: "website",
     images: [
@@ -79,9 +79,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "yorunowakamono",
+    title: "Joven Bataller | Full Stack Developer Portfolio",
     description:
-      "Joven Bataller | Full Stack Developer Portfolio",
+      "Joven Bataller is a full stack developer specializing in React, Next.js, Node.js, and modern web applications.",
     images: "/logo.png",
   },
 

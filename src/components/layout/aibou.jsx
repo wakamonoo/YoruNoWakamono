@@ -7,7 +7,7 @@ import AibouLoader from "../loaders/aibouLoader";
 import ReactMarkdown from "react-markdown";
 import Bot from "../../assets/aibou.png";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const BASE_URL =
   process.env.NODE_ENV === "production"
@@ -183,6 +183,13 @@ export default function Aibou({ loading }) {
     }
   }
 
+  const handleInputChange = (e) => {
+    setDraftText(e.target.value);
+
+    e.target.style.height = "auto";
+    e.target.style.height = `${Math.min(e.target.scrollHeight, 120)}px`;
+  };
+
   return (
     <>
       {isOpen && (
@@ -223,15 +230,12 @@ export default function Aibou({ loading }) {
                 </p>
               </div>
             </div>
-            <div>
-              <MdClose
-                onClick={() => setIsOpen(false)}
-                className="hover:scale-110 active:scale-110 cursor-pointer text-xl"
-              />
-            </div>
+            <button className="flex h-8 w-8 cursor-pointer items-center justify-center rounded-full hover:bg-[var(--color-secondary)] hover:text-[var(--color-accent)] active:bg-[var(--color-secondary)] active:text-[var(--color-accent)] shrink-0">
+              <MdClose onClick={() => setIsOpen(false)} className="text-xl" />
+            </button>
           </div>
 
-          <div className="flex-1 p-2 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto P-2">
             {sentText.map((msg, index) => (
               <div
                 key={index}
@@ -246,16 +250,20 @@ export default function Aibou({ loading }) {
                     <p className="bg-brand w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
                       {msg.text}
                     </p>
-                    <FiUser className="text-4xl bg-brand rounded-full p-2" />
+                    <div className="flex items-center justify-center w-10 h-10 bg-brand rounded-full">
+                      <FiUser className="text-4xl p-2 shrink-0" />
+                    </div>
                   </>
                 ) : (
                   <>
                     <div ref={scrollStart} />
-                    <Image
-                      src={Bot}
-                      alt="bot"
-                      className="w-10 h-auto bg-panel p-2 rounded-full"
-                    />
+                    <div className="w-10 h-10 bg-panel rounded-full">
+                      <Image
+                        src={Bot}
+                        alt="bot"
+                        className="w-full h-full p-2 object-contain shrink-0"
+                      />
+                    </div>
                     <div className="bg-panel w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
                       <ReactMarkdown>{msg.text}</ReactMarkdown>
                     </div>
@@ -270,62 +278,80 @@ export default function Aibou({ loading }) {
             <div ref={scrollEnd} />
           </div>
 
-          {Preset && (
-            <div className="flex flex-col items-end gap-2 lg:gap-4 p-4">
-              {preRef1 && (
-                <div className="contains">
-                  <p
-                    onClick={() =>
-                      handleSent(
-                        "Is Joven looking for work and currently available for hire?",
-                      )
-                    }
-                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
-                  >
-                    is joven available for hire?
-                  </p>
-                </div>
-              )}
-              {preRef2 && (
-                <div className="contains">
-                  <p
-                    onClick={() => handleSent("What is Joven's tech-stack?")}
-                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
-                  >
-                    what is joven's tech-stack?
-                  </p>
-                </div>
-              )}
-              {preRef3 && (
-                <div className="contains">
-                  <p
-                    onClick={() =>
-                      handleSent(
-                        "Joven's GitHub contributions today?",
-                        "How many github contributions in all repositories did joven made today and what are those?",
-                      )
-                    }
-                    className="bg-[var(--color-accent)] p-2 w-fit rounded-full text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
-                  >
-                    joven's gitHub contributions today?
-                  </p>
-                </div>
-              )}
-            </div>
-          )}
+          <AnimatePresence initial={false}>
+            {Preset && !draftText.trim() && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: "auto", opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{
+                  height: { duration: 0.25, ease: "easeInOut" },
 
-          <div className="flex bg-panel justify-between gap-2 items-center p-3">
+                  opacity: { duration: 0.15 },
+                }}
+                className="overflow-hidden"
+              >
+                <div className="flex flex-col items-end gap-2 lg:gap-4 p-4">
+                  {preRef1 && (
+                    <div className="contains w-full min-w-0 flex flex-col items-end">
+                      <p
+                        onClick={() =>
+                          handleSent(
+                            "Is Joven looking for work and currently available for hire?",
+                          )
+                        }
+                        className="max-w-full truncate bg-[var(--color-accent)] py-2 px-4 rounded-full shadow-black/40 shadow-lg text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
+                      >
+                        is joven available for hire?
+                      </p>
+                    </div>
+                  )}
+                  {preRef2 && (
+                    <div className="contains w-full min-w-0 flex flex-col items-end">
+                      <p
+                        onClick={() =>
+                          handleSent("What is Joven's tech-stack?")
+                        }
+                        className="max-w-full truncate bg-[var(--color-accent)] py-2 px-4 rounded-full shadow-black/40 shadow-lg text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
+                      >
+                        what is joven's tech-stack?
+                      </p>
+                    </div>
+                  )}
+                  {preRef3 && (
+                    <div className="contains w-full min-w-0 flex flex-col items-end">
+                      <p
+                        onClick={() =>
+                          handleSent(
+                            "Joven's GitHub contributions today?",
+                            "How many github contributions in all repositories did joven made today and what are those?",
+                          )
+                        }
+                        className="max-w-full truncate bg-[var(--color-accent)] py-2 px-4 rounded-full shadow-black/40 shadow-lg text-[var(--color-bg)] text-base font-normal text-center cursor-pointer transition duration-100 hover:bg-[var(--color-bg)] hover:text-[var(--color-accent)] active:bg-[var(--color-bg)] active:text-[var(--color-accent)]"
+                      >
+                        joven's gitHub contributions today?
+                      </p>
+                    </div>
+                  )}{" "}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          <div className="shrink-0 flex bg-panel justify-between gap-2 items-center p-3">
             <textarea
-              className="flex-1 text-[var(--color-bg)] placeholder-[var(--color-bg)] text-base bg-[var(--color-accent)] p-2 rounded-md"
-              placeholder="need help? ask here."
+              className="w-full resize-none overflow-y-auto outline-none font-normal flex-1 text-[var(--color-bg)] placeholder-[var(--color-bg)] text-base bg-[var(--color-accent)] p-2 rounded-md"
+              placeholder="what do you want to know?"
               value={draftText}
-              onChange={(e) => setDraftText(e.target.value)}
+              onChange={handleInputChange}
               onKeyDown={(e) => {
                 if (e.key === "Enter" && !e.shiftKey) {
                   e.preventDefault();
                   if (!load) handleSent();
                 }
               }}
+              rows={1}
+              style={{ maxHeight: "120px" }}
               disabled={load}
             />
 
@@ -333,9 +359,9 @@ export default function Aibou({ loading }) {
               onClick={() => {
                 if (!load) handleSent();
               }}
-              className="bg-[var(--color-accent)] py-2 px-4 flex items-center justify-center w-fit h-full rounded-md transition duration-100 hover:scale-110 active:scale-110"
+              className="bg-[var(--color-accent)] py-2 px-4 flex items-center justify-center w-fit h-full rounded-md transition duration-100 cursor-pointer hover:bg-[var(--color-accent)]/80 active:bg-[var(--color-accent)]/80"
             >
-              <FiSend className="text-3xl text-[var(--color-bg)] shrink-0" />
+              <FiSend className="text-xl text-[var(--color-bg)] shrink-0" />
             </button>
           </div>
         </div>

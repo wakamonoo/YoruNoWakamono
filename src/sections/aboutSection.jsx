@@ -89,11 +89,11 @@ export default function About({ loading }) {
             className="text-normal text-justify text-base font-normal leading-tight"
           >
             I’m <strong>Joven Serdan Bataller</strong>, a {age}-year-old{" "}
-            <strong>Full-Stack Web Developer</strong> from the
-            Philippines, driven by discipline, perseverance, and an unyielding
-            will. I build modern, resilient websites designed to stand out in
-            any digital battlefield, turning ideas into powerful realities that
-            help people and businesses rise above the ordinary.
+            <strong>Full-Stack Web Developer</strong> from the Philippines,
+            driven by discipline, perseverance, and an unyielding will. I build
+            modern, resilient websites designed to stand out in any digital
+            battlefield, turning ideas into powerful realities that help people
+            and businesses rise above the ordinary.
           </motion.p>
 
           <div className="mt-4">
@@ -157,8 +157,7 @@ export default function About({ loading }) {
           >
             <button
               className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
-             hover:bg-[var(--color-panel)] hover:scale-110 
-             active:scale-110 active:bg-[var(--color-panel)] cursor-pointer"
+             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
             >
               DOWNLOAD CV
             </button>
