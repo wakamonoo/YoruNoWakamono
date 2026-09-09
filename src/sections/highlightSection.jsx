@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import CountUp from "react-countup";
+import { BiSolidStar } from "react-icons/bi";
 import { FaQuoteLeft } from "react-icons/fa";
 
 const BASE_URL =
@@ -16,20 +17,67 @@ export default function Highlight({ loading }) {
     titlesCount: 0,
     reviewsCount: 0,
   });
+  const [nexusUsers, setNexusUsers] = useState([]);
+  const [feedbacks, setFeedbacks] = useState(null);
   const [countLoading, setCountLoading] = useState(true);
+  const [userLoading, setUserLoading] = useState(true);
+  const [feedbackLoading, setFeedbackLoading] = useState(true);
   const carouselRef = useRef(null);
 
-  const fetchCounts = async () => {
-    try {
-      const res = await fetch(`${BASE_URL}/api/nexus/countData`);
-      const data = await res.json();
-      setCount(data);
-    } catch (err) {
-      console.error("failed to fetch count:", err);
-    } finally {
-      setCountLoading(false)
-    }
-  };
+  useEffect(() => {
+    const fetchCounts = async () => {
+      try {
+        const res = await fetch(`${BASE_URL}/api/nexus/countData`);
+        const data = await res.json();
+        setCount(data);
+      } catch (err) {
+        console.error("failed to fetch count:", err);
+        setCount({
+          usersCount: 0,
+          titlesCount: 0,
+          reviewsCount: 0,
+        });
+      } finally {
+        setCountLoading(false);
+      }
+    };
+
+    fetchCounts();
+  }, []);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await fetch(`${BASE_URL}/api/nexus/allUsersGet`);
+        const data = await res.json();
+        setNexusUsers(data);
+      } catch (err) {
+        console.error("failed to fetch count:", err);
+        setNexusUsers(null);
+      } finally {
+        setUserLoading(false);
+      }
+    };
+
+    fetchUsers();
+  }, []);
+
+  useEffect(() => {
+    const fetchFeedbacks = async () => {
+      try {
+        const res = await fetch(`${BASE_URL}/api/nexus/feedbacksGet`);
+        const data = await res.json();
+        setFeedbacks(data);
+      } catch (err) {
+        console.error("failed to fetch count:", err);
+        setFeedbacks(null);
+      } finally {
+        setFeedbackLoading(false);
+      }
+    };
+
+    fetchFeedbacks();
+  }, []);
 
   useEffect(() => {
     const carousel = carouselRef.current;
@@ -55,10 +103,6 @@ export default function Highlight({ loading }) {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    fetchCounts();
   }, []);
 
   useEffect(() => {
@@ -105,6 +149,25 @@ export default function Highlight({ loading }) {
     },
   };
 
+  function StarRating({ value }) {
+    return (
+      <div className="flex items-center">
+        {[1, 2, 3, 4, 5].map((star) => {
+          const active = star <= value;
+
+          return (
+            <div
+              key={star}
+              className={`leading-none transition-opacity cursor-default ${active ? "text-[var(--color-nexus)]" : "text-vibe/20"}`}
+            >
+              <BiSolidStar />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
+
   return (
     <div ref={containerRef}>
       <motion.div
@@ -144,125 +207,124 @@ export default function Highlight({ loading }) {
               <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
                 Statistics
               </p>
-              <div className="grid grid-cols-3 gap-2">
-                <div
-                  className={`rounded-xl bg-brand p-3 text-center transition duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${countLoading ? "animate-pulse" : "animate-none"}`}
-                >
-                  {!countLoading && (
-                    <>
-                      <CountUp
-                        start={inView ? undefined : 0}
-                        startOnMount={false}
-                        redraw={inView}
-                        end={count.usersCount}
-                        duration={1.5}
-                        className="block text-2xl font-extrabold text-accent"
-                      />
-                      <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
-                        Members
-                      </p>
-                    </>
-                  )}
+              {countLoading ? (
+                <div className="flex flex-wrap gap-2 animate-pulse">
+                  <div className="flex-1 min-w-[120px] h-20 rounded-xl bg-brand" />
+                  <div className="flex-1 min-w-[120px] h-20 rounded-xl bg-brand" />
+                  <div className="flex-1 min-w-[120px] h-20 rounded-xl bg-brand" />
                 </div>
+              ) : (
+                <div className="flex flex-wrap gap-2">
+                  <div className="flex-1 min-w-[120px] rounded-xl bg-brand p-3 text-center transition duration-100 flex flex-col items-center justify-center">
+                    <CountUp
+                      start={inView ? undefined : 0}
+                      startOnMount={false}
+                      redraw={inView}
+                      end={count.usersCount}
+                      duration={1.5}
+                      className="block text-2xl font-extrabold text-accent"
+                    />
+                    <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                      Members
+                    </p>
+                  </div>
 
-                <div
-                  className={`rounded-xl bg-brand p-3 text-center transition duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${countLoading ? "animate-pulse" : "animate-none"}`}
-                >
-                  {!countLoading && (
-                    <>
-                      <CountUp
-                        start={inView ? undefined : 0}
-                        startOnMount={false}
-                        redraw={inView}
-                        end={count.titlesCount}
-                        duration={1.5}
-                        className="block text-2xl font-extrabold text-accent"
-                      />
-                      <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
-                        Titles
-                      </p>
-                    </>
-                  )}
-                </div>
+                  <div className="flex-1 min-w-[120px] rounded-xl bg-brand p-3 text-center transition duration-100 flex flex-col items-center justify-center">
+                    <CountUp
+                      start={inView ? undefined : 0}
+                      startOnMount={false}
+                      redraw={inView}
+                      end={count.titlesCount}
+                      duration={1.5}
+                      className="block text-2xl font-extrabold text-accent"
+                    />
+                    <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                      Titles
+                    </p>
+                  </div>
 
-                <div
-                  className={`rounded-xl bg-brand p-3 text-center transition duration-100 hover:-translate-y-1 flex flex-col items-center justify-center ${countLoading ? "animate-pulse" : "animate-none"}`}
-                >
-                  {!countLoading && (
-                    <>
-                      <CountUp
-                        start={inView ? undefined : 0}
-                        startOnMount={false}
-                        redraw={inView}
-                        end={count.reviewsCount}
-                        duration={1.5}
-                        className="block text-2xl font-extrabold text-accent"
-                      />
-                      <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
-                        Reviews
-                      </p>
-                    </>
-                  )}
+                  <div className="flex-1 min-w-[120px] rounded-xl bg-brand p-3 text-center transition duration-100 flex flex-col items-center justify-center">
+                    <CountUp
+                      start={inView ? undefined : 0}
+                      startOnMount={false}
+                      redraw={inView}
+                      end={count.reviewsCount}
+                      duration={1.5}
+                      className="block text-2xl font-extrabold text-accent"
+                    />
+                    <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                      Reviews
+                    </p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             <div>
               <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
                 Community Feedback
               </p>
-              <div
-                ref={carouselRef}
-                className="flex overflow-x-auto scroll-smooth scrollbar-hide gap-2 snap-x snap-mandatory"
-              >
-                <div className="min-w-full snap-start">
-                  <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
-                    <div className="flex items-start">
-                      <div className="flex items-center justify-center w-8 h-8 shrink-0">
-                        <FaQuoteLeft className="text-xs opacity-60" />
-                      </div>
-                      <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
-                        helloo super cool website
-                      </p>
-                    </div>
-                    <p className="text-end text-xs opacity-60">
-                      - Community Member
-                    </p>
-                  </div>
-                </div>
 
-                <div className="min-w-full snap-start">
-                  <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
-                    <div className="flex items-start">
-                      <div className="flex items-center justify-center w-8 h-8 shrink-0">
-                        <FaQuoteLeft className="text-xs opacity-60" />
-                      </div>
-                      <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
-                        hi, this website is incredible, thanks for creating it!
-                      </p>
+              {userLoading || feedbackLoading ? (
+                <div className="animate-pulse w-full h-32 bg-[var(--color-army)] rounded-xl" />
+              ) : feedbacks?.length === 0 ? (
+                <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
+                  <div className="flex items-start">
+                    <div className="flex items-center justify-center w-8 h-8 shrink-0">
+                      <FaQuoteLeft className="text-xs opacity-60" />
                     </div>
-                    <p className="text-end text-xs opacity-60">
-                      - Community Member
+                    <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
+                      no community feedback yet
                     </p>
                   </div>
                 </div>
+              ) : (
+                <div
+                  ref={carouselRef}
+                  className="flex items-center overflow-x-auto scroll-smooth scrollbar-hide gap-2 snap-x snap-mandatory"
+                >
+                  <div className="min-w-full snap-start">
+                    {feedbacks?.map((feedback) => {
+                      const user = nexusUsers.find(
+                        (u) => u.uid === feedback.userId,
+                      );
 
-                <div className="min-w-full snap-start">
-                  <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
-                    <div className="flex items-start">
-                      <div className="flex items-center justify-center w-8 h-8 shrink-0">
-                        <FaQuoteLeft className="text-xs opacity-60" />
-                      </div>
-                      <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
-                        thanks so much, this web is awesome!!
-                      </p>
-                    </div>
-                    <p className="text-end text-xs opacity-60">
-                      - Community Member
-                    </p>
+                      return (
+                        <div
+                          key={feedback.feedbackId}
+                          className="bg-[var(--color-army)] rounded-xl px-2 py-4"
+                        >
+                          <div className="flex gap-2">
+                            <img
+                              src={user?.picture}
+                              alt={user?.name}
+                              loading="lazy"
+                              decoding="async"
+                              className="w-10 h-10 shrink-0 object-cover rounded-full"
+                            />
+                            <div className="min-w-0 flex-1">
+                              <div className="flex flex-col">
+                                <p className="text-sm font-bold text-vibe">
+                                  {user?.name}
+                                </p>
+                                <StarRating value={feedback.rating} />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="flex items-start">
+                            <div className="flex items-center justify-center w-8 h-8 shrink-0">
+                              <FaQuoteLeft className="text-xs opacity-60" />
+                            </div>
+                            <p className="text-base text-vibe leading-tight mt-2">
+                              {feedback.review}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </motion.div>
           <div>

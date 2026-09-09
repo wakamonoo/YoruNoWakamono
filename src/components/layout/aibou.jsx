@@ -235,11 +235,11 @@ export default function Aibou({ loading }) {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto P-2">
+          <div className="flex-1 overflow-y-auto p-2">
             {sentText.map((msg, index) => (
               <div
                 key={index}
-                className={`flex items-start gap-2 p-2 ${
+                className={`flex items-start gap-2 ${
                   msg.sender === "user"
                     ? "justify-end p-4"
                     : "justify-start p-4"

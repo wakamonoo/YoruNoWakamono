@@ -3,8 +3,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 
 import aibouRoute from "./routes/aibouRoute.js";
-import gitRoute from "./routes/gitRoute.js";
-import nexusRoute from "./routes/nexusRoute.js"
+import gitGet from "./routes/gitGet.js";
+import nexusGet from "./routes/nexusGet.js"
 
 dotenv.config();
 
@@ -25,8 +25,8 @@ app.use(
 
 app.use(express.json());
 app.use("/api/chatbot", aibouRoute);
-app.use("/api/git", gitRoute);
-app.use("/api/nexus", nexusRoute);
+app.use("/api/git", gitGet);
+app.use("/api/nexus", nexusGet);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
