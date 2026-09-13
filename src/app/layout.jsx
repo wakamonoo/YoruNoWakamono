@@ -60,6 +60,16 @@ export const metadata = {
   description:
     "Joven Bataller is a full stack developer specializing in React, Next.js, Node.js, and modern web applications.",
 
+  icons: {
+    icon: [
+      { url: "/icons/logo.png" },
+      { url: "/icons/logo.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/logo.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/icons/logo.png",
+    shortcut: "/icons/logo.png",
+  },
+
   openGraph: {
     title: "Joven Bataller | Full Stack Developer Portfolio",
     description:
@@ -70,7 +80,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
+        url: "/og-image.png",
         width: 4096,
         height: 4096,
       },
@@ -82,7 +92,7 @@ export const metadata = {
     title: "Joven Bataller | Full Stack Developer Portfolio",
     description:
       "Joven Bataller is a full stack developer specializing in React, Next.js, Node.js, and modern web applications.",
-    images: "/logo.png",
+    images: "/og-image.png",
   },
 
   metadataBase: new URL("https://wakamonoo.site"),

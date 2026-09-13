@@ -17,7 +17,7 @@ export default function Highlight({ loading }) {
     titlesCount: 0,
     reviewsCount: 0,
   });
-  const [nexusUsers, setNexusUsers] = useState([]);
+  const [NexusUsers, setNexusUsers] = useState([]);
   const [feedbacks, setFeedbacks] = useState(null);
   const [countLoading, setCountLoading] = useState(true);
   const [userLoading, setUserLoading] = useState(true);
@@ -27,7 +27,7 @@ export default function Highlight({ loading }) {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/nexus/countData`);
+        const res = await fetch(`${BASE_URL}/api/Nexus/countData`);
         const data = await res.json();
         setCount(data);
       } catch (err) {
@@ -48,7 +48,7 @@ export default function Highlight({ loading }) {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/nexus/allUsersGet`);
+        const res = await fetch(`${BASE_URL}/api/Nexus/allUsersGet`);
         const data = await res.json();
         setNexusUsers(data);
       } catch (err) {
@@ -65,7 +65,7 @@ export default function Highlight({ loading }) {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/nexus/feedbacksGet`);
+        const res = await fetch(`${BASE_URL}/api/Nexus/feedbacksGet`);
         const data = await res.json();
         setFeedbacks(data);
       } catch (err) {
@@ -158,7 +158,7 @@ export default function Highlight({ loading }) {
           return (
             <div
               key={star}
-              className={`leading-none transition-opacity cursor-default ${active ? "text-[var(--color-nexus)]" : "text-vibe/20"}`}
+              className={`leading-none transition-opacity cursor-default ${active ? "text-[var(--color-Nexus)]" : "text-vibe/20"}`}
             >
               <BiSolidStar />
             </div>
@@ -193,8 +193,8 @@ export default function Highlight({ loading }) {
               </p>
               <div className="rounded-xl bg-brand p-2">
                 <iframe
-                  src="https://appbuildersph.com/embed/apps/nexus"
-                  title="nexus votes on App Builders PH"
+                  src="https://appbuildersph.com/embed/apps/Nexus"
+                  title="Nexus votes on App Builders PH"
                   className="w-full"
                   height="72"
                   style={{ border: 0 }}
@@ -285,7 +285,7 @@ export default function Highlight({ loading }) {
                 >
                   <div className="min-w-full snap-start">
                     {feedbacks?.map((feedback) => {
-                      const user = nexusUsers.find(
+                      const user = NexusUsers.find(
                         (u) => u.uid === feedback.userId,
                       );
 
@@ -332,7 +332,7 @@ export default function Highlight({ loading }) {
               variants={itemVariants}
               className="text-normal text-justify text-base font-normal leading-tight"
             >
-              <strong>nexus</strong> is an unofficial, independent Marvel fan
+              <strong>Nexus</strong> is an unofficial, independent Marvel fan
               platform built with the MERN stack and Next.js. It allows fans to
               track their watch progress in release or chronological order, rate
               and review titles, discover community rankings, and share posts
@@ -344,7 +344,7 @@ export default function Highlight({ loading }) {
               className="text-normal text-justify text-base font-normal leading-tight"
             >
               Powered by REST APIs, Socket.io, MongoDB, Render, and Vercel,
-              <strong> nexus</strong> provides an interactive experience with
+              <strong> Nexus</strong> provides an interactive experience with
               real-time chat and notifications. It is a fan-made project and is
               not affiliated with or endorsed by Marvel or The Walt Disney
               Company, or any other studios, publishers, or rights holders whose
