@@ -273,7 +273,7 @@ export default function Aibou({ loading }) {
             ))}
             {load && <AibouLoader />}
             {error && (
-              <p className="text-center text-red-500 italic">{error}</p>
+              <p className="text-center text-red-500 italic text-xs">{error}</p>
             )}
             <div ref={scrollEnd} />
           </div>

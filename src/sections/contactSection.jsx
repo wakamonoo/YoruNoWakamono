@@ -140,8 +140,7 @@ export default function Contact({ loading }) {
             <button
               type="submit"
               className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
-             hover:bg-[var(--color-panel)] hover:scale-110 
-             active:scale-110 active:bg-[var(--color-panel)] cursor-pointer"
+             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
             >
               ALERT HEADQUARTERS
             </button>
