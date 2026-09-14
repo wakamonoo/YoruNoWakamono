@@ -158,7 +158,7 @@ export default function Highlight({ loading }) {
           return (
             <div
               key={star}
-              className={`leading-none transition-opacity cursor-default ${active ? "text-[var(--color-Nexus)]" : "text-vibe/20"}`}
+              className={`leading-none transition-opacity cursor-default ${active ? "text-[var(--color-nexus)]" : "text-vibe/20"}`}
             >
               <BiSolidStar />
             </div>
