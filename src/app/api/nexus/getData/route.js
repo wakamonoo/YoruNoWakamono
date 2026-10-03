@@ -1,9 +1,9 @@
-import clientPromise from "@/lib/mongodb";
+import clientPromise from "@/lib/nexus/mongodb"
 
 export async function GET() {
   try {
     const client = await clientPromise;
-    const mongodb = process.env.MONGODB;
+    const mongodb = process.env.NEXUS_MONGODB;
     const db = client.db(mongodb);
 
     const usersCount = await db.collection("users").countDocuments();
