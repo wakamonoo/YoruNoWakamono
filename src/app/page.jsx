@@ -1,15 +1,15 @@
 "use client";
-import Hero from "@/sections/heroSection";
-import About from "@/sections/aboutSection";
-import Skills from "@/sections/skillSection";
-import Portfolio from "@/sections/portfolioSection";
-import Contact from "@/sections/contactSection";
-import Footer from "@/sections/footer";
+import Hero from "@/components/sections/heroSection";
+import About from "@/components/sections/aboutSection";
+import Skills from "@/components/sections/skillSection";
+import Portfolio from "@/components/sections/portfolioSection";
+import Contact from "@/components/sections/contactSection";
+import Footer from "@/components/sections/footer";
 import Loader from "@/components/layout/loader";
 import { useEffect, useState } from "react";
-import Aibou from "@/components/layout/aibou";
 import Bulletin from "@/components/layout/bulletin";
-import Highlight from "@/sections/highlightSection";
+import Highlight from "@/components/sections/highlightSection";
+import Aibou from "@/components/layout/aibou";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);

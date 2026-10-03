@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import AboutImage from "../assets/about.png";
+import AboutImage from "@/assets/about.png";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";

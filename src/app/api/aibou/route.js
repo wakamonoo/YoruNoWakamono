@@ -1,14 +1,19 @@
-import express from "express";
-import dotenv from "dotenv";
 
-dotenv.config();
 
-const router = express.Router();
-
-router.post("/aibou", async (req, res) => {
+export async function POST(request) {
   try {
-    const { messages } = req.body;
+    const { messages } = await request.json();
     const apikey = process.env.GEMINI_API_KEY;
+
+    if (!apikey) {
+      return Response.json(
+      {
+        success: false,
+        message: "gemini api key is not configured",
+      },
+      { status: 500 },
+    );
+    }
 
     const contents = messages.map((m) => ({
       role: m.role === "assistant" ? "model" : "user",
@@ -33,18 +38,33 @@ router.post("/aibou", async (req, res) => {
 
     if (!response.ok) {
       const text = await response.text();
-      return res.status(500).json({ error: `api errror: ${text}` });
+      return Response.json(
+      {
+        success: false,
+        message: `api errror: ${text}`,
+      },
+      { status: 500 },
+    );
     }
 
     const data = await response.json();
 
     const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || "";
 
-    res.status(200).json({ result: text });
+    return Response.json({
+      success: true,
+      message: "story added succesfully",
+      result: text,
+    });
   } catch (err) {
     console.error("api error", err);
-    res.status(500).json({ error: "internal error:", err });
+    return Response.json(
+      {
+        success: false,
+        message: "api errror: err",
+      },
+      { status: 500 },
+    );
   }
-});
+};
 
-export default router;

@@ -4,11 +4,6 @@ import CountUp from "react-countup";
 import { BiSolidStar } from "react-icons/bi";
 import { FaQuoteLeft } from "react-icons/fa";
 
-const BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://yorunowakamono.onrender.com"
-    : "http://localhost:4000";
-
 export default function Highlight({ loading }) {
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
@@ -17,8 +12,8 @@ export default function Highlight({ loading }) {
     titlesCount: 0,
     reviewsCount: 0,
   });
-  const [NexusUsers, setNexusUsers] = useState([]);
-  const [feedbacks, setFeedbacks] = useState(null);
+  const [nexusUsers, setNexusUsers] = useState([]);
+  const [feedbacks, setFeedbacks] = useState([]);
   const [countLoading, setCountLoading] = useState(true);
   const [userLoading, setUserLoading] = useState(true);
   const [feedbackLoading, setFeedbackLoading] = useState(true);
@@ -27,7 +22,7 @@ export default function Highlight({ loading }) {
   useEffect(() => {
     const fetchCounts = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/Nexus/countData`);
+        const res = await fetch("/api/nexus/getData");
         const data = await res.json();
         setCount(data);
       } catch (err) {
@@ -48,9 +43,9 @@ export default function Highlight({ loading }) {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/Nexus/allUsersGet`);
+        const res = await fetch("/api/nexus/getAllUsers");
         const data = await res.json();
-        setNexusUsers(data);
+        setNexusUsers(data.result);
       } catch (err) {
         console.error("failed to fetch count:", err);
         setNexusUsers(null);
@@ -65,9 +60,10 @@ export default function Highlight({ loading }) {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/api/Nexus/feedbacksGet`);
+        const res = await fetch("/api/nexus/getFeedbacks");
         const data = await res.json();
-        setFeedbacks(data);
+
+        setFeedbacks(data.result);
       } catch (err) {
         console.error("failed to fetch count:", err);
         setFeedbacks(null);
@@ -285,7 +281,7 @@ export default function Highlight({ loading }) {
                 >
                   <div className="min-w-full snap-start">
                     {feedbacks?.map((feedback) => {
-                      const user = NexusUsers.find(
+                      const user = nexusUsers.find(
                         (u) => u.uid === feedback.userId,
                       );
 
