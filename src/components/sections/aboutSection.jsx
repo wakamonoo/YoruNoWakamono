@@ -29,7 +29,7 @@ export default function About() {
           observer.disconnect();
         }
       },
-      { threshold: 0.6 },
+      { threshold: 0.25 },
     );
 
     observer.observe(current);
