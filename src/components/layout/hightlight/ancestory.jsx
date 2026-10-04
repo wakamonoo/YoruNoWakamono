@@ -1,10 +1,22 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import CountUp from "react-countup";
+import Marquee from "react-fast-marquee";
+import {
+  SiCloudinary,
+  SiFirebase,
+  SiLeaflet,
+  SiMongodb,
+  SiNextdotjs,
+  SiReact,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
-export default function AnceStory({ inView }) {
+export default function AnceStory({ inView, cardVariants }) {
   const [count, setCount] = useState({
     storiesCount: 0,
+    contributorsCount: 0,
   });
   const [countLoading, setCountLoading] = useState(true);
 
@@ -18,6 +30,7 @@ export default function AnceStory({ inView }) {
         console.error("failed to fetch count:", err);
         setCount({
           storiesCount: 0,
+          contributorsCount: 0,
         });
       } finally {
         setCountLoading(false);
@@ -27,23 +40,15 @@ export default function AnceStory({ inView }) {
     fetchCounts();
   }, []);
 
-
-  const cardVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+ 
 
   return (
     <div className="grid grid-cols-1 gap-2">
       <motion.div
         variants={cardVariants}
-        className="bg-panel rounded-2xl p-5 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full"
+        className="bg-panel rounded-2xl py-6 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full"
       >
-        <div>
+        <div className="px-4">
           <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
             AppBuildersPH
           </p>
@@ -59,35 +64,95 @@ export default function AnceStory({ inView }) {
             />
           </div>
         </div>
-        <div>
+        <div className="px-4">
           <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
             Statistics
           </p>
           {countLoading ? (
-            <div className="flex-1 min-w-[120px] h-20 rounded-xl bg-brand" />
+            <div className="flex flex-wrap gap-2 animate-pulse">
+              <div className="flex-1 min-w-[120px] h-20 rounded-xl bg-brand" />
+              <div className="flex-1 min-w-[120px] h-20 rounded-xl bg-brand" />
+            </div>
           ) : (
-            <div className="flex-1 min-w-[120px] rounded-xl bg-brand p-3 text-center transition duration-100 flex flex-col items-center justify-center">
-              <CountUp
-                start={inView ? undefined : 0}
-                startOnMount={false}
-                redraw={inView}
-                end={count.storiesCount}
-                duration={1.5}
-                className="block text-2xl font-extrabold text-accent"
-              />
-              <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
-                Stories
-              </p>
+            <div className="flex flex-wrap gap-2">
+              <div className="flex-1 min-w-[120px] rounded-xl bg-brand p-3 text-center transition duration-100 flex flex-col items-center justify-center">
+                <CountUp
+                  start={inView ? undefined : 0}
+                  startOnMount={false}
+                  redraw={inView}
+                  end={count.storiesCount}
+                  duration={1.5}
+                  className="block text-2xl font-extrabold text-accent"
+                />
+                <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                  Stories
+                </p>
+              </div>
+              <div className="flex-1 min-w-[120px] rounded-xl bg-brand p-3 text-center transition duration-100 flex flex-col items-center justify-center">
+                <CountUp
+                  start={inView ? undefined : 0}
+                  startOnMount={false}
+                  redraw={inView}
+                  end={count.contributorsCount}
+                  duration={1.5}
+                  className="block text-2xl font-extrabold text-accent"
+                />
+                <p className="mt-2 text-xs uppercase tracking-[0.25em] opacity-70">
+                  Contributors
+                </p>
+              </div>
             </div>
           )}
         </div>
-        <div className="w-full h-px bg-second my-4" />
-        <p className="text-normal text-justify text-base font-normal leading-tight">
-          <strong>AnceStory</strong> is a digital archive for local folklore,
-          ancestral tales, traditions, and memories rooted in people and places.
-          It gives these narratives a place to be documented, explored by
-          location, and passed on beyond the communities where they began.
-        </p>
+        <div>
+          <p className="px-4 mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+            Stack
+          </p>
+          <Marquee
+            pauseOnHover={true}
+            speed={80}
+            className="cursor-pointer p-2 bg-brand"
+          >
+            <div className="flex gap-4">
+              <div className="w-8 h-8">
+                <SiNextdotjs className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiReact className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiTypescript className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiLeaflet className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiTailwindcss className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiFirebase className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiMongodb className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiCloudinary className="w-full h-full" />
+              </div>
+            </div>
+          </Marquee>
+        </div>
+        <div className="p-4">
+          <div className="w-full h-px bg-second" />
+        </div>
+        <div className="px-4">
+          <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+            AnceStory
+          </p>
+          <p className="text-normal text-justify text-base font-normal leading-tight">
+            A digital archive for preserving and discovering local stories and
+            folklore.
+          </p>
+        </div>
       </motion.div>
     </div>
   );

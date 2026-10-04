@@ -4,11 +4,13 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import Swal from "sweetalert2";
 import { motion } from "framer-motion";
+import { LoaderContext } from "@/context/loaderContext";
 
-export default function Contact({ loading }) {
+export default function Contact() {
+  const {loading} = useContext(LoaderContext)
   const form = useRef();
   const ejssid = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const ejstid = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;

@@ -7,10 +7,12 @@ export async function GET() {
     const db = client.db(mongodb);
 
     const storiesCount = await db.collection("stories").countDocuments();
+    const contributorsCount = await db.collection("users").countDocuments();
 
     return Response.json({
       success: true,
       storiesCount,
+      contributorsCount,
     });
   } catch (err) {
     console.error("error fetching stories count", err);

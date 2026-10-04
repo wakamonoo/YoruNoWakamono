@@ -27,10 +27,12 @@ import {
   SiMongodb,
   SiCloudinary,
 } from "react-icons/si";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { motion, stagger } from "framer-motion";
+import { LoaderContext } from "@/context/loaderContext";
 
-export default function Portfolio({ loading }) {
+export default function Portfolio() {
+  const {loading} = useContext(LoaderContext)
   const [showProjects, setShowProjects] = useState(false);
   const [showMinorProjects, setShowMinorProjects] = useState(false);
   const containerRef = useRef(null);

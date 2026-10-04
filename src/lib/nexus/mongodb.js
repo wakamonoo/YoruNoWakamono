@@ -9,10 +9,10 @@ const options = {};
 let client;
 let clientPromise;
 
-if (!global.mongoClient) {
+if (!global.nexusMongoClient) {
   client = new MongoClient(uri, options);
-  global.mongoClient = client.connect();
+  global.nexusMongoClient = client.connect();
 }
 
-clientPromise = global.mongoClient;
+clientPromise = global.nexusMongoClient;
 export default clientPromise;

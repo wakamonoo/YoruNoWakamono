@@ -2,10 +2,23 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
 import CountUp from "react-countup";
+import Marquee from "react-fast-marquee";
 import { BiSolidStar } from "react-icons/bi";
 import { FaQuoteLeft } from "react-icons/fa";
+import {
+  SiCloudinary,
+  SiExpress,
+  SiFirebase,
+  SiMongodb,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiReact,
+  SiSocketdotio,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
 
-export default function Nexus({ inView }) {
+export default function Nexus({ inView, cardVariants }) {
   const [count, setCount] = useState({
     usersCount: 0,
     titlesCount: 0,
@@ -100,24 +113,6 @@ export default function Nexus({ inView }) {
     return () => clearInterval(interval);
   }, []);
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, x: -30 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
   function StarRating({ value }) {
     return (
       <div className="flex items-center">
@@ -141,9 +136,9 @@ export default function Nexus({ inView }) {
     <div className="grid grid-cols-1 gap-2">
       <motion.div
         variants={cardVariants}
-        className="bg-panel rounded-2xl p-5 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full"
+        className="bg-panel rounded-2xl py-6 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full"
       >
-        <div>
+        <div className="px-4">
           <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
             AppBuildersPH
           </p>
@@ -159,7 +154,7 @@ export default function Nexus({ inView }) {
             />
           </div>
         </div>
-        <div>
+        <div className="px-4">
           <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
             Statistics
           </p>
@@ -216,7 +211,7 @@ export default function Nexus({ inView }) {
           )}
         </div>
 
-        <div>
+        <div className="px-4">
           <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
             Community Feedback
           </p>
@@ -246,9 +241,12 @@ export default function Nexus({ inView }) {
                   );
 
                   return (
-                    <div
+                    <a
+                      href="https://ournexus.space/communityFeedback"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       key={feedback.feedbackId}
-                      className="bg-[var(--color-army)] rounded-xl px-2 py-4"
+                      className="block bg-[var(--color-army)] rounded-xl px-2 py-4"
                     >
                       <div className="flex gap-2">
                         <img
@@ -271,30 +269,69 @@ export default function Nexus({ inView }) {
                         <div className="flex items-center justify-center w-8 h-8 shrink-0">
                           <FaQuoteLeft className="text-xs opacity-60" />
                         </div>
-                        <a
-                          href="https://ournexus.space/communityFeedback"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="cursor-pointer mt-2 text-base text-vibe leading-tight line-clamp-2"
-                        >
+                        <p className="cursor-pointer mt-2 text-base text-vibe leading-tight line-clamp-2">
                           {feedback.review}
-                        </a>
+                        </p>
                       </div>
-                    </div>
+                    </a>
                   );
                 })}
               </div>
             </div>
           )}
         </div>
-        <div className="w-full h-px bg-second my-4" />
-        <p className="text-normal text-justify text-base font-normal leading-tight">
-          <strong>Nexus</strong> is a fan-made space for Marvel enthusiasts to
-          follow their viewing journey, explore different watch orders, rate and
-          review titles, and discover what other fans are watching. It brings
-          tracking, discovery, and community interaction together around the
-          Marvel universe.
-        </p>
+        <div>
+          <p className="px-4 mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+            Stack
+          </p>
+          <Marquee
+            pauseOnHover={true}
+            speed={80}
+            className="cursor-pointer p-2 bg-brand"
+          >
+            <div className="flex gap-4">
+              <div className="w-8 h-8">
+                <SiNextdotjs className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiReact className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiTailwindcss className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiNodedotjs className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiMongodb className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiFirebase className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiExpress className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiCloudinary className="w-full h-full" />
+              </div>
+              <div className="w-8 h-8">
+                <SiSocketdotio className="w-full h-full" />
+              </div>
+            </div>
+          </Marquee>
+        </div>
+        <div className="p-4">
+          <div className="w-full h-px bg-second" />
+        </div>
+        <div className="px-4">
+          <p className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60">
+            Nexus
+          </p>
+          <p className="text-normal text-justify text-base font-normal leading-tight">
+            A Marvel community for exploring stories, sharing opinions, and
+            connecting with fellow fans.
+          </p>
+        </div>
       </motion.div>
     </div>
   );

@@ -12,50 +12,34 @@ import Highlight from "@/components/sections/highlightSection";
 import Aibou from "@/components/layout/aibou";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
 
-  {
-    /* ———————————————————————————————————— loader ——— */
-  }
-  useEffect(() => {
-    const handleLoad = async () => {
-      await new Promise((resolve) =>
-        setTimeout(() => resolve("done loading"), 4000),
-      );
-      setLoading(false);
-    };
-
-    handleLoad();
-  }, []);
 
   return (
     <main>
-      {/* ———————————————————————————————————— loader ——— */}
-      {loading && <Loader onFinish={() => setLoading(false)} />}
 
       {/* ———————————————————————————————————— chatbot ——— */}
-      <Aibou loading={loading} />
+      <Aibou/>
 
       {/* ———————————————————————————————————— hero section ——— */}
       <section id="hero" className="bg-brand h-screen relative overflow-hidden">
-        <Hero loading={loading} />
+        <Hero />
       </section>
 
       {/* ———————————————————————————————————— about section ——— */}
       <section id="about" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
-        <About loading={loading} />
+        <About />
       </section>
 
       {/* ———————————————————————————————————— about section ——— */}
       <div className="bg-second py-8 md:py-16">
-        <Bulletin loading={loading} />
+        <Bulletin />
       </div>
 
       <section
         id="highlight"
         className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
       >
-        <Highlight loading={loading} />
+        <Highlight />
       </section>
 
       {/* ———————————————————————————————————— portfolio section ——— */}
@@ -63,22 +47,22 @@ export default function Home() {
         id="portfolio"
         className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
       >
-        <Portfolio loading={loading} />
+        <Portfolio />
       </section>
 
       {/* ———————————————————————————————————— skills section ——— */}
       <section id="skills" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
-        <Skills loading={loading} />
+        <Skills />
       </section>
 
       {/* ———————————————————————————————————— contact section ——— */}
       <section id="contact" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
-        <Contact loading={loading} />
+        <Contact />
       </section>
 
       {/* ———————————————————————————————————— footer ——— */}
       <section className="flex justify-center h-auto w-full bg-panel py-4">
-        <Footer loading={loading} />
+        <Footer />
       </section>
     </main>
   );

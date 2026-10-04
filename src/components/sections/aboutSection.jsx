@@ -2,10 +2,12 @@
 import Image from "next/image";
 import AboutImage from "@/assets/about.png";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { LoaderContext } from "@/context/loaderContext";
 
-export default function About({ loading }) {
+export default function About() {
+  const {loading} = useContext(LoaderContext)
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
   const router = useRouter();

@@ -7,9 +7,11 @@ import Signage from "@/components/layout/signage";
 import Intro from "@/components/layout/intro";
 import Titan from "@/assets//bertolo.png";
 import { motion, stagger } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
+import { LoaderContext } from "@/context/loaderContext";
 
-export default function Hero({ loading }) {
+export default function Hero() {
+  const {loading} = useContext(LoaderContext)
   const containerRef = useRef(null);
   const [inView, setInView] = useState(false);
 

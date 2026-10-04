@@ -9,10 +9,10 @@ const options = {};
 let client;
 let clientPromise;
 
-if (!global.mongoClient) {
+if (!global.ancestoryMongoClient) {
   client = new MongoClient(uri, options);
-  global.mongoClient = client.connect();
+  global.ancestoryMongoClient = client.connect();
 }
 
-clientPromise = global.mongoClient;
+clientPromise = global.ancestoryMongoClient;
 export default clientPromise;
