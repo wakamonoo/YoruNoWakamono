@@ -21,7 +21,7 @@ export default function Highlight() {
           observer.disconnect();
         }
       },
-      { threshold: 0.6 },
+      { threshold: 0.25 },
     );
 
     observer.observe(current);
