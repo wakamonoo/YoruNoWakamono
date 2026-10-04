@@ -2,14 +2,12 @@
 import Image from "next/image";
 import AboutImage from "@/assets/about.png";
 import { motion } from "framer-motion";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext } from "react";
 import { useRouter } from "next/navigation";
 import { LoaderContext } from "@/context/loaderContext";
 
 export default function About() {
-  const {loading} = useContext(LoaderContext)
-  const containerRef = useRef(null);
-  const [inView, setInView] = useState(false);
+  const { loading } = useContext(LoaderContext);
   const router = useRouter();
 
   const age =
@@ -17,30 +15,13 @@ export default function About() {
     2003 -
     (new Date() < new Date(new Date().getFullYear(), 5, 17));
 
-  useEffect(() => {
-    if (loading) return;
-    const current = containerRef.current;
-    if (!current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.6 },
-    );
-
-    observer.observe(current);
-    return () => {
-      observer.disconnect();
-    };
-  }, [loading]);
-
-  const containerVariant = {
+  const containerVariants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.12 } },
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
   };
 
   const itemVariants = {
@@ -62,110 +43,107 @@ export default function About() {
   };
 
   return (
-    <div ref={containerRef}>
-      <motion.div
-        variants={containerVariant}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        <motion.h1
-          variants={itemVariants}
-          className="text-2xl mb-4 text-header"
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate={loading ? "hidden" : undefined}
+      whileInView={loading ? undefined : "visible"}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h1 variants={itemVariants} className="text-2xl mb-4 text-header">
+        THE DIGITAL SCOUT ────
+      </motion.h1>
+
+      <div className="w-full clearfix">
+        <motion.div
+          variants={imageVariants}
+          className="float-left w-1/2 max-w-[24rem] mr-2 mb-2 relative z-40"
         >
-          THE DIGITAL SCOUT ────
-        </motion.h1>
+          <Image
+            src={AboutImage}
+            className="w-full h-auto rounded-xl"
+            alt="aboutImage"
+          />
+        </motion.div>
+        <motion.p
+          variants={itemVariants}
+          className="text-normal text-justify text-base font-normal leading-tight"
+        >
+          I’m <strong>Joven Serdan Bataller</strong>, a {age}-year-old{" "}
+          <strong>Full-Stack Web Developer</strong> from the Philippines, driven
+          by discipline, perseverance, and an unyielding will. I build modern,
+          resilient websites designed to stand out in any digital battlefield,
+          turning ideas into powerful realities that help people and businesses
+          rise above the ordinary.
+        </motion.p>
 
-        <div className="w-full clearfix">
-          <motion.div
-            variants={imageVariants}
-            className="float-left w-1/2 max-w-[24rem] mr-2 mb-2 relative z-40"
-          >
-            <Image
-              src={AboutImage}
-              className="w-full h-auto rounded-xl"
-              alt="aboutImage"
-            />
-          </motion.div>
-          <motion.p
+        <div className="mt-4">
+          <motion.h2
             variants={itemVariants}
-            className="text-normal text-justify text-base font-normal leading-tight"
+            className="text-xl p-2 bg-brand rounded text-header"
           >
-            I’m <strong>Joven Serdan Bataller</strong>, a {age}-year-old{" "}
-            <strong>Full-Stack Web Developer</strong> from the Philippines,
-            driven by discipline, perseverance, and an unyielding will. I build
-            modern, resilient websites designed to stand out in any digital
-            battlefield, turning ideas into powerful realities that help people
-            and businesses rise above the ordinary.
-          </motion.p>
-
-          <div className="mt-4">
-            <motion.h2
-              variants={itemVariants}
-              className="text-xl p-2 bg-brand rounded text-header"
-            >
-              EDUCATION
-            </motion.h2>
-            <motion.ul variants={itemVariants} className="mt-4">
-              <li className="flex flex-col text-sm">
-                <div className="flex items-start w-full">
-                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
-                    2021-2025
+            EDUCATION
+          </motion.h2>
+          <motion.ul variants={itemVariants} className="mt-4">
+            <li className="flex flex-col text-sm">
+              <div className="flex items-start w-full">
+                <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
+                  2021-2025
+                </span>
+                <div className="text-base font-bold text-header leading-tight w-1/2">
+                  INFORMATION TECHNOLOGY
+                  <br />
+                  <span
+                    onClick={() => router.push("https://bicol-u.edu.ph/")}
+                    className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                  >
+                    Bicol University Polangui
                   </span>
-                  <div className="text-base font-bold text-header leading-tight w-1/2">
-                    INFORMATION TECHNOLOGY
-                    <br />
-                    <span
-                      onClick={() => router.push("https://bicol-u.edu.ph/")}
-                      className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
-                    >
-                      Bicol University Polangui
-                    </span>
-                  </div>
                 </div>
-              </li>
-            </motion.ul>
-            <motion.h2
-              variants={itemVariants}
-              className="text-xl mt-4 p-2 bg-brand rounded text-header"
-            >
-              EXPERIENCE
-            </motion.h2>
-            <motion.ul variants={itemVariants} className="mt-4">
-              <li className="flex flex-col text-sm">
-                <div className="flex items-start w-full">
-                  <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
-                    2025
-                  </span>
-                  <div className="text-base font-bold text-header leading-tight w-1/2">
-                    IT SUPPORT | UI/UX DESIGNER
-                    <br />
-                    <span
-                      onClick={() => router.push("https://bytescrafter.net/")}
-                      className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
-                    >
-                      BytesCrafter I.T Solutions
-                    </span>
-                  </div>
-                </div>
-              </li>
-            </motion.ul>
-          </div>
-
-          {/* ———————————————————————————————————— resume ——— */}
-          <motion.a
+              </div>
+            </li>
+          </motion.ul>
+          <motion.h2
             variants={itemVariants}
-            href="Joven_Bataller_Resume.pdf"
-            download
+            className="text-xl mt-4 p-2 bg-brand rounded text-header"
           >
-            <button
-              className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
-             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
-            >
-              DOWNLOAD CV
-            </button>
-          </motion.a>
+            EXPERIENCE
+          </motion.h2>
+          <motion.ul variants={itemVariants} className="mt-4">
+            <li className="flex flex-col text-sm">
+              <div className="flex items-start w-full">
+                <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
+                  2025
+                </span>
+                <div className="text-base font-bold text-header leading-tight w-1/2">
+                  IT SUPPORT | UI/UX DESIGNER
+                  <br />
+                  <span
+                    onClick={() => router.push("https://bytescrafter.net/")}
+                    className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                  >
+                    BytesCrafter I.T Solutions
+                  </span>
+                </div>
+              </div>
+            </li>
+          </motion.ul>
         </div>
-      </motion.div>
-    </div>
+
+        {/* ———————————————————————————————————— resume ——— */}
+        <motion.a
+          variants={itemVariants}
+          href="Joven_Bataller_Resume.pdf"
+          download
+        >
+          <button
+            className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
+             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
+          >
+            DOWNLOAD CV
+          </button>
+        </motion.a>
+      </div>
+    </motion.div>
   );
 }

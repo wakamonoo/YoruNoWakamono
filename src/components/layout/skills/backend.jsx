@@ -1,29 +1,7 @@
 "use client";
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiTailwindcss,
-  SiReact,
-  SiNextdotjs,
-  SiFirebase,
-  SiKotlin,
-  SiVercel,
-  SiPhp,
-  SiMysql,
-  SiSocketdotio,
-  SiMongodb,
-  SiExpress,
-  SiNodedotjs,
-  SiRender,
-  SiCloudinary,
-  SiGithub,
-  SiFramer,
-  SiGit,
-  SiTypescript,
-  SiLeaflet,
-} from "react-icons/si";
+import { SiSocketdotio, SiExpress, SiNodedotjs } from "react-icons/si";
 import { motion } from "framer-motion";
+
 export default function BackEnd({ itemVariants, iconVariants }) {
   return (
     <div>

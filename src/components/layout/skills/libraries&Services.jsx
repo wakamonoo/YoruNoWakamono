@@ -1,30 +1,12 @@
 "use client";
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiTailwindcss,
-  SiReact,
-  SiNextdotjs,
-  SiFirebase,
-  SiKotlin,
-  SiVercel,
-  SiPhp,
-  SiMysql,
-  SiSocketdotio,
-  SiMongodb,
-  SiExpress,
-  SiNodedotjs,
-  SiRender,
-  SiCloudinary,
-  SiGithub,
-  SiFramer,
-  SiGit,
-  SiTypescript,
-  SiLeaflet,
-} from "react-icons/si";
+import { SiCloudinary, SiFramer, SiLeaflet } from "react-icons/si";
 import { motion } from "framer-motion";
-export default function LibrariesAndServices({ itemVariants, iconVariants }) {
+
+export default function LibrariesAndServices({
+  itemVariants,
+  iconVariants,
+}) {
+
   return (
     <div>
       <motion.h2

@@ -10,39 +10,19 @@ import { motion } from "framer-motion";
 import { LoaderContext } from "@/context/loaderContext";
 
 export default function Contact() {
-  const {loading} = useContext(LoaderContext)
+  const { loading } = useContext(LoaderContext);
   const form = useRef();
   const ejssid = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
   const ejstid = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
   const ejspk = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-  const containerRef = useRef(null);
-  const containerRef2 = useRef(null);
-  const [inView, setInView] = useState(false);
-  const [inView2, setInView2] = useState(false);
 
-  useEffect(() => {
-    if (loading) return;
-
-    const createObserver = (ref, setVisible) => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            observer.unobserve(entry.target);
-          }
-        },
-        { threshold: 0.6 },
-      );
-      if (ref.current) observer.observe(ref.current);
-    };
-
-    createObserver(containerRef, setInView);
-    createObserver(containerRef2, setInView2);
-  }, [loading]);
-
-  const containerVariant = {
+  const containerVariants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.12 } },
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
   };
 
   const itemVariants = {
@@ -93,10 +73,11 @@ export default function Contact() {
   return (
     <>
       <motion.div
-        ref={containerRef}
-        variants={containerVariant}
+        variants={containerVariants}
         initial="hidden"
-        animate={inView ? "visible" : "hidden"}
+        animate={loading ? "hidden" : undefined}
+        whileInView={loading ? undefined : "visible"}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <motion.h1
           variants={itemVariants}
@@ -157,10 +138,11 @@ export default function Contact() {
         </motion.p>
       </motion.div>
       <motion.div
-        ref={containerRef2}
-        variants={containerVariant}
+        variants={containerVariants}
         initial="hidden"
-        animate={inView2 ? "visible" : "hidden"}
+        animate={loading ? "hidden" : undefined}
+        whileInView={loading ? undefined : "visible"}
+        viewport={{ once: true, amount: 0.2 }}
         className="w-full mb-16"
       >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">

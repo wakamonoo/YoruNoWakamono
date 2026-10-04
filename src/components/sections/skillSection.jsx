@@ -1,30 +1,6 @@
 "use client";
-import {
-  SiHtml5,
-  SiCss3,
-  SiJavascript,
-  SiTailwindcss,
-  SiReact,
-  SiNextdotjs,
-  SiFirebase,
-  SiKotlin,
-  SiVercel,
-  SiPhp,
-  SiMysql,
-  SiSocketdotio,
-  SiMongodb,
-  SiExpress,
-  SiNodedotjs,
-  SiRender,
-  SiCloudinary,
-  SiGithub,
-  SiFramer,
-  SiGit,
-  SiTypescript,
-  SiLeaflet,
-} from "react-icons/si";
 import { motion } from "framer-motion";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext } from "react";
 import { LoaderContext } from "@/context/loaderContext";
 import FrontEnd from "../layout/skills/frontend";
 import BackEnd from "../layout/skills/backend";
@@ -34,33 +10,14 @@ import LibrariesAndServices from "../layout/skills/libraries&Services";
 
 export default function Skills() {
   const { loading } = useContext(LoaderContext);
-  const containerRef = useRef(null);
-  const [inView, setInView] = useState(false);
 
-  useEffect(() => {
-    if (loading) return;
-    const current = containerRef.current;
-    if (!current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.25 },
-    );
-
-    observer.observe(current);
-    return () => {
-      observer.disconnect();
-    };
-  }, [loading]);
-
-  const containerVariant = {
+  const containerVariants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.12 } },
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
   };
 
   const itemVariants = {
@@ -81,36 +38,33 @@ export default function Skills() {
     },
   };
   return (
-    <div ref={containerRef}>
-      <motion.div
-        variants={containerVariant}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        <motion.h1
-          variants={itemVariants}
-          className="text-2xl mb-4 text-header"
-        >
-          ODM ARSENAL ────
-        </motion.h1>
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate={loading ? "hidden" : undefined}
+      whileInView={loading ? undefined : "visible"}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.h1 variants={itemVariants} className="text-2xl mb-4 text-header">
+        ODM ARSENAL ────
+      </motion.h1>
 
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 justify-center mx-auto">
-          <FrontEnd itemVariants={itemVariants} iconVariants={iconVariants} />
-          <BackEnd itemVariants={itemVariants} iconVariants={iconVariants} />
-          <DatabaseAndAuthentication
-            itemVariants={itemVariants}
-            iconVariants={iconVariants}
-          />
-          <ToolsAndPlatforms
-            itemVariants={itemVariants}
-            iconVariants={iconVariants}
-          />
-          <LibrariesAndServices
-            itemVariants={itemVariants}
-            iconVariants={iconVariants}
-          />
-        </div>
-      </motion.div>
-    </div>
+      <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 justify-center mx-auto">
+        <FrontEnd itemVariants={itemVariants} iconVariants={iconVariants} />
+        <BackEnd itemVariants={itemVariants} iconVariants={iconVariants} />
+        <DatabaseAndAuthentication
+          itemVariants={itemVariants}
+          iconVariants={iconVariants}
+        />
+        <ToolsAndPlatforms
+          itemVariants={itemVariants}
+          iconVariants={iconVariants}
+        />
+        <LibrariesAndServices
+          itemVariants={itemVariants}
+          iconVariants={iconVariants}
+        />
+      </div>
+    </motion.div>
   );
 }

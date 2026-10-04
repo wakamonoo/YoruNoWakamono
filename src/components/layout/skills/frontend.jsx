@@ -9,7 +9,12 @@ import {
   SiTypescript,
 } from "react-icons/si";
 import { motion } from "framer-motion";
-export default function FrontEnd({ itemVariants, iconVariants }) {
+
+export default function FrontEnd({
+  itemVariants,
+  iconVariants,
+}) {
+
   return (
     <div>
       <motion.h2
