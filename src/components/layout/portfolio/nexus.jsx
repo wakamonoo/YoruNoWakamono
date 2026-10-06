@@ -28,7 +28,7 @@ export default function Nexus({ cardVariants }) {
       className="bg-panel rounded-2xl p-4 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full overflow-hidden"
     >
       <div className="flex items-start gap-4">
-        <div className="w-24 h-24 shrink-0 rounded-lg">
+        <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden">
           <Image
             src={NexusImage}
             alt="nexus"
@@ -74,7 +74,7 @@ export default function Nexus({ cardVariants }) {
                 </div>
               </div>
             </Marquee>
-            <p className="mt-2 text-normal text-justify text-sm font-normal leading-tight opacity-60">
+            <p className="mt-2 text-normal text-justify text-sm font-normal leading-tight">
               A Marvel community for exploring stories, sharing opinions, and
               connecting with fellow fans.
             </p>

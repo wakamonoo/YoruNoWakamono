@@ -181,7 +181,7 @@ export default function Report({ statsInView }) {
       <div>
         <motion.p
           variants={itemVariants}
-          className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60"
+          className="mb-2 text-xs uppercase tracking-[0.25em]"
         >
           Statistics
         </motion.p>
@@ -213,7 +213,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em] opacity-70">
+                <p className="text-xs uppercase tracking-[0.25em]">
                   Members
                 </p>
               </div>
@@ -230,7 +230,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em] opacity-70">
+                <p className="text-xs uppercase tracking-[0.25em]">
                   Titles
                 </p>
               </div>
@@ -247,7 +247,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em] opacity-70">
+                <p className="text-xs uppercase tracking-[0.25em]">
                   Reviews
                 </p>
               </div>
@@ -280,7 +280,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em] opacity-70">
+                <p className="text-xs uppercase tracking-[0.25em]">
                   Stories
                 </p>
               </div>
@@ -297,7 +297,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em] opacity-70">
+                <p className="text-xs uppercase tracking-[0.25em]">
                   Contributors
                 </p>
               </div>
@@ -308,7 +308,7 @@ export default function Report({ statsInView }) {
       <div className="mt-2">
         <motion.p
           variants={itemVariants}
-          className="mb-2 text-xs uppercase tracking-[0.25em] opacity-60"
+          className="mb-2 text-xs uppercase tracking-[0.25em]"
         >
           Community Feedback
         </motion.p>
@@ -320,7 +320,7 @@ export default function Report({ statsInView }) {
             <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
               <div className="flex items-start">
                 <div className="flex items-center justify-center w-8 h-8 shrink-0">
-                  <FaQuoteLeft className="text-xs opacity-60" />
+                  <FaQuoteLeft className="text-xs" />
                 </div>
                 <p className="text-base text-vibe leading-tight line-clamp-2 mt-2">
                   no community feedback yet
@@ -368,7 +368,7 @@ export default function Report({ statsInView }) {
                       </div>
                       <div className="flex items-start">
                         <div className="flex items-center justify-center w-8 h-8 shrink-0">
-                          <FaQuoteLeft className="text-xs opacity-60" />
+                          <FaQuoteLeft className="text-xs" />
                         </div>
                         <p className="cursor-pointer mt-2 text-base text-vibe leading-tight line-clamp-3">
                           {feedback.review}

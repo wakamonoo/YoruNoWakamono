@@ -52,7 +52,7 @@ export default function AnceStory({ cardVariants }) {
       className="bg-panel rounded-2xl p-4 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full overflow-hidden"
     >
       <div className="flex items-start gap-4">
-        <div className="w-24 h-24 shrink-0 rounded-lg">
+        <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden">
           <Image
             src={AnceStoryImage}
             alt="ancestory"
@@ -95,7 +95,7 @@ export default function AnceStory({ cardVariants }) {
                 </div>
               </div>
             </Marquee>
-            <p className="mt-2 text-normal text-justify text-sm font-normal leading-tight opacity-60">
+            <p className="mt-2 text-normal text-justify text-sm font-normal leading-tight">
               A digital archive for preserving and discovering local stories and
               folklore.
             </p>
