@@ -2,23 +2,19 @@
 import Hero from "@/components/sections/heroSection";
 import About from "@/components/sections/aboutSection";
 import Skills from "@/components/sections/skillSection";
-import Portfolio from "@/components/sections/portfolioSection";
 import Contact from "@/components/sections/contactSection";
 import Footer from "@/components/sections/footer";
-import Loader from "@/components/layout/loader";
-import { useEffect, useState } from "react";
 import Bulletin from "@/components/layout/bulletin";
-import Highlight from "@/components/sections/highlightSection";
 import Aibou from "@/components/layout/aibou";
+import Contributions from "@/components/sections/activitySection";
+import Activity from "@/components/sections/activitySection";
+import Portfolio from "@/components/sections/portfolioSection";
 
 export default function Home() {
-
-
   return (
     <main>
-
       {/* ———————————————————————————————————— chatbot ——— */}
-      <Aibou/>
+      <Aibou />
 
       {/* ———————————————————————————————————— hero section ——— */}
       <section id="hero" className="bg-brand h-screen relative overflow-hidden">
@@ -36,18 +32,18 @@ export default function Home() {
       </div>
 
       <section
-        id="highlight"
-        className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
-      >
-        <Highlight />
-      </section>
-
-      {/* ———————————————————————————————————— portfolio section ——— */}
-      <section
         id="portfolio"
         className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
       >
         <Portfolio />
+      </section>
+
+      {/* ———————————————————————————————————— portfolio section ——— */}
+      <section
+        id="activity"
+        className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
+      >
+        <Activity />
       </section>
 
       {/* ———————————————————————————————————— skills section ——— */}

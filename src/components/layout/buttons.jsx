@@ -1,10 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { AiFillHome } from "react-icons/ai";
-import { VscAccount } from "react-icons/vsc";
+import { VscAccount, VscGraph } from "react-icons/vsc";
 import { RiRocket2Fill } from "react-icons/ri";
 import { CgWebsite } from "react-icons/cg";
-import { FaEnvelope } from "react-icons/fa";
+import { FaEnvelope, FaGithub } from "react-icons/fa";
 import { MdApps } from "react-icons/md";
 import { FaCrosshairs } from "react-icons/fa";
 
@@ -73,20 +73,20 @@ function NavLinks() {
       </div>
 
       <div className="relative flex flex-col items-center justify-center group">
-        <a href="#highlight" className="relative z-10">
-          <FaCrosshairs className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
-        </a>
-        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
-          Highlight
-        </p>
-      </div>
-
-      <div className="relative flex flex-col items-center justify-center group">
         <a href="#portfolio" className="relative z-10">
           <CgWebsite className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
         </a>
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Portfolio
+        </p>
+      </div>
+
+      <div className="relative flex flex-col items-center justify-center group">
+        <a href="#activity" className="relative z-10">
+          <VscGraph className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-4xl" />
+        </a>
+        <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
+          Activity
         </p>
       </div>
 
