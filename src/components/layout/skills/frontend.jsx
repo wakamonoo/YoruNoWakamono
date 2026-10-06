@@ -19,7 +19,7 @@ export default function FrontEnd({
     <div>
       <motion.h2
         variants={itemVariants}
-        className="w-full text-xl p-2 bg-brand rounded text-header mb-4 mt-4"
+        className="w-full text-xl p-2 bg-panel rounded text-header mb-4 mt-4"
       >
         Front-End Development
       </motion.h2>
@@ -34,7 +34,7 @@ export default function FrontEnd({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiHtml5 />
           </div>
@@ -45,7 +45,7 @@ export default function FrontEnd({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiCss3 />
           </div>
@@ -56,7 +56,7 @@ export default function FrontEnd({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiJavascript />
           </div>
@@ -68,7 +68,7 @@ export default function FrontEnd({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiTypescript />
           </div>
@@ -79,7 +79,7 @@ export default function FrontEnd({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiTailwindcss />
           </div>
@@ -90,7 +90,7 @@ export default function FrontEnd({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiReact />
           </div>
@@ -101,7 +101,7 @@ export default function FrontEnd({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiNextdotjs />
           </div>

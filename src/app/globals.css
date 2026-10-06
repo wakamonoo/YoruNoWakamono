@@ -10,12 +10,13 @@
 @layer base {
   :root {
     --color-bg: #6f553f; /* ———————————————————————————————————— primary bg ——— */
+    --color-secondary: #5e5e5e; /* ———————————————————————————————————— second bg ——— */
     --color-accent: #ffeccf; /* ———————————————————————————————————— header ——— */
     --color-text: #f5f5f5; /* ———————————————————————————————————— normal text ——— */
     --color-panel: #3b2f2f; /* ———————————————————————————————————— nav bg ——— */
-    --color-secondary: #5e5e5e; /* ———————————————————————————————————— second bg ——— */
     --color-army: #4e6952; /* ———————————————————————————————————— army green ——— */
     --color-nexus: #ed1d24; /* ———————————————————————————————————— marvel red ——— */
+    --color-muted: #b8b8b5; /* ———————————————————————————————————— muted text ——— */
 
     --font-heading:
       "Bangers", cursive; /* ———————————————————————————————————— header ——— */
@@ -86,6 +87,10 @@
 
   .text-normal {
     color: var(--color-text);
+  }
+
+  .text-muted {
+    color: var(--color-muted);
   }
 
   .text-panel {

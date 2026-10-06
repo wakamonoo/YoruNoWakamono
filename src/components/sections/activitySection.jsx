@@ -42,12 +42,12 @@ export default function Activity() {
         whileInView={loading ? undefined : "visible"}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <motion.h2
+        <motion.h1
           variants={itemVariants}
-          className="text-xl p-2 bg-brand rounded text-header mb-4 mt-8"
+          className="text-2xl mb-4 text-header"
         >
-          BATTLE RECORD
-        </motion.h2>
+          BATTLE RECORD ────
+        </motion.h1>
         <motion.p
           variants={itemVariants}
           className="text-normal text-justify text-base  font-normal leading-tight mb-4"
@@ -58,7 +58,7 @@ export default function Activity() {
         </motion.p>
         <motion.div variants={cardVariants}>
           <img
-            src="https://ghchart.rshah.org/6f553f/wakamonoo"
+            src="https://ghchart.rshah.org/3b2f2f/wakamonoo"
             alt="git contributions"
             className="w-full h-auto"
           />

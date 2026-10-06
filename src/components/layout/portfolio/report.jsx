@@ -166,7 +166,7 @@ export default function Report({ statsInView }) {
     <div>
       <motion.h2
         variants={itemVariants}
-        className="text-xl p-2 bg-brand rounded text-header mb-4"
+        className="text-xl p-2 bg-panel rounded text-header mb-4"
       >
         MISSION REPORT
       </motion.h2>
@@ -213,9 +213,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em]">
-                  Members
-                </p>
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">Members</p>
               </div>
               <div className="flex items-center justify-start gap-2">
                 {statsInView ? (
@@ -230,9 +228,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em]">
-                  Titles
-                </p>
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">Titles</p>
               </div>
               <div className="flex items-center justify-start gap-2">
                 {statsInView ? (
@@ -247,9 +243,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em]">
-                  Reviews
-                </p>
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">Reviews</p>
               </div>
             </div>
           </motion.div>
@@ -280,7 +274,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em]">
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">
                   Stories
                 </p>
               </div>
@@ -297,7 +291,7 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs uppercase tracking-[0.25em]">
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">
                   Contributors
                 </p>
               </div>
@@ -330,7 +324,7 @@ export default function Report({ statsInView }) {
           ) : (
             <div
               ref={carouselRef}
-              className="flex items-center overflow-x-auto scroll-smooth scrollbar-hide gap-2 snap-x snap-mandatory"
+              className="flex items-center overflow-x-auto scroll-smooth shadow-md scrollbar-hide gap-2 snap-x snap-mandatory"
             >
               <div className="min-w-full snap-start">
                 {feedbacks?.map((feedback) => {
@@ -357,8 +351,10 @@ export default function Report({ statsInView }) {
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-col">
                             <div>
-                              <p className="text-sm">
-                                <span className="font-bold">{user?.name}</span>{" "}
+                              <p className="text-sm text-muted">
+                                <span className="font-bold text-normal">
+                                  {user?.name}
+                                </span>{" "}
                                 on Nexus
                               </p>
                             </div>

@@ -122,17 +122,19 @@ export default function Contact() {
           <div>
             <button
               type="submit"
-              className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
-             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
+              className="p-2 text-base mt-8 bg-panel rounded shadow-2xl group transition-all duration-200
+             hover:bg-[var(--color-accent)] active:bg-[var(--color-accent)] cursor-pointer"
             >
-              ALERT HEADQUARTERS
+              <p className="text-base text-header transition-all duration-20 group-hover:text-(--color-panel) group-active:text-(--color-panel) uppercase font-heading">
+                Alert Headquarters
+              </p>
             </button>
           </div>
         </motion.form>
 
         <motion.p
           variants={itemVariants}
-          className="font-normal text-sm py-8 text-normal"
+          className="font-normal text-sm py-8 text-muted"
         >
           alternate recon points:
         </motion.p>
@@ -150,12 +152,12 @@ export default function Contact() {
             variants={itemVariants}
             href="https://www.facebook.com/joven.serdanbataller"
           >
-            <div className=" relative p-4 w-full h-full bg-panel rounded border overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-[var(--color-bg)] before:to-[var(--color-panel)] before:transition-opacity before:duration-200 hover:before:opacity-0">
+            <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
                   <FaFacebookF />
                 </div>
-                <h4 className="text-xl font-header text-header">
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
                   Joven Bataller
                 </h4>
               </div>
@@ -166,12 +168,14 @@ export default function Contact() {
             variants={itemVariants}
             href="https://www.instagram.com/wakamonoooo/"
           >
-            <div className=" relative p-4 w-full h-full bg-panel rounded border overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-[var(--color-bg)] before:to-[var(--color-panel)] before:transition-opacity before:duration-200 hover:before:opacity-0">
+            <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
                   <FaInstagram />
                 </div>
-                <h4 className="text-xl font-header text-header">WAKAMONOOOO</h4>
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                  wakamonoooo
+                </h4>
               </div>
             </div>
           </motion.a>
@@ -180,25 +184,27 @@ export default function Contact() {
             variants={itemVariants}
             href="https://www.linkedin.com/in/joven-bataller-085761350/"
           >
-            <div className=" relative p-4 w-full h-full bg-panel rounded border overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-[var(--color-bg)] before:to-[var(--color-panel)] before:transition-opacity before:duration-200 hover:before:opacity-0">
+            <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
                   <FaLinkedinIn />
                 </div>
-                <h4 className="text-xl font-header text-header">
-                  JOVEN BATALLER
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                  Joven Bataller
                 </h4>
               </div>
             </div>
           </motion.a>
 
           <motion.a variants={itemVariants} href="https://github.com/wakamonoo">
-            <div className=" relative p-4 w-full h-full bg-panel rounded border overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-[var(--color-bg)] before:to-[var(--color-panel)] before:transition-opacity before:duration-200 hover:before:opacity-0">
+            <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
                   <FaGithub />
                 </div>
-                <h4 className="text-xl font-header text-header">WAKAMONOO</h4>
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                  wakamonoo
+                </h4>
               </div>
             </div>
           </motion.a>

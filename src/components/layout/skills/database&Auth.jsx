@@ -11,7 +11,7 @@ export default function DatabaseAndAuthentication({
     <div>
       <motion.h2
         variants={itemVariants}
-        className="w-full text-xl p-2 bg-brand rounded text-header mb-4 mt-4"
+        className="w-full text-xl p-2 bg-panel rounded text-header mb-4 mt-4"
       >
         Database & Authentication
       </motion.h2>
@@ -26,7 +26,7 @@ export default function DatabaseAndAuthentication({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiFirebase />
           </div>
@@ -38,7 +38,7 @@ export default function DatabaseAndAuthentication({
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"
-            className="p-2 text-5xl text-normal bg-brand rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-panel)] hover:text-[var(--color-accent)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-panel)] focus:text-[var(--color-accent)] focus:-rotate-3  cursor-pointer w-fit h-fit"
+            className="p-2 text-5xl text-normal bg-panel rounded transition-all duration-300 hover:-translate-y-5 hover:-rotate-3 hover:shadow-2xl hover:bg-[var(--color-accent)] hover:text-[var(--color-panel)] focus:-translate-y-5  focus:shadow-2xl focus:bg-[var(--color-accent)] focus:text-[var(--color-panel)] focus:-rotate-3  cursor-pointer w-fit h-fit"
           >
             <SiMongodb />
           </div>

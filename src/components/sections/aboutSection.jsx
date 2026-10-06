@@ -80,7 +80,7 @@ export default function About() {
         <div className="mt-4">
           <motion.h2
             variants={itemVariants}
-            className="text-xl p-2 bg-brand rounded text-header"
+            className="text-xl p-2 bg-panel rounded text-header"
           >
             EDUCATION
           </motion.h2>
@@ -95,7 +95,7 @@ export default function About() {
                   <br />
                   <span
                     onClick={() => router.push("https://bicol-u.edu.ph/")}
-                    className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                    className="text-sm font-normal text-muted leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
                   >
                     Bicol University Polangui
                   </span>
@@ -105,7 +105,7 @@ export default function About() {
           </motion.ul>
           <motion.h2
             variants={itemVariants}
-            className="text-xl mt-4 p-2 bg-brand rounded text-header"
+            className="text-xl mt-4 p-2 bg-panel rounded text-header"
           >
             EXPERIENCE
           </motion.h2>
@@ -120,7 +120,7 @@ export default function About() {
                   <br />
                   <span
                     onClick={() => router.push("https://bytescrafter.net/")}
-                    className="text-sm font-normal text-normal leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                    className="text-sm font-normal text-muted leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
                   >
                     BytesCrafter I.T Solutions
                   </span>
@@ -137,10 +137,12 @@ export default function About() {
           download
         >
           <button
-            className="p-2 text-base mt-8 bg-brand rounded shadow-2xl border border-accent transition-all duration-200
-             hover:bg-[var(--color-panel)] active:bg-[var(--color-panel)] cursor-pointer"
+            className="p-2 text-base mt-8 bg-panel rounded shadow-2xl group transition-all duration-200
+             hover:bg-[var(--color-accent)] active:bg-[var(--color-accent)] cursor-pointer"
           >
-            DOWNLOAD CV
+            <p className="text-base text-header transition-all duration-20 group-hover:text-(--color-panel) group-active:text-(--color-panel) uppercase font-heading">
+              Download CV
+            </p>
           </button>
         </motion.a>
       </div>

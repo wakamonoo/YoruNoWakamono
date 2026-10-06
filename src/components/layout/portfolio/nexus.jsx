@@ -74,7 +74,7 @@ export default function Nexus({ cardVariants }) {
                 </div>
               </div>
             </Marquee>
-            <p className="mt-2 text-normal text-justify text-sm font-normal leading-tight">
+            <p className="mt-2 text-muted text-justify text-sm font-normal leading-tight">
               A Marvel community for exploring stories, sharing opinions, and
               connecting with fellow fans.
             </p>
@@ -84,10 +84,13 @@ export default function Nexus({ cardVariants }) {
               href="https://ournexus.space"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex gap-1 items-center justify-center px-4 py-2 rounded-2xl border border-accent"
+              className="flex gap-1 items-center justify-center px-4 py-2 rounded-2xl border border-accent group transition-all duration-200
+             hover:bg-[var(--color-accent)] active:bg-[var(--color-accent)]"
             >
-              <p className="text-sm text-(--color-accent)">View Project</p>
-              <FaArrowRight className="text-sm text-(--color-accent) shrink-0" />
+              <p className="text-sm text-header group-hover:text-(--color-panel) group-active:text-(--color-panel)">
+                View Project
+              </p>
+              <FaArrowRight className="text-sm text-header group-hover:text-(--color-panel) group-active:text-(--color-panel) shrink-0" />
             </a>
           </div>
         </div>
