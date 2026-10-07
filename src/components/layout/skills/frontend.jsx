@@ -25,12 +25,12 @@ export default function FrontEnd({
       </motion.h2>
       <motion.p
         variants={itemVariants}
-        className="text-normal text-justify text-base font-normal leading-tight mb-4"
+        className="text-normal text-justify text-base font-normal leading-tight"
       >
         Building user interfaces and interactive designs for web apps using
         modern frameworks and styling tools.
       </motion.p>
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2 mt-4">
         <motion.div variants={iconVariants} className="relative group w-fit">
           <div
             tabIndex="0"

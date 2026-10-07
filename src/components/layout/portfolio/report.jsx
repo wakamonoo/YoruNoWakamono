@@ -166,19 +166,19 @@ export default function Report({ statsInView }) {
     <div>
       <motion.h2
         variants={itemVariants}
-        className="text-xl p-2 bg-panel rounded text-header mb-4"
+        className="text-xl p-2 bg-panel rounded text-header"
       >
         MISSION REPORT
       </motion.h2>
       <motion.p
         variants={itemVariants}
-        className="text-normal text-justify text-base  font-normal leading-tight mb-4"
+        className="mt-4 text-normal text-justify text-base font-normal leading-tight"
       >
         These platforms have grown a community, received valuable feedback, and
         continue to make an impact even after launch.
       </motion.p>
 
-      <div>
+      <div className="mt-4">
         <motion.p
           variants={itemVariants}
           className="mb-2 text-xs uppercase tracking-[0.25em]"
@@ -199,7 +199,7 @@ export default function Report({ statsInView }) {
               loading="lazy"
               scrolling="no"
             />
-            <div className="mt-2 flex w-full flex-col items-start gap-2 px-4">
+            <div className="mt-2 flex w-full flex-wrap px-4 items-center justify-center gap-2">
               <div className="flex items-center justify-start gap-2">
                 {statsInView ? (
                   <CountUp
@@ -213,7 +213,9 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">Members</p>
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">
+                  Members
+                </p>
               </div>
               <div className="flex items-center justify-start gap-2">
                 {statsInView ? (
@@ -228,7 +230,9 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">Titles</p>
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">
+                  Titles
+                </p>
               </div>
               <div className="flex items-center justify-start gap-2">
                 {statsInView ? (
@@ -243,7 +247,9 @@ export default function Report({ statsInView }) {
                     0
                   </p>
                 )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">Reviews</p>
+                <p className="text-xs text-muted uppercase tracking-[0.25em]">
+                  Reviews
+                </p>
               </div>
             </div>
           </motion.div>
@@ -260,7 +266,7 @@ export default function Report({ statsInView }) {
               loading="lazy"
               scrolling="no"
             />
-            <div className="mt-2 flex w-full flex-col items-start gap-2 px-4">
+            <div className="mt-2 flex w-full flex-wrap px-4 items-center justify-center gap-2">
               <div className="flex items-center justify-start gap-2">
                 {statsInView ? (
                   <CountUp
@@ -299,7 +305,7 @@ export default function Report({ statsInView }) {
           </motion.div>
         </div>
       </div>
-      <div className="mt-2">
+      <div className="mt-4">
         <motion.p
           variants={itemVariants}
           className="mb-2 text-xs uppercase tracking-[0.25em]"

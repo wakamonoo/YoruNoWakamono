@@ -73,6 +73,9 @@
     background-color: var(--color-army);
   }
 
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
   .bg-nexus {
     background-color: var(--color-nexus);
   }

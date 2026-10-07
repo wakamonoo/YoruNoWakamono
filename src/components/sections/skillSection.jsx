@@ -45,9 +45,13 @@ export default function Skills() {
       whileInView={loading ? undefined : "visible"}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <motion.h1 variants={itemVariants} className="text-2xl mb-4 text-header">
-        ODM ARSENAL ────
-      </motion.h1>
+      <motion.div
+        variants={itemVariants}
+        className="flex gap-2 items-center w-full mb-4"
+      >
+        <h1 className="text-2xl text-header uppercase">ODM Arsenal</h1>
+        <div className="w-12 h-px bg-accent shrink-0" />
+      </motion.div>
 
       <div className="flex flex-col lg:grid lg:grid-cols-2 gap-4 justify-center mx-auto">
         <FrontEnd itemVariants={itemVariants} iconVariants={iconVariants} />

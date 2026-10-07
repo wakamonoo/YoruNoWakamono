@@ -50,9 +50,13 @@ export default function About() {
       whileInView={loading ? undefined : "visible"}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <motion.h1 variants={itemVariants} className="text-2xl mb-4 text-header">
-        THE DIGITAL SCOUT ────
-      </motion.h1>
+      <motion.div
+        variants={itemVariants}
+        className="flex gap-2 items-center w-full mb-4"
+      >
+        <h1 className="text-2xl text-header uppercase">The Digital Scout</h1>
+        <div className="w-12 h-px bg-accent shrink-0" />
+      </motion.div>
 
       <div className="w-full clearfix">
         <motion.div
@@ -80,19 +84,20 @@ export default function About() {
         <div className="mt-4">
           <motion.h2
             variants={itemVariants}
-            className="text-xl p-2 bg-panel rounded text-header"
+            className="text-xl p-2 bg-panel rounded text-header uppercase"
           >
-            EDUCATION
+            Education
           </motion.h2>
           <motion.ul variants={itemVariants} className="mt-4">
             <li className="flex flex-col text-sm">
-              <div className="flex items-start w-full">
+              <div className="flex items-center gap-2 w-full">
                 <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
                   2021-2025
                 </span>
-                <div className="text-base font-bold text-header leading-tight w-1/2">
-                  INFORMATION TECHNOLOGY
-                  <br />
+                <div className="flex flex-col gap-0.5 w-1/2">
+                  <p className="text-base font-bold text-header leading-tight uppercase">
+                    Information Technology
+                  </p>
                   <span
                     onClick={() => router.push("https://bicol-u.edu.ph/")}
                     className="text-sm font-normal text-muted leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
@@ -115,9 +120,10 @@ export default function About() {
                 <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
                   2025
                 </span>
-                <div className="text-base font-bold text-header leading-tight w-1/2">
-                  IT SUPPORT | UI/UX DESIGNER
-                  <br />
+                <div className="flex flex-col gap-0.5 w-1/2">
+                  <p className="text-base font-bold text-header leading-tight uppercase">
+                    IT Support | UI/UX Designer
+                  </p>
                   <span
                     onClick={() => router.push("https://bytescrafter.net/")}
                     className="text-sm font-normal text-muted leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"

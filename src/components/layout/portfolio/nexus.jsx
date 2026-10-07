@@ -40,7 +40,7 @@ export default function Nexus({ cardVariants }) {
             <p className="text-base font-bold text-header leading-tight uppercase">
               Nexus
             </p>
-            <p className="mb-2 text-sm tracking-[0.25em]">
+            <p className="mb-2 text-sm">
               Marvel community platform.
             </p>
             <Marquee speed={50} className="cursor-pointer p-2">

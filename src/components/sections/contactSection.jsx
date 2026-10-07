@@ -79,12 +79,13 @@ export default function Contact() {
         whileInView={loading ? undefined : "visible"}
         viewport={{ once: true, amount: 0.2 }}
       >
-        <motion.h1
+        <motion.div
           variants={itemVariants}
-          className="text-2xl mb-4 text-header"
+          className="flex gap-2 items-center w-full mb-4"
         >
-          DISPATCH RESOLVE ────
-        </motion.h1>
+          <h1 className="text-2xl text-header uppercase">Dispatch Resolve</h1>
+          <div className="w-12 h-px bg-accent shrink-0" />
+        </motion.div>
         <motion.form
           variants={itemVariants}
           ref={form}
@@ -154,10 +155,10 @@ export default function Contact() {
           >
             <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   <FaFacebookF />
                 </div>
-                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   Joven Bataller
                 </h4>
               </div>
@@ -170,10 +171,10 @@ export default function Contact() {
           >
             <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   <FaInstagram />
                 </div>
-                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   wakamonoooo
                 </h4>
               </div>
@@ -186,10 +187,10 @@ export default function Contact() {
           >
             <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   <FaLinkedinIn />
                 </div>
-                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   Joven Bataller
                 </h4>
               </div>
@@ -199,10 +200,10 @@ export default function Contact() {
           <motion.a variants={itemVariants} href="https://github.com/wakamonoo">
             <div className="relative p-4 w-full h-full bg-panel group transition-all duration-200 hover:bg-(--color-accent) active:bg-(--color-accent)  rounded overflow-hidden ">
               <div className="relative z-10">
-                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <div className="text-4xl mb-4 font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   <FaGithub />
                 </div>
-                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel)">
+                <h4 className="text-xl font-header text-header transition-all duration-200 group-hover:text-(--color-panel) group-active:text-(--color-panel)">
                   wakamonoo
                 </h4>
               </div>

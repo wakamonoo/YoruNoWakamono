@@ -45,9 +45,13 @@ export default function Portfolio() {
       onAnimationComplete={() => setStatsInView(true)}
       viewport={{ once: true, amount: 0.2 }}
     >
-      <motion.h1 variants={itemVariants} className="text-2xl mb-4 text-header">
-        RECON MISSIONS ────
-      </motion.h1>{" "}
+      <motion.div
+        variants={itemVariants}
+        className="flex gap-2 items-center w-full mb-4"
+      >
+        <h1 className="text-2xl text-header uppercase">Recon Missions</h1>
+        <div className="w-12 h-px bg-accent shrink-0" />
+      </motion.div>
       <motion.p
         variants={itemVariants}
         className="text-normal text-justify text-base  font-normal leading-tight mb-4"

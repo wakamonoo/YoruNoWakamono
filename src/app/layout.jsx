@@ -101,10 +101,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${bangers.variable} ${rubik.variable} ${blackHan.variable} ${anton.variable} ${bebasNeue.variable} ${roboto.variable} scroll-smooth`}
-      >
+    <html
+      lang="en"
+      className={`${bangers.variable} ${rubik.variable} ${blackHan.variable} ${anton.variable} ${bebasNeue.variable} ${roboto.variable} scroll-smooth`}
+    >
+      <body>
         <LoaderProvider>{children}</LoaderProvider>
       </body>
     </html>

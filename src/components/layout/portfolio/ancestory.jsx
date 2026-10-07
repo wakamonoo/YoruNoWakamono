@@ -64,7 +64,7 @@ export default function AnceStory({ cardVariants }) {
             <p className="text-base font-bold text-header leading-tight uppercase">
               AnceStory
             </p>
-            <p className="mb-2 text-sm tracking-[0.25em]">
+            <p className="mb-2 text-sm">
               Digital archive for local stories.
             </p>
             <Marquee speed={50} className="cursor-pointer p-2">
