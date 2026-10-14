@@ -4,6 +4,7 @@ import Nexus from "../layout/portfolio/nexus";
 import AnceStory from "../layout/portfolio/ancestory";
 import { LoaderContext } from "@/context/loaderContext";
 import Report from "../layout/portfolio/report";
+import IgniteSoles from "../layout/portfolio/ignitesoles";
 
 export default function Portfolio() {
   const { loading } = useContext(LoaderContext);
@@ -58,7 +59,7 @@ export default function Portfolio() {
       >
         Defining initiatives forged beyond the walls, these projects embody bold
         ideas, deliberate strategy, and relentless execution. Each stands as a
-        testament to innovation, adaptability, and the digital scout's pursuit
+        testament to innovation, adaptability, and this digital scout's pursuit
         of uncharted possibilities.
       </motion.p>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -81,12 +82,13 @@ export default function Portfolio() {
         variants={itemVariants}
         className="text-normal text-justify text-base  font-normal leading-tight mt-4"
       >
-        Venturing into uncharted territory, the digital scout undertakes varied
+        Venturing into uncharted territory, this digital scout undertakes varied
         assignments that demand ingenuity, adaptability, and the resolve to turn
         challenges into tangible results.
       </motion.p>
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <AnceStory cardVariants={cardVariants} />
+        <IgniteSoles cardVariants={cardVariants} />
       </div>
     </motion.div>
   );

@@ -89,7 +89,7 @@ export default function About() {
             Education
           </motion.h2>
           <motion.ul variants={itemVariants} className="mt-4">
-            <li className="flex flex-col text-sm">
+            <li className="flex flex-col">
               <div className="flex items-center gap-2 w-full">
                 <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
                   2021-2025
@@ -114,8 +114,8 @@ export default function About() {
           >
             EXPERIENCE
           </motion.h2>
-          <motion.ul variants={itemVariants} className="mt-4">
-            <li className="flex flex-col text-sm">
+          <motion.ul variants={itemVariants} className="mt-4 flex flex-col gap-2">
+            <li className="flex flex-col">
               <div className="flex items-start w-full">
                 <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
                   2025
@@ -126,9 +126,27 @@ export default function About() {
                   </p>
                   <span
                     onClick={() => router.push("https://bytescrafter.net/")}
-                    className="text-sm font-normal text-muted leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                    className="text-sm font-normal text-muted leading-none cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
                   >
                     BytesCrafter I.T Solutions
+                  </span>
+                </div>
+              </div>
+            </li>
+            <li className="flex flex-col">
+              <div className="flex items-start w-full">
+                <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
+                  2026
+                </span>
+                <div className="flex flex-col gap-0.5 w-1/2">
+                  <p className="text-base font-bold text-header leading-tight uppercase">
+                    Freelance Web Developer
+                  </p>
+                  <span
+                    onClick={() => router.push("https://bytescrafter.net/")}
+                    className="text-sm font-normal text-muted leading-none cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                  >
+                    Self-Employed
                   </span>
                 </div>
               </div>

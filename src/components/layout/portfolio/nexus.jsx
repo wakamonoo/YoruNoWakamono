@@ -19,7 +19,7 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "react-icons/si";
-import NexusImage from "@/assets/nexus.png";
+import NexusImage from "@/assets/portfolio/nexus.png";
 
 export default function Nexus({ cardVariants }) {
   return (

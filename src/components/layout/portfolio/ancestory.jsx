@@ -1,7 +1,7 @@
 import { LoaderContext } from "@/context/loaderContext";
 import { motion } from "framer-motion";
 import { useState, useEffect, useContext } from "react";
-import AnceStoryImage from "@/assets/ancestory.png";
+import AnceStoryImage from "@/assets/portfolio/ancestory.png";
 import CountUp from "react-countup";
 import Marquee from "react-fast-marquee";
 import {
