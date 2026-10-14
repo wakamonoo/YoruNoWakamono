@@ -52,13 +52,13 @@ export default function About() {
     >
       <motion.div
         variants={itemVariants}
-        className="flex gap-2 items-center w-full mb-4"
+        className="flex gap-2 items-center w-full mt-8"
       >
         <h1 className="text-2xl text-header uppercase">The Digital Scout</h1>
         <div className="w-12 h-px bg-accent shrink-0" />
       </motion.div>
 
-      <div className="w-full clearfix">
+      <div className="mt-4 w-full clearfix">
         <motion.div
           variants={imageVariants}
           className="float-left w-1/2 max-w-[24rem] mr-2 mb-2 relative z-40"

@@ -40,9 +40,16 @@ export default function Nexus({ cardVariants }) {
             <p className="text-base font-bold text-header leading-tight uppercase">
               Nexus
             </p>
-            <p className="mb-2 text-sm">
-              Marvel community platform.
-            </p>
+            <p className="mb-2 text-sm">Marvel community platform.</p>
+            <iframe
+              src="https://appbuildersph.com/embed/apps/Nexus"
+              title="Nexus votes on App Builders PH"
+              className="w-full"
+              height="72"
+              style={{ border: 0 }}
+              loading="lazy"
+              scrolling="no"
+            />
             <Marquee speed={50} className="cursor-pointer p-2">
               <div className="flex gap-4 px-4">
                 <div className="w-6 h-6">

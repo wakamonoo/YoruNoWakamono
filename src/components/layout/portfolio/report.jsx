@@ -7,21 +7,15 @@ import { FaQuoteLeft } from "react-icons/fa";
 import { BiSolidStar } from "react-icons/bi";
 
 export default function Report({ statsInView }) {
-  const [nexusCount, setNexusCount] = useState({
+  const [count, setCount] = useState({
     usersCount: 0,
     titlesCount: 0,
     reviewsCount: 0,
   });
-  const [anceStoryCount, setAnceStoryCount] = useState({
-    storiesCount: 0,
-    contributorsCount: 0,
-  });
   const [nexusUsers, setNexusUsers] = useState([]);
   const [feedbacks, setFeedbacks] = useState([]);
-  const [countLoading, setCountLoading] = useState(true);
   const [userLoading, setUserLoading] = useState(true);
   const [feedbackLoading, setFeedbackLoading] = useState(true);
-  const { loading } = useContext(LoaderContext);
   const carouselRef = useRef(null);
 
   useEffect(() => {
@@ -29,36 +23,14 @@ export default function Report({ statsInView }) {
       try {
         const res = await fetch("/api/nexus/getData");
         const data = await res.json();
-        setNexusCount(data);
+        setCount(data);
       } catch (err) {
         console.error("failed to fetch count:", err);
-        setNexusCount({
+        setCount({
           usersCount: 0,
           titlesCount: 0,
           reviewsCount: 0,
         });
-      } finally {
-        setCountLoading(false);
-      }
-    };
-
-    fetchCounts();
-  }, []);
-
-  useEffect(() => {
-    const fetchCounts = async () => {
-      try {
-        const res = await fetch("/api/ancestory/getData");
-        const data = await res.json();
-        setAnceStoryCount(data);
-      } catch (err) {
-        console.error("failed to fetch count:", err);
-        setAnceStoryCount({
-          storiesCount: 0,
-          contributorsCount: 0,
-        });
-      } finally {
-        setCountLoading(false);
       }
     };
 
@@ -101,30 +73,32 @@ export default function Report({ statsInView }) {
   }, []);
 
   useEffect(() => {
+    if (
+      userLoading ||
+      feedbackLoading ||
+      !Array.isArray(feedbacks) ||
+      feedbacks.length < 2
+    ) {
+      return;
+    }
+
     const carousel = carouselRef.current;
     if (!carousel) return;
 
     const interval = setInterval(() => {
-      const cardWidth = carousel.clientWidth;
+      const slideWidth = carousel.clientWidth;
 
       const isAtEnd =
-        carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 5;
+        carousel.scrollLeft + slideWidth >= carousel.scrollWidth - 5;
 
-      if (isAtEnd) {
-        carousel.scrollTo({
-          left: 0,
-          behavior: "smooth",
-        });
-      } else {
-        carousel.scrollBy({
-          left: cardWidth,
-          behavior: "smooth",
-        });
-      }
-    }, 3000);
+      carousel.scrollTo({
+        left: isAtEnd ? 0 : carousel.scrollLeft + slideWidth,
+        behavior: "smooth",
+      });
+    }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [feedbacks, feedbackLoading, userLoading]);
 
   function StarRating({ value }) {
     return (
@@ -174,7 +148,7 @@ export default function Report({ statsInView }) {
         variants={itemVariants}
         className="mt-4 text-normal text-justify text-base font-normal leading-tight"
       >
-        These platforms have grown a community, received valuable feedback, and
+        This platform have grown a community, received valuable feedback, and
         continue to make an impact even after launch.
       </motion.p>
 
@@ -185,123 +159,61 @@ export default function Report({ statsInView }) {
         >
           Statistics
         </motion.p>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
+
+        <div className="grid grid-cols-3 gap-2">
           <motion.div
             variants={cardVariants}
-            className="rounded-xl bg-panel p-2"
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
           >
-            <iframe
-              src="https://appbuildersph.com/embed/apps/Nexus"
-              title="Nexus votes on App Builders PH"
-              className="w-full"
-              height="72"
-              style={{ border: 0 }}
-              loading="lazy"
-              scrolling="no"
-            />
-            <div className="mt-2 flex w-full flex-wrap px-4 items-center justify-center gap-2">
-              <div className="flex items-center justify-start gap-2">
-                {statsInView ? (
-                  <CountUp
-                    start={0}
-                    end={nexusCount.usersCount}
-                    duration={1.5}
-                    className="block text-base font-extrabold text-accent"
-                  />
-                ) : (
-                  <p className="block text-base font-extrabold text-accent">
-                    0
-                  </p>
-                )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">
-                  Members
-                </p>
-              </div>
-              <div className="flex items-center justify-start gap-2">
-                {statsInView ? (
-                  <CountUp
-                    start={0}
-                    end={nexusCount.titlesCount}
-                    duration={1.5}
-                    className="block text-base font-extrabold text-accent"
-                  />
-                ) : (
-                  <p className="block text-base font-extrabold text-accent">
-                    0
-                  </p>
-                )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">
-                  Titles
-                </p>
-              </div>
-              <div className="flex items-center justify-start gap-2">
-                {statsInView ? (
-                  <CountUp
-                    start={0}
-                    end={nexusCount.reviewsCount}
-                    duration={1.5}
-                    className="block text-base font-extrabold text-accent"
-                  />
-                ) : (
-                  <p className="block text-base font-extrabold text-accent">
-                    0
-                  </p>
-                )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">
-                  Reviews
-                </p>
-              </div>
-            </div>
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.usersCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Members
+            </p>
           </motion.div>
           <motion.div
             variants={cardVariants}
-            className="rounded-xl bg-panel p-2"
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
           >
-            <iframe
-              src="https://appbuildersph.com/embed/apps/ancestory"
-              title="AnceStory votes on App Builders PH"
-              className="w-full"
-              height="72"
-              style={{ border: 0 }}
-              loading="lazy"
-              scrolling="no"
-            />
-            <div className="mt-2 flex w-full flex-wrap px-4 items-center justify-center gap-2">
-              <div className="flex items-center justify-start gap-2">
-                {statsInView ? (
-                  <CountUp
-                    start={0}
-                    end={anceStoryCount.storiesCount}
-                    duration={1.5}
-                    className="block text-base font-extrabold text-accent"
-                  />
-                ) : (
-                  <p className="block text-base font-extrabold text-accent">
-                    0
-                  </p>
-                )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">
-                  Stories
-                </p>
-              </div>
-              <div className="flex items-center justify-start gap-2">
-                {statsInView ? (
-                  <CountUp
-                    start={0}
-                    end={anceStoryCount.contributorsCount}
-                    duration={1.5}
-                    className="block text-base font-extrabold text-accent"
-                  />
-                ) : (
-                  <p className="block text-base font-extrabold text-accent">
-                    0
-                  </p>
-                )}
-                <p className="text-xs text-muted uppercase tracking-[0.25em]">
-                  Contributors
-                </p>
-              </div>
-            </div>
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.titlesCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Titles
+            </p>
+          </motion.div>
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+          >
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.reviewsCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Reviews
+            </p>
           </motion.div>
         </div>
       </div>
@@ -330,20 +242,20 @@ export default function Report({ statsInView }) {
           ) : (
             <div
               ref={carouselRef}
-              className="flex items-center overflow-x-auto scroll-smooth shadow-md scrollbar-hide gap-2 snap-x snap-mandatory"
+              className="flex gap-2 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory"
             >
-              <div className="min-w-full snap-start">
-                {feedbacks?.map((feedback) => {
-                  const user = nexusUsers.find(
-                    (u) => u.uid === feedback.userId,
-                  );
+              {feedbacks?.map((feedback) => {
+                const user = nexusUsers.find((u) => u.uid === feedback.userId);
 
-                  return (
+                return (
+                  <div
+                    key={feedback.feedbackId}
+                    className="min-w-full w-full shrink-0 snap-start"
+                  >
                     <a
                       href="https://ournexus.space/communityFeedback"
                       target="_blank"
                       rel="noopener noreferrer"
-                      key={feedback.feedbackId}
                       className="block bg-[var(--color-army)] rounded-xl px-2 py-4"
                     >
                       <div className="flex gap-2">
@@ -372,14 +284,14 @@ export default function Report({ statsInView }) {
                         <div className="flex items-center justify-center w-8 h-8 shrink-0">
                           <FaQuoteLeft className="text-xs" />
                         </div>
-                        <p className="cursor-pointer mt-2 text-base text-vibe leading-tight line-clamp-3">
+                        <p className="cursor-pointer mt-2 text-base text-vibe leading-tight line-clamp-4">
                           {feedback.review}
                         </p>
                       </div>
                     </a>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
           )}
         </motion.div>

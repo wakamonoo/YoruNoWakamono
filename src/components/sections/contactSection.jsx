@@ -81,7 +81,7 @@ export default function Contact() {
       >
         <motion.div
           variants={itemVariants}
-          className="flex gap-2 items-center w-full mb-4"
+          className="flex gap-2 items-center w-full mt-8"
         >
           <h1 className="text-2xl text-header uppercase">Dispatch Resolve</h1>
           <div className="w-12 h-px bg-accent shrink-0" />
@@ -90,7 +90,7 @@ export default function Contact() {
           variants={itemVariants}
           ref={form}
           onSubmit={sendEmail}
-          className="flex flex-col gap-3"
+          className="mt-4 flex flex-col gap-3"
         >
           <input
             placeholder="enter cadet identification (name)"

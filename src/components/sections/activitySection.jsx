@@ -44,14 +44,14 @@ export default function Activity() {
       >
         <motion.div
           variants={itemVariants}
-          className="flex gap-2 items-center w-full mb-4"
+          className="flex gap-2 items-center w-full mt-8"
         >
           <h1 className="text-2xl text-header uppercase">Battle Record</h1>
           <div className="w-12 h-px bg-accent shrink-0" />
         </motion.div>
         <motion.p
           variants={itemVariants}
-          className="text-normal text-justify text-base  font-normal leading-tight"
+          className="mt-4 text-normal text-justify text-base  font-normal leading-tight"
         >
           Beyond the walls of hesitation lies the battlefield of creation. Every
           commit is a battle, every push a charge into the unknown. Here stands

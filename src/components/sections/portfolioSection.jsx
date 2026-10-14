@@ -47,29 +47,46 @@ export default function Portfolio() {
     >
       <motion.div
         variants={itemVariants}
-        className="flex gap-2 items-center w-full mb-4"
+        className="flex gap-2 items-center w-full mt-8"
       >
-        <h1 className="text-2xl text-header uppercase">Recon Missions</h1>
+        <h1 className="text-2xl text-header uppercase">Flagship Mission</h1>
         <div className="w-12 h-px bg-accent shrink-0" />
       </motion.div>
       <motion.p
         variants={itemVariants}
-        className="text-normal text-justify text-base  font-normal leading-tight mb-4"
+        className="text-normal text-justify text-base  font-normal leading-tight mt-4"
       >
-        Full-scale operations executed by the elite Survey Corps, these are
-        high-impact missions demanding precise strategy, relentless execution,
-        and adaptability in hostile and ever-shifting environments. Each
-        deployment is a testament to survival, innovation, and pushing past the
-        walls of convention.
+        Defining initiatives forged beyond the walls, these projects embody bold
+        ideas, deliberate strategy, and relentless execution. Each stands as a
+        testament to innovation, adaptability, and the digital scout's pursuit
+        of uncharted possibilities.
       </motion.p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col gap-4">
           <Nexus cardVariants={cardVariants} />
-          <AnceStory cardVariants={cardVariants} />
         </div>
         <div>
           <Report statsInView={statsInView} />
         </div>
+      </div>
+
+      <motion.div
+        variants={itemVariants}
+        className="flex gap-2 items-center w-full mt-16"
+      >
+        <h1 className="text-2xl text-header uppercase">Field Assignments</h1>
+        <div className="w-12 h-px bg-accent shrink-0" />
+      </motion.div>
+      <motion.p
+        variants={itemVariants}
+        className="text-normal text-justify text-base  font-normal leading-tight mt-4"
+      >
+        Venturing into uncharted territory, the digital scout undertakes varied
+        assignments that demand ingenuity, adaptability, and the resolve to turn
+        challenges into tangible results.
+      </motion.p>
+      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <AnceStory cardVariants={cardVariants} />
       </div>
     </motion.div>
   );

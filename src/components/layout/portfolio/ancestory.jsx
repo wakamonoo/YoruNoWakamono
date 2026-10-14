@@ -18,34 +18,6 @@ import { FaArrowRight } from "react-icons/fa";
 import Image from "next/image";
 
 export default function AnceStory({ cardVariants }) {
-  const [count, setCount] = useState({
-    storiesCount: 0,
-    contributorsCount: 0,
-  });
-  const [countLoading, setCountLoading] = useState(true);
-  const [statsInView, setStatsInView] = useState(false);
-  const { loading } = useContext(LoaderContext);
-
-  useEffect(() => {
-    const fetchCounts = async () => {
-      try {
-        const res = await fetch("/api/ancestory/getData");
-        const data = await res.json();
-        setCount(data);
-      } catch (err) {
-        console.error("failed to fetch count:", err);
-        setCount({
-          storiesCount: 0,
-          contributorsCount: 0,
-        });
-      } finally {
-        setCountLoading(false);
-      }
-    };
-
-    fetchCounts();
-  }, []);
-
   return (
     <motion.div
       variants={cardVariants}
@@ -64,9 +36,16 @@ export default function AnceStory({ cardVariants }) {
             <p className="text-base font-bold text-header leading-tight uppercase">
               AnceStory
             </p>
-            <p className="mb-2 text-sm">
-              Digital archive for local stories.
-            </p>
+            <p className="mb-2 text-sm">Digital archive for local stories.</p>
+            <iframe
+              src="https://appbuildersph.com/embed/apps/AnceStory"
+              title="Nexus votes on App Builders PH"
+              className="w-full"
+              height="72"
+              style={{ border: 0 }}
+              loading="lazy"
+              scrolling="no"
+            />
             <Marquee speed={50} className="cursor-pointer p-2">
               <div className="flex gap-4 px-4">
                 <div className="w-6 h-6">
