@@ -100,7 +100,7 @@ export default function About() {
                   </p>
                   <span
                     onClick={() => router.push("https://bicol-u.edu.ph/")}
-                    className="text-sm font-normal text-muted leading-2 cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
+                    className="text-sm font-normal text-muted leading-none cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
                   >
                     Bicol University Polangui
                   </span>
@@ -114,7 +114,10 @@ export default function About() {
           >
             EXPERIENCE
           </motion.h2>
-          <motion.ul variants={itemVariants} className="mt-4 flex flex-col gap-2">
+          <motion.ul
+            variants={itemVariants}
+            className="mt-4 flex flex-col gap-2"
+          >
             <li className="flex flex-col">
               <div className="flex items-start w-full">
                 <span className="flex justify-center items-center text-sm p-2 border border-accent rounded-2xl mr-2 w-1/2">
@@ -142,10 +145,7 @@ export default function About() {
                   <p className="text-base font-bold text-header leading-tight uppercase">
                     Freelance Web Developer
                   </p>
-                  <span
-                    onClick={() => router.push("https://bytescrafter.net/")}
-                    className="text-sm font-normal text-muted leading-none cursor-pointer hover:underline underline-offset-4 decoration-1 decoration-[var(--color-accent)]"
-                  >
+                  <span className="text-sm font-normal text-muted leading-none cursor-pointer">
                     Self-Employed
                   </span>
                 </div>

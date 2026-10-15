@@ -1,7 +1,6 @@
 {
   /* ———————————————————————————————————— imports ——— */
 }
-import { IconBase } from "react-icons";
 import "./globals.css";
 import {
   Bangers,
@@ -19,37 +18,37 @@ import { LoaderProvider } from "@/context/loaderContext";
 const bangers = Bangers({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-heading",
+  variable: "--heading-family",
 });
 
 const rubik = Rubik({
   subsets: ["latin"],
   weight: ["400", "700"],
-  variable: "--font-body",
+  variable: "--body-family",
 });
 
 const blackHan = Black_Han_Sans({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-alt",
+  variable: "--alt-family",
 });
 
 const anton = Anton({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-tall",
+  variable: "--tall-family",
 });
 
 const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-tall-alt",
+  variable: "--tall-alt-family",
 });
 
 const roboto = Roboto({
   weight: ["400", "700"],
   subsets: ["latin"],
-  variable: "--font-roboto",
+  variable: "--nexus-family",
 });
 
 // Metadata
