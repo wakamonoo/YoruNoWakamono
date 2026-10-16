@@ -9,6 +9,7 @@ import Aibou from "@/components/layout/aibou";
 import Contributions from "@/components/sections/activitySection";
 import Activity from "@/components/sections/activitySection";
 import Portfolio from "@/components/sections/portfolioSection";
+import Testimonials from "@/components/sections/testimonialsSection";
 
 export default function Home() {
   return (
@@ -26,11 +27,12 @@ export default function Home() {
         <About />
       </section>
 
-      {/* ———————————————————————————————————— about section ——— */}
+      {/* ———————————————————————————————————— bulletin ——— */}
       <div className="bg-second py-8 md:py-16">
         <Bulletin />
       </div>
 
+      {/* ———————————————————————————————————— potfolio section ——— */}
       <section
         id="portfolio"
         className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
@@ -38,7 +40,15 @@ export default function Home() {
         <Portfolio />
       </section>
 
-      {/* ———————————————————————————————————— portfolio section ——— */}
+      {/* ———————————————————————————————————— testimonials section ——— */}
+      <section
+        id="portfolio"
+        className="bg-second hidden p-8 md:p-16 lg:px-32 xl:px-72"
+      >
+        <Testimonials />
+      </section>
+
+      {/* ———————————————————————————————————— activity section ——— */}
       <section
         id="activity"
         className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"

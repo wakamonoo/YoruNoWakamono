@@ -16,7 +16,8 @@ export default function Report({ statsInView }) {
   const [feedbacks, setFeedbacks] = useState([]);
   const [userLoading, setUserLoading] = useState(true);
   const [feedbackLoading, setFeedbackLoading] = useState(true);
-  const carouselRef = useRef(null);
+  const [animating, setAnimating] = useState(false);
+  const feedBackNumbers = useRef(new Map());
 
   useEffect(() => {
     const fetchCounts = async () => {
@@ -36,6 +37,17 @@ export default function Report({ statsInView }) {
 
     fetchCounts();
   }, []);
+
+  function nextCard() {
+    if (animating || feedbacks.length < 2) return;
+
+    setAnimating(true);
+
+    setTimeout(() => {
+      setFeedbacks((current) => [...current.slice(1), current[0]]);
+      setAnimating(false);
+    }, 250);
+  }
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -72,33 +84,14 @@ export default function Report({ statsInView }) {
     fetchFeedbacks();
   }, []);
 
-  useEffect(() => {
-    if (
-      userLoading ||
-      feedbackLoading ||
-      !Array.isArray(feedbacks) ||
-      feedbacks.length < 2
-    ) {
-      return;
+  feedbacks.forEach((feedback) => {
+    if (!feedBackNumbers.current.has(feedback.feedbackId)) {
+      feedBackNumbers.current.set(
+        feedback.feedbackId,
+        feedBackNumbers.current.size + 1,
+      );
     }
-
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    const interval = setInterval(() => {
-      const slideWidth = carousel.clientWidth;
-
-      const isAtEnd =
-        carousel.scrollLeft + slideWidth >= carousel.scrollWidth - 5;
-
-      carousel.scrollTo({
-        left: isAtEnd ? 0 : carousel.scrollLeft + slideWidth,
-        behavior: "smooth",
-      });
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [feedbacks, feedbackLoading, userLoading]);
+  });
 
   function StarRating({ value }) {
     return (
@@ -138,85 +131,87 @@ export default function Report({ statsInView }) {
 
   return (
     <div>
-      <motion.h2
-        variants={itemVariants}
-        className="text-xl p-2 bg-panel rounded text-header"
-      >
-        MISSION REPORT
-      </motion.h2>
       <motion.p
         variants={itemVariants}
-        className="mt-4 text-normal text-justify text-base font-normal leading-tight"
+        className="mb-2 text-xs uppercase tracking-[0.25em]"
       >
-        This platform have grown a community, received valuable feedback, and
-        continue to make an impact even after launch.
+        App Builders PH
+      </motion.p>
+      <motion.div variants={cardVariants}>
+        <iframe
+          src="https://appbuildersph.com/embed/apps/Nexus"
+          title="Nexus votes on App Builders PH"
+          className="w-full"
+          height="72"
+          style={{ border: 0 }}
+          loading="lazy"
+          scrolling="no"
+        />
+      </motion.div>
+      <motion.p
+        variants={itemVariants}
+        className="mb-2 text-xs uppercase tracking-[0.25em]"
+      >
+        Statistics
       </motion.p>
 
-      <div className="mt-4">
-        <motion.p
-          variants={itemVariants}
-          className="mb-2 text-xs uppercase tracking-[0.25em]"
+      <div className="grid grid-cols-3 gap-2">
+        <motion.div
+          variants={cardVariants}
+          className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
         >
-          Statistics
-        </motion.p>
-
-        <div className="grid grid-cols-3 gap-2">
-          <motion.div
-            variants={cardVariants}
-            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
-          >
-            {statsInView ? (
-              <CountUp
-                start={0}
-                end={count.usersCount}
-                duration={1.5}
-                className="block text-base font-extrabold text-accent"
-              />
-            ) : (
-              <p className="block text-base font-extrabold text-accent">0</p>
-            )}
-            <p className="text-xs text-muted uppercase tracking-[0.25em]">
-              Members
-            </p>
-          </motion.div>
-          <motion.div
-            variants={cardVariants}
-            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
-          >
-            {statsInView ? (
-              <CountUp
-                start={0}
-                end={count.titlesCount}
-                duration={1.5}
-                className="block text-base font-extrabold text-accent"
-              />
-            ) : (
-              <p className="block text-base font-extrabold text-accent">0</p>
-            )}
-            <p className="text-xs text-muted uppercase tracking-[0.25em]">
-              Titles
-            </p>
-          </motion.div>
-          <motion.div
-            variants={cardVariants}
-            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
-          >
-            {statsInView ? (
-              <CountUp
-                start={0}
-                end={count.reviewsCount}
-                duration={1.5}
-                className="block text-base font-extrabold text-accent"
-              />
-            ) : (
-              <p className="block text-base font-extrabold text-accent">0</p>
-            )}
-            <p className="text-xs text-muted uppercase tracking-[0.25em]">
-              Reviews
-            </p>
-          </motion.div>
-        </div>
+          {statsInView ? (
+            <CountUp
+              start={0}
+              end={count.usersCount}
+              duration={1.5}
+              className="block text-base font-extrabold text-accent"
+            />
+          ) : (
+            <p className="block text-base font-extrabold text-accent">0</p>
+          )}
+          <p className="text-xs text-muted uppercase tracking-[0.25em]">
+            Members
+          </p>
+        </motion.div>
+        <motion.div
+          variants={cardVariants}
+          className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+        >
+          {statsInView ? (
+            <CountUp
+              start={0}
+              end={count.titlesCount}
+              duration={1.5}
+              className="block text-base font-extrabold text-accent"
+            />
+          ) : (
+            <p className="block text-base font-extrabold text-accent">0</p>
+          )}
+          <p className="text-xs text-muted uppercase tracking-[0.25em]">
+            Titles
+          </p>
+        </motion.div>
+        <motion.div
+          variants={cardVariants}
+          className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+        >
+          {statsInView ? (
+            <CountUp
+              start={0}
+              end={count.reviewsCount}
+              duration={1.5}
+              className="block text-base font-extrabold text-accent"
+            />
+          ) : (
+            <p className="block text-base font-extrabold text-accent">0</p>
+          )}
+          <p className="text-xs text-muted uppercase tracking-[0.25em]">
+            Reviews
+          </p>
+        </motion.div>
       </div>
+
       <div className="mt-4">
         <motion.p
           variants={itemVariants}
@@ -227,7 +222,7 @@ export default function Report({ statsInView }) {
 
         <motion.div variants={cardVariants}>
           {userLoading || feedbackLoading ? (
-            <div className="animate-pulse w-full h-32 bg-[var(--color-army)] rounded-xl" />
+            <div className="animate-pulse w-full h-[220px] bg-army rounded-2xl" />
           ) : feedbacks?.length === 0 ? (
             <div className="bg-[var(--color-army)] rounded-xl px-2 py-4">
               <div className="flex items-start">
@@ -240,56 +235,64 @@ export default function Report({ statsInView }) {
               </div>
             </div>
           ) : (
-            <div
-              ref={carouselRef}
-              className="flex gap-2 overflow-x-auto scroll-smooth scrollbar-hide snap-x snap-mandatory"
-            >
-              {feedbacks?.map((feedback) => {
+            <div className="relative h-[220px] w-full">
+              {feedbacks.map((feedback, index) => {
                 const user = nexusUsers.find((u) => u.uid === feedback.userId);
 
                 return (
-                  <div
+                  <motion.button
                     key={feedback.feedbackId}
-                    className="min-w-full w-full shrink-0 snap-start"
+                    type="button"
+                    onClick={nextCard}
+                    disabled={animating || index !== 0}
+                    initial={false}
+                    animate={{
+                      y: index * 12,
+                      scale: 1 - index * 0.045,
+                      rotate: index * 2.5,
+                      opacity: 1 - index * 0.12,
+                    }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 280,
+                      damping: 25,
+                    }}
+                    style={{
+                      zIndex: feedbacks.length - index,
+                      transformOrigin: "center center",
+                      pointerEvents: index === 0 ? "auto" : "none",
+                    }}
+                    className="cursor-pointer absolute inset-x-0 top-0 flex h-[220px] flex-col rounded-2xl bg-army shadow-2xl p-4"
                   >
-                    <a
-                      href="https://ournexus.space/communityFeedback"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block bg-[var(--color-army)] rounded-xl px-2 py-4"
-                    >
-                      <div className="flex gap-2">
+                    <div className="flex items-center justify-between">
+                      <FaQuoteLeft className="text-base shrink-0" />
+                      <span className="text-xs uppercase tracking-widest">
+                        {String(
+                          feedBackNumbers.current.get(feedback.feedbackId) ??
+                            index + 1,
+                        ).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <p className="mt-4 flex-1 text-justify text-base line-clamp-3">
+                      {feedback.review}
+                    </p>
+                    <div className="w-full h-px bg-accent my-4" />
+                    <div className="flex items-center gap-2">
+                      <div className="w-12 h-12 overflow-hidden rounded-full shrink-0">
                         <img
                           src={user?.picture}
                           alt={user?.name}
                           loading="lazy"
                           decoding="async"
-                          className="w-10 h-10 shrink-0 object-cover rounded-full"
+                          className="w-full h-full object-cover"
                         />
-                        <div className="min-w-0 flex-1">
-                          <div className="flex flex-col">
-                            <div>
-                              <p className="text-sm text-muted">
-                                <span className="font-bold text-normal">
-                                  {user?.name}
-                                </span>{" "}
-                                on Nexus
-                              </p>
-                            </div>
-                            <StarRating value={feedback.rating} />
-                          </div>
-                        </div>
                       </div>
-                      <div className="flex items-start">
-                        <div className="flex items-center justify-center w-8 h-8 shrink-0">
-                          <FaQuoteLeft className="text-xs" />
-                        </div>
-                        <p className="cursor-pointer mt-2 text-base text-vibe leading-tight line-clamp-4">
-                          {feedback.review}
-                        </p>
+                      <div className="flex flex-col items-start">
+                        <p className="text-sm">{user?.name}</p>
+                        <StarRating value={feedback.rating} />
                       </div>
-                    </a>
-                  </div>
+                    </div>
+                  </motion.button>
                 );
               })}
             </div>
