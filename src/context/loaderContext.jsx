@@ -1,5 +1,5 @@
 "use client";
-import Loader from "@/components/layout/loader";
+import SplashLoader from "@/components/loaders/splashLoader";
 import { createContext, useEffect, useState } from "react";
 
 export const LoaderContext = createContext();
@@ -21,7 +21,7 @@ export const LoaderProvider = ({ children }) => {
   return (
     <LoaderContext.Provider value={{ loading }}>
       {children}
-      {loading && <Loader onFinish={() => setLoading(false)} />}
+      {loading && <SplashLoader onFinish={() => setLoading(false)} />}
     </LoaderContext.Provider>
   );
 };

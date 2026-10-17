@@ -19,6 +19,8 @@ import { LoaderContext } from "@/context/loaderContext";
 export default function Hero() {
   const [greetingIndex, setGreetingIndex] = useState(0);
   const { loading } = useContext(LoaderContext);
+  const [origin, setOrigin] = useState("50% 50%");
+  const [scale, setScale] = useState(1);
 
   const greetings = ["Hajimemashite!", "Hello there!", "Kamusta?"];
 
@@ -74,6 +76,15 @@ export default function Hero() {
     },
   };
 
+  const handleMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    setOrigin(`${x}% ${y}%`);
+  };
+
   return (
     <motion.div
       variants={containerVariants}
@@ -82,16 +93,51 @@ export default function Hero() {
       whileInView={loading ? undefined : "visible"}
       viewport={{ once: true, amount: 0.2 }}
       id="hero"
-      className="w-full h-screen overflow-hidden"
+      className="relative w-full"
     >
-      <motion.div
-        variants={itemVariants}
-        className="cursor-pointer transition-all duration-500 hover:scale-110  relative h-full w-full"
-      >
-        <Image src={map} alt="aot map" fill priority className="object-cover" />
-      </motion.div>
-      <div className="absolute bg-brand rounded-t-2xl top-1/2 h-[50%] w-full flex flex-col items-center px-4 pb-10">
-        <div className="absolute -top-44 mr-32">
+      <div className="absolute inset-x-0 top-0 z-0 h-screen w-full overflow-hidden">
+        <motion.div
+          variants={itemVariants}
+          onMouseEnter={() => setScale(1.05)}
+          onMouseLeave={() => {
+            setScale(1);
+            setOrigin("50% 50%");
+          }}
+          onTouchStart={() => setScale(1.05)}
+          onTouchEnd={() => {
+            setScale(1);
+            setOrigin("50% 50%");
+          }}
+          onMouseMove={handleMove}
+          onTouchMove={(e) => {
+            const touch = e.touches[0];
+            const rect = e.currentTarget.getBoundingClientRect();
+
+            const x = ((touch.clientX - rect.left) / rect.width) * 100;
+            const y = ((touch.clientY - rect.top) / rect.height) * 100;
+
+            setOrigin(`${x}% ${y}%`);
+          }}
+          animate={{
+            scale: scale,
+            transformOrigin: origin,
+          }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
+          className="cursor-pointer relative h-full w-full"
+        >
+          <Image
+            src={map}
+            alt="aot map"
+            fill
+            priority
+            className="object-cover"
+          />
+        </motion.div>
+        <div className="pointer-events-none absolute inset-0 bg-linear-to-b from-transparent via-transparent via-5% to-(--color-bg)" />
+      </div>
+
+      <div className="relative z-10 flex flex-col min-h-screen items-center justify-center pointer-events-none">
+        <div className="absolute z-10 mb-104 mr-32 pointer-events-auto">
           <motion.div
             variants={itemVariants}
             className="relative bg-second rounded-full px-4 py-2"
@@ -99,7 +145,7 @@ export default function Hero() {
             <AnimatePresence mode="wait">
               <motion.p
                 key={greetings[greetingIndex]}
-                className="text-sm text-accent whitespace-nowrap"
+                className="text-sm text-normal whitespace-nowrap"
                 initial="hidden"
                 animate="visible"
                 exit={{ opacity: 0, y: -8, transition: { duration: 0.15 } }}
@@ -125,25 +171,29 @@ export default function Hero() {
         </div>
         <motion.div
           variants={itemVariants}
-          className="-mt-40 w-60 h-60 border-8 border-(--color-bg) rounded-full overflow-hidden shrink-0"
+          className="cursor-pointer p-1 rounded-full border-8 border-accent pointer-events-auto"
         >
-          <Image
-            src={profile}
-            alt="Joven Bataller"
-            className="w-full h-full object-cover"
-          />
+          <div className=" w-60 h-60  rounded-full border-2 border-accent overflow-hidden shrink-0">
+            <Image
+              src={profile}
+              alt="Joven Bataller"
+              className="w-full h-full object-cover"
+            />
+          </div>
         </motion.div>
         <div className="mt-4 w-full px-8 md:px-16 lg:px-32 xl:px-72">
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl font-tall tracking-wider text-center"
-          >
-            Joven Bataller
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-base text-center">
-            Full Stack Developer
-          </motion.p>
-          <div className="mt-2 flex items-center justify-center gap-2">
+          <div className="pointer-events-auto">
+            <motion.h1
+              variants={itemVariants}
+              className="text-4xl font-tall tracking-wider text-center"
+            >
+              Joven Bataller
+            </motion.h1>
+            <motion.p variants={itemVariants} className="text-base text-center">
+              Full Stack Developer
+            </motion.p>
+          </div>
+          <div className="mt-2 flex items-center justify-center gap-2 pointer-events-auto">
             <motion.a
               variants={itemVariants}
               href="https://www.facebook.com/joven.serdanbataller"
@@ -177,11 +227,11 @@ export default function Hero() {
               </button>
             </motion.a>
           </div>
-          <div className="mt-2 flex items-center justify-center gap-2">
+          <div className="mt-2 flex items-center justify-center gap-2 pointer-events-auto">
             <motion.a
               variants={itemVariants}
               href="#portfolio"
-              className="flex items-center justify-center gap-2 px-4 py-2 w-fit rounded-md bg-army"
+              className="flex items-center justify-center gap-2 px-4 py-2 w-fit rounded-md bg-army transition-all duration-200 hover:brightness-90 active:brightness-90"
             >
               <BsFolderFill className="text-base srhink-0" />
               <p className="whitespace-nowrap text-base text-normal">
@@ -191,7 +241,7 @@ export default function Hero() {
             <motion.a
               variants={itemVariants}
               href="#contact"
-              className="flex items-center justify-center gap-2 px-4 py-2 w-fit rounded-md bg-panel"
+              className="flex items-center justify-center gap-2 px-4 py-2 w-fit rounded-md bg-panel transition-all duration-200 hover:brightness-90 active:brightness-90"
             >
               <CiMail className="text-base srhink-0" />
               <p className="whitespace-nowrap text-base text-normal">
@@ -199,19 +249,29 @@ export default function Hero() {
               </p>
             </motion.a>
           </div>
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 flex items-center gap-2 w-full"
-          >
-            <div className="flex-1 h-px bg-accent" />
+        </div>
+
+        <motion.div
+          variants={itemVariants}
+          className="absolute bottom-16 inset-x-0 flex justify-start items-center gap-2 px-8 md:px-16 lg:px-32 xl:px-72"
+        >
+          <div className="w-10 h-10 opacity-40">
             <Image
               src={SurveyCorpsLogo}
               alt="Joven Bataller"
-              className="w-8 h-8 object-contain"
+              className="w-full h-full object-contain"
             />
-            <div className="flex-1 h-px bg-accent" />
-          </motion.div>
-        </div>
+          </div>
+          <div className="flex flex-col opacity-40">
+            <div className="flex gap-2 items-center">
+              <p className="text-xs uppercase text-accent tracking-widest">
+                Personnel File No. 001
+              </p>
+              <div className="w-8 h-px bg-accent" />
+            </div>
+            <p className="text-xs uppercase text-accent">Full Stack Division</p>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );

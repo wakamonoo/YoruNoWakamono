@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import wkmn from "@/assets/logo.webp";
 import Image from "next/image";
 
-export default function Loader({ onFinish }) {
+export default function SplashLoader({ onFinish }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
