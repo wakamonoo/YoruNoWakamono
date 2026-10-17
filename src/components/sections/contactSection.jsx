@@ -78,10 +78,12 @@ export default function Contact() {
         animate={loading ? "hidden" : undefined}
         whileInView={loading ? undefined : "visible"}
         viewport={{ once: true, amount: 0.2 }}
+        id="contact"
+        className="p-8 md:p-16 lg:px-32 xl:px-72"
       >
         <motion.div
           variants={itemVariants}
-          className="flex gap-2 items-center w-full mt-8"
+          className="flex gap-2 items-center w-full"
         >
           <h1 className="text-2xl text-header uppercase">Dispatch Resolve</h1>
           <div className="w-12 h-px bg-accent shrink-0" />
@@ -139,15 +141,6 @@ export default function Contact() {
         >
           alternate recon points:
         </motion.p>
-      </motion.div>
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={loading ? "hidden" : undefined}
-        whileInView={loading ? undefined : "visible"}
-        viewport={{ once: true, amount: 0.2 }}
-        className="w-full mb-16"
-      >
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <motion.a
             variants={itemVariants}

@@ -4,72 +4,25 @@ import About from "@/components/sections/aboutSection";
 import Skills from "@/components/sections/skillSection";
 import Contact from "@/components/sections/contactSection";
 import Footer from "@/components/sections/footer";
-import Bulletin from "@/components/layout/bulletin";
 import Aibou from "@/components/layout/aibou";
-import Contributions from "@/components/sections/activitySection";
 import Activity from "@/components/sections/activitySection";
 import Portfolio from "@/components/sections/portfolioSection";
-import Testimonials from "@/components/sections/testimonialsSection";
+import NavMenu from "@/components/layout/navMenu";
 
 export default function Home() {
   return (
     <main>
-      {/* ———————————————————————————————————— chatbot ——— */}
+      <NavMenu />
       <Aibou />
-
-      {/* ———————————————————————————————————— hero section ——— */}
-      <section id="hero" className="bg-brand h-screen relative overflow-hidden">
-        <Hero />
-      </section>
-
-      {/* ———————————————————————————————————— about section ——— */}
-      <section id="about" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
+      <Hero />
+      <div className="">
         <About />
-      </section>
-
-      {/* ———————————————————————————————————— bulletin ——— */}
-      <div className="bg-second py-8 md:py-16">
-        <Bulletin />
-      </div>
-
-      {/* ———————————————————————————————————— potfolio section ——— */}
-      <section
-        id="portfolio"
-        className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
-      >
         <Portfolio />
-      </section>
-
-      {/* ———————————————————————————————————— testimonials section ——— */}
-      <section
-        id="portfolio"
-        className="bg-second hidden p-8 md:p-16 lg:px-32 xl:px-72"
-      >
-        <Testimonials />
-      </section>
-
-      {/* ———————————————————————————————————— activity section ——— */}
-      <section
-        id="activity"
-        className="bg-second p-8 md:p-16 lg:px-32 xl:px-72"
-      >
         <Activity />
-      </section>
-
-      {/* ———————————————————————————————————— skills section ——— */}
-      <section id="skills" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
         <Skills />
-      </section>
-
-      {/* ———————————————————————————————————— contact section ——— */}
-      <section id="contact" className="bg-second p-8 md:p-16 lg:px-32 xl:px-72">
         <Contact />
-      </section>
-
-      {/* ———————————————————————————————————— footer ——— */}
-      <section className="flex justify-center h-auto w-full bg-panel py-4">
-        <Footer />
-      </section>
+      </div>
+      <Footer />
     </main>
   );
 }

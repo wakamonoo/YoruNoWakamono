@@ -41,10 +41,12 @@ export default function Activity() {
         animate={loading ? "hidden" : undefined}
         whileInView={loading ? undefined : "visible"}
         viewport={{ once: true, amount: 0.2 }}
+        id="activity"
+        className="p-8 md:p-16 lg:px-32 xl:px-72"
       >
         <motion.div
           variants={itemVariants}
-          className="flex gap-2 items-center w-full mt-8"
+          className="flex gap-2 items-center w-full"
         >
           <h1 className="text-2xl text-header uppercase">Battle Record</h1>
           <div className="w-12 h-px bg-accent shrink-0" />

@@ -1,5 +1,5 @@
 import { MdClose } from "react-icons/md";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { FiSend } from "react-icons/fi";
 import { FiUser } from "react-icons/fi";
 import { presetInfo } from "./presetInfo";
@@ -8,8 +8,9 @@ import ReactMarkdown from "react-markdown";
 import Bot from "../../assets/aibou.png";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { LoaderContext } from "@/context/loaderContext";
 
-export default function Aibou({ loading }) {
+export default function Aibou() {
   const [isOpen, setIsOpen] = useState(false);
   const [draftText, setDraftText] = useState("");
   const [sentText, setSentText] = useState([]);
@@ -23,10 +24,17 @@ export default function Aibou({ loading }) {
   const [preRef1, setPreRef1] = useState(false);
   const [preRef2, setPreRef2] = useState(false);
   const [preRef3, setPreRef3] = useState(false);
+  const { loading } = useContext(LoaderContext);
 
-  {
-    /* ———————————————————————————————————— aibou, start. user, end ——— */
-  }
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   useEffect(() => {
     const lastText = sentText[sentText.length - 1];
     if (scrollEnd.current && lastText?.sender === "user") {
@@ -36,9 +44,6 @@ export default function Aibou({ loading }) {
     }
   }, [sentText]);
 
-  {
-    /* ———————————————————————————————————— message modal closer ——— */
-  }
   useEffect(() => {
     function handleOutClick(e) {
       if (
@@ -56,9 +61,6 @@ export default function Aibou({ loading }) {
     };
   }, []);
 
-  {
-    /* ———————————————————————————————————— contribution aware ——— */
-  }
   useEffect(() => {
     async function fetchContributions() {
       try {
@@ -81,9 +83,6 @@ export default function Aibou({ loading }) {
     fetchContributions();
   }, []);
 
-  {
-    /* ———————————————————————————————————— aibou pre-message ——— */
-  }
   const preMessage = (onDone) => {
     if (isOpen && sentText.length === 0) {
       setLoad(true);
@@ -116,9 +115,6 @@ export default function Aibou({ loading }) {
     });
   }, [isOpen, sentText]);
 
-  {
-    /* ———————————————————————————————————— sent handler ——— */
-  }
   async function handleSent(textToSend) {
     const text = textToSend ?? draftText.trim();
     if (!text) return;
@@ -193,9 +189,12 @@ export default function Aibou({ loading }) {
 
       {!loading && (
         <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.1, ease: "easeOut" }}
+          variants={itemVariants}
+          initial="hidden"
+          animate={loading ? "hidden" : undefined}
+          whileInView={loading ? undefined : "visible"}
+          viewport={{ once: true, amount: 0.2 }}
+          id="hero"
           ref={botRef}
           onClick={() => setIsOpen((open) => !open)}
           className="fixed bottom-4 p-2 right-4 flex rounded-full bg-panel shadow-2xl z-60 cursor-pointer transform translate duration-200 hover:scale-110 active:scale-110"
@@ -211,11 +210,7 @@ export default function Aibou({ loading }) {
         >
           <div className="py-2 px-4 flex justify-between items-center w-full h-fill bg-panel">
             <div className="flex items-center gap-2">
-              <Image
-                src={Bot}
-                alt="bot"
-                className="w-12 h-auto p-2 "
-              />
+              <Image src={Bot} alt="bot" className="w-12 h-auto p-2 " />
               <div className="flex flex-col justify-center mt-1">
                 <p className="text-base font-semibold text-header leading-3">
                   Chat with <strong>Aibou</strong>

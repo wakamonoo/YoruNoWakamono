@@ -5,6 +5,7 @@ import { LoaderContext } from "@/context/loaderContext";
 import CountUp from "react-countup";
 import { FaQuoteLeft } from "react-icons/fa";
 import { BiSolidStar } from "react-icons/bi";
+import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
 
 export default function Report({ statsInView }) {
   const [count, setCount] = useState({
@@ -131,87 +132,90 @@ export default function Report({ statsInView }) {
 
   return (
     <div>
-      <motion.p
-        variants={itemVariants}
-        className="mb-2 text-xs uppercase tracking-[0.25em]"
-      >
-        App Builders PH
-      </motion.p>
-      <motion.div variants={cardVariants}>
-        <iframe
-          src="https://appbuildersph.com/embed/apps/Nexus"
-          title="Nexus votes on App Builders PH"
-          className="w-full"
-          height="72"
-          style={{ border: 0 }}
-          loading="lazy"
-          scrolling="no"
-        />
-      </motion.div>
-      <motion.p
-        variants={itemVariants}
-        className="mb-2 text-xs uppercase tracking-[0.25em]"
-      >
-        Statistics
-      </motion.p>
-
-      <div className="grid grid-cols-3 gap-2">
-        <motion.div
-          variants={cardVariants}
-          className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+      <div>
+        <motion.p
+          variants={itemVariants}
+          className="mb-2 text-xs uppercase tracking-[0.25em]"
         >
-          {statsInView ? (
-            <CountUp
-              start={0}
-              end={count.usersCount}
-              duration={1.5}
-              className="block text-base font-extrabold text-accent"
-            />
-          ) : (
-            <p className="block text-base font-extrabold text-accent">0</p>
-          )}
-          <p className="text-xs text-muted uppercase tracking-[0.25em]">
-            Members
-          </p>
-        </motion.div>
-        <motion.div
-          variants={cardVariants}
-          className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
-        >
-          {statsInView ? (
-            <CountUp
-              start={0}
-              end={count.titlesCount}
-              duration={1.5}
-              className="block text-base font-extrabold text-accent"
-            />
-          ) : (
-            <p className="block text-base font-extrabold text-accent">0</p>
-          )}
-          <p className="text-xs text-muted uppercase tracking-[0.25em]">
-            Titles
-          </p>
-        </motion.div>
-        <motion.div
-          variants={cardVariants}
-          className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
-        >
-          {statsInView ? (
-            <CountUp
-              start={0}
-              end={count.reviewsCount}
-              duration={1.5}
-              className="block text-base font-extrabold text-accent"
-            />
-          ) : (
-            <p className="block text-base font-extrabold text-accent">0</p>
-          )}
-          <p className="text-xs text-muted uppercase tracking-[0.25em]">
-            Reviews
-          </p>
+          App Builders PH
+        </motion.p>
+        <motion.div variants={cardVariants}>
+          <iframe
+            src="https://appbuildersph.com/embed/apps/Nexus"
+            title="Nexus votes on App Builders PH"
+            className="w-full"
+            height="72"
+            style={{ border: 0 }}
+            loading="lazy"
+            scrolling="no"
+          />
         </motion.div>
       </div>
+      <div className="mt-4">
+        <motion.p
+          variants={itemVariants}
+          className="mb-2 text-xs uppercase tracking-[0.25em]"
+        >
+          Statistics
+        </motion.p>
 
+        <div className="grid grid-cols-3 gap-2">
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+          >
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.usersCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Members
+            </p>
+          </motion.div>
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+          >
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.titlesCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Titles
+            </p>
+          </motion.div>
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+          >
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.reviewsCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Reviews
+            </p>
+          </motion.div>
+        </div>
+      </div>
       <div className="mt-4">
         <motion.p
           variants={itemVariants}
@@ -240,11 +244,9 @@ export default function Report({ statsInView }) {
                 const user = nexusUsers.find((u) => u.uid === feedback.userId);
 
                 return (
-                  <motion.button
+                  <motion.div
                     key={feedback.feedbackId}
-                    type="button"
                     onClick={nextCard}
-                    disabled={animating || index !== 0}
                     initial={false}
                     animate={{
                       y: index * 12,
@@ -276,9 +278,19 @@ export default function Report({ statsInView }) {
                     <p className="mt-4 flex-1 text-justify text-base line-clamp-3">
                       {feedback.review}
                     </p>
+                    {feedback.review.length > 120 && (
+                      <a
+                        href="https://ournexus.space/communityFeedback"
+                        onClick={(e) => e.stopPropagation()}
+                        className="mt-2 flex items-center justify-end"
+                      >
+                        <p className="text-xs text-muted">View feedback</p>
+                        <CgChevronRight className="text-xs text-muted shrink-0" />
+                      </a>
+                    )}
                     <div className="w-full h-px bg-accent my-4" />
                     <div className="flex items-center gap-2">
-                      <div className="w-12 h-12 overflow-hidden rounded-full shrink-0">
+                      <div className="w-8 h-8 overflow-hidden rounded-full shrink-0">
                         <img
                           src={user?.picture}
                           alt={user?.name}
@@ -288,11 +300,11 @@ export default function Report({ statsInView }) {
                         />
                       </div>
                       <div className="flex flex-col items-start">
-                        <p className="text-sm">{user?.name}</p>
+                        <p className="text-xs font-semibold">{user?.name}</p>
                         <StarRating value={feedback.rating} />
                       </div>
                     </div>
-                  </motion.button>
+                  </motion.div>
                 );
               })}
             </div>

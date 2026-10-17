@@ -21,7 +21,7 @@ export default function AnceStory({ cardVariants }) {
   return (
     <motion.div
       variants={cardVariants}
-      className="bg-panel rounded-2xl p-4 border border-[var(--color-army)] flex flex-col gap-2 h-fit w-full overflow-hidden"
+      className="bg-panel rounded-2xl shadow-2xl p-4 flex flex-col gap-2 h-fit w-full overflow-hidden"
     >
       <div className="flex items-start gap-4">
         <div className="w-24 h-24 shrink-0 rounded-xl overflow-hidden">
@@ -75,7 +75,7 @@ export default function AnceStory({ cardVariants }) {
               href="https://ancestory.site"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex gap-1 items-center justify-center px-4 py-2 rounded-2xl border border-accent group transition-all duration-200
+              className="flex gap-1 items-center justify-center px-4 py-2 rounded-full border border-accent group transition-all duration-200
              hover:bg-[var(--color-accent)] active:bg-[var(--color-accent)]"
             >
               <p className="text-sm text-header group-hover:text-(--color-panel) group-active:text-(--color-panel)">
