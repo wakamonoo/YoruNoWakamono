@@ -11,6 +11,9 @@ export default function Report({ statsInView }) {
   const [count, setCount] = useState({
     usersCount: 0,
     titlesCount: 0,
+    postsCount: 0,
+    listsCount: 0,
+    messagesCount: 0,
     reviewsCount: 0,
   });
   const [nexusUsers, setNexusUsers] = useState([]);
@@ -31,6 +34,9 @@ export default function Report({ statsInView }) {
         setCount({
           usersCount: 0,
           titlesCount: 0,
+          postsCount: 0,
+          listsCount: 0,
+          messagesCount: 0,
           reviewsCount: 0,
         });
       }
@@ -203,6 +209,60 @@ export default function Report({ statsInView }) {
             {statsInView ? (
               <CountUp
                 start={0}
+                end={count.postsCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Posts
+            </p>
+          </motion.div>
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+          >
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.listsCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Lists
+            </p>
+          </motion.div>
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+          >
+            {statsInView ? (
+              <CountUp
+                start={0}
+                end={count.messagesCount}
+                duration={1.5}
+                className="block text-base font-extrabold text-accent"
+              />
+            ) : (
+              <p className="block text-base font-extrabold text-accent">0</p>
+            )}
+            <p className="text-xs text-muted uppercase tracking-[0.25em]">
+              Chats
+            </p>
+          </motion.div>
+          <motion.div
+            variants={cardVariants}
+            className="flex flex-col items-center justify-center rounded-lg p-2 bg-panel"
+          >
+            {statsInView ? (
+              <CountUp
+                start={0}
                 end={count.reviewsCount}
                 duration={1.5}
                 className="block text-base font-extrabold text-accent"
@@ -244,36 +304,9 @@ export default function Report({ statsInView }) {
                 const user = nexusUsers.find((u) => u.uid === feedback.userId);
 
                 return (
-                  <motion.div
-                    key={feedback.feedbackId}
-                    onClick={nextCard}
-                    initial={false}
-                    animate={{
-                      y: index * 12,
-                      scale: 1 - index * 0.045,
-                      rotate: index * 2.5,
-                      opacity: 1 - index * 0.12,
-                    }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 280,
-                      damping: 25,
-                    }}
-                    style={{
-                      zIndex: feedbacks.length - index,
-                      transformOrigin: "center center",
-                      pointerEvents: index === 0 ? "auto" : "none",
-                    }}
-                    className="cursor-pointer absolute inset-x-0 top-0 flex h-[220px] flex-col rounded-2xl bg-army shadow-2xl p-4"
-                  >
+                  <motion.div className="cursor-pointer absolute inset-x-0 top-0 flex h-[220px] flex-col rounded-2xl bg-army shadow-2xl p-4">
                     <div className="flex items-center justify-between">
                       <FaQuoteLeft className="text-base shrink-0" />
-                      <span className="text-xs uppercase tracking-widest">
-                        {String(
-                          feedBackNumbers.current.get(feedback.feedbackId) ??
-                            index + 1,
-                        ).padStart(2, "0")}
-                      </span>
                     </div>
                     <p className="mt-4 flex-1 text-justify text-base line-clamp-3">
                       {feedback.review}

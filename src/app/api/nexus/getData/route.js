@@ -1,4 +1,4 @@
-import clientPromise from "@/lib/nexus/mongodb"
+import clientPromise from "@/lib/nexus/mongodb";
 
 export async function GET() {
   try {
@@ -8,6 +8,9 @@ export async function GET() {
 
     const usersCount = await db.collection("users").countDocuments();
     const titlesCount = await db.collection("titles").countDocuments();
+    const postsCount = await db.collection("posts").countDocuments();
+    const listsCount = await db.collection("lists").countDocuments();
+    const messagesCount = await db.collection("messages").countDocuments();
 
     const titles = await db
       .collection("titles")
@@ -23,6 +26,9 @@ export async function GET() {
       success: true,
       usersCount,
       titlesCount,
+      postsCount,
+      listsCount,
+      messagesCount,
       reviewsCount,
     });
   } catch (err) {

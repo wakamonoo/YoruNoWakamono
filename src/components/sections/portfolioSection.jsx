@@ -46,7 +46,7 @@ export default function Portfolio() {
       onAnimationComplete={() => setStatsInView(true)}
       viewport={{ once: true, amount: 0.2 }}
       id="portfolio"
-     className="p-8 md:p-16 lg:px-32 xl:px-72"
+      className="p-8 md:p-16 lg:px-32 xl:px-72"
     >
       <motion.div
         variants={itemVariants}
@@ -64,13 +64,8 @@ export default function Portfolio() {
         testament to innovation, adaptability, and this digital scout's pursuit
         of uncharted possibilities.
       </motion.p>
-      <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="flex flex-col gap-4">
-          <Nexus cardVariants={cardVariants} />
-        </div>
-        <div>
-          <Report statsInView={statsInView} />
-        </div>
+      <div className="mt-4">
+        <Nexus statsInView={statsInView} />
       </div>
 
       <motion.div
