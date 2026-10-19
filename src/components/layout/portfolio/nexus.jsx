@@ -1,5 +1,5 @@
 import { LoaderContext } from "@/context/loaderContext";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { useRef, useState, useEffect, useContext, use } from "react";
 import CountUp from "react-countup";
@@ -32,9 +32,12 @@ export default function Nexus({ statsInView }) {
   const [userLoading, setUserLoading] = useState(true);
   const [feedbackLoading, setFeedbackLoading] = useState(true);
   const feedBackNumbers = useRef(new Map());
+  const nexusRef = useRef(null);
+  const isInView = useInView(nexusRef, {
+    once: false,
+    amount: 0.2,
+  });
   const { loading } = useContext(LoaderContext);
-  const skeletonLoaderFired = useRef(false);
-  const [feedbackSectionReady, setFeedbackSectionReady] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -80,12 +83,20 @@ export default function Nexus({ statsInView }) {
     const fetchFeedbacks = async () => {
       try {
         const res = await fetch("/api/nexus/getFeedbacks");
+
+        if (!res.ok) {
+          throw new Error("failed to fetch feedbacks");
+        }
         const data = await res.json();
+
+        if (!Array.isArray(data.result)) {
+          throw new Error("invalid feedback response");
+        }
 
         setFeedbacks(data.result);
       } catch (err) {
-        console.error("failed to fetch count:", err);
-        setFeedbacks(null);
+        console.error("failed to fetch feedbacks:", err);
+        setFeedbacks([]);
       } finally {
         setFeedbackLoading(false);
       }
@@ -150,7 +161,12 @@ export default function Nexus({ statsInView }) {
   };
 
   return (
-    <div>
+    <motion.div
+      ref={nexusRef}
+      variants={containerVariants}
+      initial="hidden"
+      animate={loading ? "hidden" : isInView ? "visible" : "hidden"}
+    >
       <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col">
           <motion.h2
@@ -369,7 +385,6 @@ export default function Nexus({ statsInView }) {
         </motion.p>
         <motion.button
           variants={cardVariants}
-          onAnimationComplete={() => setFeedbackSectionReady(true)}
           onClick={() => router.push("/nexusCommunityFeedback")}
           className="cursor-pointer flex items-center gap-2 hover:brightness-90 active:brightness-90"
         >
@@ -381,9 +396,6 @@ export default function Nexus({ statsInView }) {
       {loading ? null : userLoading || feedbackLoading ? (
         <motion.div
           variants={containerVariants}
-          initial="hidden"
-          animate={feedbackSectionReady ? "visible" : "hidden"}
-          onAnimationStart={() => (skeletonLoaderFired.current = true)}
           className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2"
         >
           <motion.div
@@ -416,14 +428,6 @@ export default function Nexus({ statsInView }) {
       ) : (
         <motion.div
           variants={containerVariants}
-          initial={skeletonLoaderFired.current ? false : "hidden"}
-          animate={
-            skeletonLoaderFired.current
-              ? "visible"
-              : feedbackSectionReady
-                ? "visible"
-                : "hidden"
-          }
           className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2"
         >
           {feedbacks.map((feedback) => {
@@ -463,6 +467,6 @@ export default function Nexus({ statsInView }) {
           })}
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 }
