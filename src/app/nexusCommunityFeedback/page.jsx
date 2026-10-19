@@ -107,6 +107,15 @@ export default function NexusCommunityFeedback() {
     },
   };
 
+  const loadedVariants = {
+    hidden: { opacity: 0, x: 0 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
   return (
     <motion.div
       variants={containerVariants}
@@ -187,7 +196,7 @@ export default function NexusCommunityFeedback() {
               const user = nexusUsers.find((u) => u.uid === feedback.userId);
               return (
                 <motion.div
-                  variants={cardVariants}
+                  variants={loadedVariants}
                   key={feedback.feedbackId}
                   className="flex flex-col h-fit rounded-2xl bg-panel shadow-2xl p-4"
                 >

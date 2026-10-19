@@ -34,7 +34,7 @@ export default function Nexus({ statsInView }) {
   const feedBackNumbers = useRef(new Map());
   const nexusRef = useRef(null);
   const isInView = useInView(nexusRef, {
-    once: false,
+    once: true,
     amount: 0.2,
   });
   const { loading } = useContext(LoaderContext);
@@ -153,6 +153,15 @@ export default function Nexus({ statsInView }) {
 
   const cardVariants = {
     hidden: { opacity: 0, x: -50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const loadedVariants = {
+    hidden: { opacity: 0, x: 0 },
     visible: {
       opacity: 1,
       x: 0,
@@ -434,7 +443,7 @@ export default function Nexus({ statsInView }) {
             const user = nexusUsers.find((u) => u.uid === feedback.userId);
             return (
               <motion.div
-                variants={cardVariants}
+                variants={loadedVariants}
                 key={feedback.feedbackId}
                 onClick={() => router.push("/nexusCommunityFeedback")}
                 className="cursor-pointer flex flex-col h-full rounded-2xl bg-panel shadow-2xl p-4"
