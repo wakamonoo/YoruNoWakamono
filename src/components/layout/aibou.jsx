@@ -197,7 +197,7 @@ export default function Aibou() {
           id="hero"
           ref={botRef}
           onClick={() => setIsOpen((open) => !open)}
-          className="fixed bottom-4 p-2 right-4 flex rounded-full bg-panel shadow-2xl z-60 cursor-pointer transform translate duration-200 hover:scale-110 active:scale-110"
+          className="fixed bottom-4 p-2 right-4 flex rounded-full bg-second shadow-2xl z-60 cursor-pointer transform translate duration-200 hover:scale-110 active:scale-110"
         >
           <Image src={Bot} alt="bot" className="w-12 h-auto" />
         </motion.div>
@@ -206,11 +206,17 @@ export default function Aibou() {
       {isOpen && (
         <div
           ref={divRef}
-          className="fixed flex flex-col bottom-22 lg:bottom-25 right-4 z-100 bg-second shadow-2xl w-[90vw] sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[30vw] h-[70vh] rounded-2xl overflow-hidden"
+          className="fixed flex flex-col bottom-22 lg:bottom-25 right-4 z-100 bg-brand shadow-2xl w-[90vw] sm:w-[80vw] md:w-[50vw] lg:w-[40vw] xl:w-[30vw] h-[70vh] rounded-2xl overflow-hidden"
         >
           <div className="py-2 px-4 flex justify-between items-center w-full h-fill bg-panel">
             <div className="flex items-center gap-2">
-              <Image src={Bot} alt="bot" className="w-12 h-auto p-2 " />
+              <div className="w-12 h-12 p-2 bg-second rounded-full shrink-0">
+                <Image
+                  src={Bot}
+                  alt="bot"
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <div className="flex flex-col justify-center mt-1">
                 <p className="text-base font-semibold text-header leading-3">
                   Chat with <strong>Aibou</strong>
@@ -250,14 +256,14 @@ export default function Aibou() {
                 ) : (
                   <>
                     <div ref={scrollStart} />
-                    <div className="w-10 h-10 bg-panel rounded-full">
+                    <div className="w-10 h-10 bg-second rounded-full">
                       <Image
                         src={Bot}
                         alt="bot"
                         className="w-full h-full p-2 object-contain shrink-0"
                       />
                     </div>
-                    <div className="bg-panel w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
+                    <div className="bg-second w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
                       <ReactMarkdown>{msg.text}</ReactMarkdown>
                     </div>
                   </>
