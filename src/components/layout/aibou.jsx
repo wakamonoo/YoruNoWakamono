@@ -197,9 +197,13 @@ export default function Aibou() {
           id="hero"
           ref={botRef}
           onClick={() => setIsOpen((open) => !open)}
-          className="fixed bottom-4 p-2 right-4 flex rounded-full bg-second shadow-2xl z-60 cursor-pointer transform translate duration-200 hover:scale-110 active:scale-110"
+          className="fixed bottom-4 p-2 right-4 flex w-14 h-14 rounded-full bg-second shadow-2xl overflow-hidden z-60 cursor-pointer transform translate duration-200 hover:scale-110 active:scale-110"
         >
-          <Image src={Bot} alt="bot" className="w-12 h-auto" />
+          <Image
+            src={Bot}
+            alt="bot"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
       )}
 
@@ -210,7 +214,7 @@ export default function Aibou() {
         >
           <div className="py-2 px-4 flex justify-between items-center w-full h-fill bg-panel">
             <div className="flex items-center gap-2">
-              <div className="w-12 h-12 p-2 bg-second rounded-full shrink-0">
+              <div className="w-12 h-12 p-2 bg-second rounded-full overflow-hidden shrink-0">
                 <Image
                   src={Bot}
                   alt="bot"
@@ -234,7 +238,7 @@ export default function Aibou() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-2">
+          <div className="flex-1 overflow-y-auto custom-scroll p-2">
             {sentText.map((msg, index) => (
               <div
                 key={index}
@@ -249,18 +253,18 @@ export default function Aibou() {
                     <p className="bg-army w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
                       {msg.text}
                     </p>
-                    <div className="flex items-center justify-center w-10 h-10 bg-army rounded-full">
-                      <FiUser className="text-4xl p-2 shrink-0" />
+                    <div className="flex items-center justify-center w-10 h-10 bg-army p-2 rounded-full">
+                      <FiUser className="text-xl shrink-0" />
                     </div>
                   </>
                 ) : (
                   <>
                     <div ref={scrollStart} />
-                    <div className="w-10 h-10 bg-second rounded-full">
+                    <div className="w-10 h-10 bg-second p-2 rounded-full overflow-hidden">
                       <Image
                         src={Bot}
                         alt="bot"
-                        className="w-full h-full p-2 object-contain shrink-0"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="bg-second w-fit max-w-[50vw] md:max-w-[30vw] lg:max-w-[25vw] xl:max-w-[16vw] p-2 text-normal text-base rounded-2xl">
