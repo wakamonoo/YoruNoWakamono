@@ -194,7 +194,6 @@ export default function Aibou() {
           animate={loading ? "hidden" : undefined}
           whileInView={loading ? undefined : "visible"}
           viewport={{ once: true, amount: 0.2 }}
-          id="hero"
           ref={botRef}
           onClick={() => setIsOpen((open) => !open)}
           className="fixed bottom-4 p-2 right-4 flex w-14 h-14 rounded-full bg-second shadow-2xl overflow-hidden z-60 cursor-pointer transform translate duration-200 hover:scale-110 active:scale-110"
