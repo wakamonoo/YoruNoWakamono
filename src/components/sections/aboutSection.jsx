@@ -82,7 +82,6 @@ export default function About() {
           turning ideas into powerful realities that help people and businesses
           rise above the ordinary.
         </motion.p>
-
         <div className="mt-4">
           <motion.h2
             variants={itemVariants}

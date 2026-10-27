@@ -6,6 +6,8 @@ import photo4 from "@/assets/imageShowcase/photo4.jpg";
 import photo5 from "@/assets/imageShowcase/photo5.jpg";
 import photo6 from "@/assets/imageShowcase/photo6.jpg";
 import photo7 from "@/assets/imageShowcase/photo7.jpg";
+import photo8 from "@/assets/imageShowcase/photo8.jpg";
+import photo9 from "@/assets/imageShowcase/photo9.png";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -13,44 +15,56 @@ const photos = [
   {
     id: 1,
     image: photo1,
-    caption: "Graduation Photoshoot",
-    rotation: -12,
+    caption: "Class of 2025",
+    rotation: -10,
   },
   {
     id: 2,
     image: photo2,
-    caption: "Graduation Photoshoot",
-    rotation: 12,
+    caption: "Milestone Worth Remembering",
+    rotation: 10,
   },
   {
     id: 3,
     image: photo3,
     caption: "Graduation Photoshoot",
-    rotation: -5,
+    rotation: -8,
   },
   {
     id: 4,
     image: photo4,
-    caption: "Graduation Photoshoot",
+    caption: "One for the Memories",
     rotation: 8,
   },
   {
     id: 5,
     image: photo5,
-    caption: "Graduation Photoshoot",
-    rotation: 6,
+    caption: "In School Uniform",
+    rotation: -6,
   },
   {
     id: 6,
     image: photo6,
-    caption: "Graduation Photoshoot",
-    rotation: -8,
+    caption: "Wacky!!",
+    rotation: 6,
   },
   {
     id: 7,
     image: photo7,
-    caption: "Graduation Photoshoot",
-    rotation: 10,
+    caption: "TOR LOOK",
+    rotation: -4,
+  },
+  {
+    id: 8,
+    image: photo8,
+    caption: "Internship at BytesCrafter",
+    rotation: 4,
+  },
+  {
+    id: 9,
+    image: photo9,
+    caption: "Intern of the Week",
+    rotation: -2,
   },
 ];
 
@@ -100,8 +114,8 @@ export default function ImagesLightbox({ setShowImagesLightbox }) {
                 className="object-cover"
               />
               {isFront && (
-                <div className="absolute inset-x-0 bottom-0 flex items-end bg-linear-to-t from-(--color-bg)/90 via-(--color-bg)/40 to-transparent px-4 pb-4 pt-12">
-                  <p className="text-left text-base uppercase tracking-widest text-normal">
+                <div className="absolute inset-x-0 bottom-0 flex items-end bg-linear-to-t from-(--color-panel) via-(--color-panel)/90 to-transparent px-4 pb-4 pt-12">
+                  <p className="text-left text-sm uppercase tracking-widest text-normal">
                     {photo.caption}
                   </p>
                 </div>
