@@ -73,59 +73,69 @@ export default function NavMenu() {
 function NavLinks() {
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center group">
-        <a href="#hero" className="relative z-10">
-          <AiFillHome className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-2xl" />
-        </a>
+      <a
+        href="#hero"
+        className="cursor-pointer relative flex flex-col items-center justify-center group"
+      >
+        <AiFillHome className="text-normal transition-all duration-200 group-hover:text-[var(--color-accent)] group-active:text-[var(--color-accent)] group-hover:-translate-y-2 group-active:-translate-y-2 text-2xl" />
+
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Home
         </p>
-      </div>
+      </a>
 
-      <div className="relative flex flex-col items-center justify-center group">
-        <a href="#about" className="relative z-10">
-          <VscAccount className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-2xl" />
-        </a>
+      <a
+        href="#about"
+        className="cursor-pointer relative flex flex-col items-center justify-center group"
+      >
+        <VscAccount className="text-normal transition-all duration-200 group-hover:text-[var(--color-accent)] group-active:text-[var(--color-accent)] group-hover:-translate-y-2 group-active:-translate-y-2 text-2xl" />
+
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           About
         </p>
-      </div>
+      </a>
 
-      <div className="relative flex flex-col items-center justify-center group">
+      <div className="cursor-pointer relative flex flex-col items-center justify-center group">
         <a href="#portfolio" className="relative z-10">
-          <CgWebsite className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-2xl" />
+          <CgWebsite className="text-normal transition-all duration-200 group-hover:text-[var(--color-accent)] group-active:text-[var(--color-accent)] group-hover:-translate-y-2 group-active:-translate-y-2 text-2xl" />
         </a>
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Portfolio
         </p>
       </div>
 
-      <div className="relative flex flex-col items-center justify-center group">
-        <a href="#activity" className="relative z-10">
-          <VscGraph className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-2xl" />
-        </a>
+      <a
+        href="#activity"
+        className="cursor-pointer relative flex flex-col items-center justify-center group"
+      >
+        <VscGraph className="text-normal transition-all duration-200 group-hover:text-[var(--color-accent)] group-active:text-[var(--color-accent)] group-hover:-translate-y-2 group-active:-translate-y-2 text-2xl" />
+
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Activity
         </p>
-      </div>
+      </a>
 
-      <div className="relative flex flex-col items-center justify-center group">
-        <a href="#skills" className="relative z-10">
-          <RiRocket2Fill className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-2xl" />
-        </a>
+      <a
+        href="#skills"
+        className="cursor-pointer relative flex flex-col items-center justify-center group"
+      >
+        <RiRocket2Fill className="text-normal transition-all duration-200 group-hover:text-[var(--color-accent)] group-active:text-[var(--color-accent)] group-hover:-translate-y-2 group-active:-translate-y-2 text-2xl" />
+
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Skills
         </p>
-      </div>
+      </a>
 
-      <div className="relative flex flex-col items-center justify-center group">
-        <a href="#contact" className="relative z-10">
-          <FaEnvelope className="text-normal transition-all duration-200 hover:text-[var(--color-accent)] hover:-translate-y-2 active:-translate-y-2 text-2xl" />
-        </a>
+      <a
+        href="#contact"
+        className="cursor-pointer relative flex flex-col items-center justify-center group"
+      >
+        <FaEnvelope className="text-normal transition-all duration-200 group-hover:text-[var(--color-accent)] group-active:text-[var(--color-accent)] group-hover:-translate-y-2 group-active:-translate-y-2 text-2xl" />
+
         <p className="text-xs text-header absolute opacity-0 transition-all duration-200 group-hover:opacity-100 mt-8">
           Contact
         </p>
-      </div>
+      </a>
     </>
   );
 }
